@@ -196,6 +196,7 @@ public class PaginaPrincipal extends JFrame {
 		menuBar.add(separator);
 		
 		JMenu mnIdioma = new JMenu("ES/EN");
+		mnIdioma.setFont(new Font("Calibri", Font.BOLD, 20));
 		mnIdioma.setForeground(new Color(255, 255, 255));
 		mnIdioma.setBackground(new Color(139, 0, 0));
 		menuBar.add(mnIdioma);
