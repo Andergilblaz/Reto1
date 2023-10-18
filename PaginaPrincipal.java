@@ -195,11 +195,20 @@ public class PaginaPrincipal extends JFrame {
 		separator.setOrientation(SwingConstants.VERTICAL);
 		menuBar.add(separator);
 		
-		JButton btnIdioma = new JButton("ES/EN");
-		menuBar.add(btnIdioma);
-		btnIdioma.setBackground(new Color(139, 0, 0));
-		btnIdioma.setForeground(new Color(255, 255, 255));
-		btnIdioma.setFont(new Font("Calibri", Font.BOLD, 20));
+		JMenu mnIdioma = new JMenu("ES/EN");
+		mnIdioma.setForeground(new Color(255, 255, 255));
+		mnIdioma.setBackground(new Color(139, 0, 0));
+		menuBar.add(mnIdioma);
+		
+		JMenuItem mntmEspañol = new JMenuItem("Español");
+		mntmEspañol.setForeground(new Color(255, 255, 255));
+		mntmEspañol.setBackground(new Color(139, 0, 0));
+		mnIdioma.add(mntmEspañol);
+		
+		JMenuItem mntmIngles = new JMenuItem("English");
+		mntmIngles.setForeground(new Color(255, 255, 255));
+		mntmIngles.setBackground(new Color(139, 0, 0));
+		mnIdioma.add(mntmIngles);
 		
 		JButton btnContacto = new JButton("Contacto");
 		menuBar.add(btnContacto);
