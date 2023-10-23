@@ -45,57 +45,7 @@ public class NoticiaPaginaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public NoticiaPaginaPrincipal() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("I:\\.shortcut-targets-by-id\\15dkCqPjbMIsgGF0lsmzUfUoErx1EL_qN\\G3-Reto1\\LMSG\\Fotos\\ideogram.jpeg"));
-		setAlwaysOnTop(true);
-		setTitle("Resultados Waterpolo Español");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1097, 707);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		this.setExtendedState(this.MAXIMIZED_BOTH);
 		
-		JMenuBar menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
-		
-		JButton btnPaginaPrincipal = new JButton("Página Principal");
-		menuBar.add(btnPaginaPrincipal);
-		btnPaginaPrincipal.setBackground(new Color(139, 0, 0));
-		btnPaginaPrincipal.setForeground(new Color(255, 255, 255));
-		btnPaginaPrincipal.setFont(new Font("Calibri", Font.BOLD, 20));
-		
-		
-		JButton btnResultados = new JButton("Resultados");
-		menuBar.add(btnResultados);
-		btnResultados.setFont(new Font("Calibri", Font.BOLD, 20));
-		
-		JButton btnListaEquipos = new JButton("Lista Equipos");
-		menuBar.add(btnListaEquipos);
-		btnListaEquipos.setFont(new Font("Calibri", Font.BOLD, 20));
-		
-		JButton btnCalendario = new JButton("Calendario");
-		menuBar.add(btnCalendario);
-		btnCalendario.setFont(new Font("Calibri", Font.BOLD, 20));
-		
-		JButton btnClasificacion = new JButton("Clasificación");
-		menuBar.add(btnClasificacion);
-		btnClasificacion.setFont(new Font("Calibri", Font.BOLD, 20));
-		
-		JButton btnSobreNosotros = new JButton("Sobre Nosotros");
-		menuBar.add(btnSobreNosotros);
-		btnSobreNosotros.setFont(new Font("Calibri", Font.BOLD, 20));
-		
-		JButton btnFaq = new JButton("FAQ");
-		menuBar.add(btnFaq);
-		btnFaq.setFont(new Font("Calibri", Font.BOLD, 20));
-		
-		JButton btnIdioma = new JButton("ES/EN");
-		menuBar.add(btnIdioma);
-		btnIdioma.setFont(new Font("Calibri", Font.BOLD, 20));
-		
-		JButton btnContacto = new JButton("Contacto");
-		menuBar.add(btnContacto);
-		btnContacto.setFont(new Font("Calibri", Font.BOLD, 20));
-
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
