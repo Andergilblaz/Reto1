@@ -28,6 +28,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JMenu;
 
 
+
 public class CalendarioING extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -235,18 +236,18 @@ public class CalendarioING extends JFrame {
 	public void showImage() {
         JLabel imageLabel = new JLabel();
         
-        ImageIcon originalImageIcon = new ImageIcon("C:\\Users\\ik_1DW3A\\Pictures\\Saved Pictures\\calendario.png");
+        ImageIcon originalImageIcon = new ImageIcon("file:///E:/RETO1/CalendarioING%20juntos.jpg");
         int originalWidth = originalImageIcon.getIconWidth();
         int originalHeight = originalImageIcon.getIconHeight();
 
-        int targetWidth = 1200;
+        int targetWidth = 1200;			/**800/500*/
         int targetHeight = 2000;
 
         Image scaledImage = originalImageIcon.getImage().getScaledInstance(targetWidth, targetHeight, Image.SCALE_SMOOTH);
 
         ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
 
-        JLabel imageLabel1 = new JLabel(scaledImageIcon);
+        JLabel imageLabel1 = new JLabel(new ImageIcon("C:\\Users\\ik_1DW3A\\Downloads\\ImagenesJuntas.png"));
 
         JScrollPane scrollPane = new JScrollPane(imageLabel1);
 
