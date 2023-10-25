@@ -4,7 +4,6 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -20,10 +19,16 @@ import javax.swing.JMenuItem;
 import javax.swing.JMenu;
 import javax.swing.JLabel;
 import java.awt.Component;
+import java.awt.Dimension;
+
+import javax.swing.BorderFactory;
 import javax.swing.Box;
+import javax.swing.BoxLayout;
+
 import java.awt.Panel;
 import java.awt.Label;
 import javax.swing.ImageIcon;
+import javax.swing.UIManager;
 
 public class MenuFondoFooterPaginaPrincipal extends JFrame {
 
@@ -52,13 +57,13 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 	public MenuFondoFooterPaginaPrincipal() {
 		setBackground(new Color(255, 255, 255));
 		setForeground(new Color(139, 0, 0));
-		setIconImage(Toolkit.getDefaultToolkit().getImage("file:///C:/Users/ik_1DW3A/eclipse-workspace/Java/src/Reto1/Fondo.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("src/Reto1/fotos/ideogram.jpeg"));
 		setAlwaysOnTop(true);
 		setTitle("Resultados Waterpolo Español");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 282, 530);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(null);
 		this.setExtendedState(Frame.MAXIMIZED_BOTH);
 		
 		
@@ -226,6 +231,88 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
+		JPanel containerPanelLeft = new JPanel(new BorderLayout());
+		int margenT = 50;
+		int margenL = 40;
+		int margenB = 70;
+		int margenR = 40;
+		containerPanelLeft.setBorder(BorderFactory.createEmptyBorder(margenT, margenL, margenB, margenR));
+		contentPane.add(containerPanelLeft, BorderLayout.WEST);
+		
+		JPanel newsPanel = new JPanel();
+	     newsPanel.setBackground(new Color(139, 0, 0));
+	     newsPanel.setLayout(new BoxLayout(newsPanel, BoxLayout.Y_AXIS));
+	     int margen = 10;
+	     newsPanel.setBorder(BorderFactory.createEmptyBorder(margen, margen, margen, margen));
+	     containerPanelLeft.add(newsPanel);
+	     
+	     JPanel centerPanel = new JPanel();
+	     centerPanel.setBackground(new Color(139, 0, 0));
+	     centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.X_AXIS));
+	     centerPanel.add(Box.createHorizontalGlue());
+	     JLabel lblNoticias = new JLabel("Noticias destacadas");
+	     lblNoticias.setHorizontalAlignment(SwingConstants.CENTER);
+	     lblNoticias.setForeground(new Color(255, 255, 255));
+	     lblNoticias.setFont(new Font("Calibri", Font.BOLD, 20));
+	     centerPanel.add(lblNoticias);
+	     centerPanel.add(Box.createHorizontalGlue()); 
+	     newsPanel.add(centerPanel);
+	     
+	     JPanel noticiaPanel = new JPanel();
+	     noticiaPanel.setLayout(new BoxLayout(noticiaPanel, BoxLayout.X_AXIS));
+	     noticiaPanel.add(Box.createHorizontalGlue());
+	     JLabel lblNoticiaWP = new JLabel("");
+	     lblNoticiaWP.setHorizontalAlignment(SwingConstants.CENTER);
+	     lblNoticiaWP.setIcon(new ImageIcon("src\\Reto1\\fotos\\noticia waterpolo.png"));
+	     noticiaPanel.add(lblNoticiaWP);
+	     noticiaPanel.add(Box.createHorizontalGlue());
+	     newsPanel.add(noticiaPanel);
+	     
+	     JPanel nuevaNoticiaPanel = new JPanel();
+	     nuevaNoticiaPanel.setLayout(new BoxLayout(nuevaNoticiaPanel, BoxLayout.X_AXIS));
+	     nuevaNoticiaPanel.add(Box.createHorizontalGlue());
+	     JLabel lblNuevaNoticiaWP = new JLabel("");
+	     lblNuevaNoticiaWP.setBackground(new Color(255, 255, 255));
+	     lblNuevaNoticiaWP.setHorizontalAlignment(SwingConstants.CENTER);
+	     lblNuevaNoticiaWP.setIcon(new ImageIcon("src\\Reto1\\fotos\\noticia nueva waterpolo.png"));
+	     nuevaNoticiaPanel.add(lblNuevaNoticiaWP);
+	     nuevaNoticiaPanel.add(Box.createHorizontalGlue());
+	     newsPanel.add(nuevaNoticiaPanel);
+		
+	     JPanel containerPanelRight = new JPanel(new BorderLayout());
+		containerPanelRight.setBorder(BorderFactory.createEmptyBorder(margenT, margenL, margenB, margenR));
+		contentPane.add(containerPanelRight, BorderLayout.EAST);
+		
+		JPanel matchesPanel = new JPanel();
+		matchesPanel.setBackground(new Color(139, 0, 0));
+		matchesPanel.setLayout(new BoxLayout(matchesPanel, BoxLayout.Y_AXIS));
+		matchesPanel.setBorder(BorderFactory.createEmptyBorder(margen, margen, margen, margen));
+		containerPanelRight.add(matchesPanel);
+	     
+	     JPanel centerPanelPartidos = new JPanel();
+	     centerPanelPartidos.setBackground(new Color(139, 0, 0));
+	     centerPanelPartidos.setLayout(new BoxLayout(centerPanelPartidos, BoxLayout.X_AXIS));
+	     centerPanelPartidos.add(Box.createHorizontalGlue());
+	    	JLabel lblProximosPartidos = new JLabel("Próximos partidos");
+	    	lblProximosPartidos.setHorizontalAlignment(SwingConstants.CENTER);
+		lblProximosPartidos.setForeground(new Color(255, 255, 255));
+		lblProximosPartidos.setFont(new Font("Calibri", Font.BOLD, 20));
+		centerPanelPartidos.add(lblProximosPartidos);
+		centerPanelPartidos.add(Box.createHorizontalGlue()); 
+	     matchesPanel.add(centerPanelPartidos);
+	    
+		JPanel partidosPanel = new JPanel();
+		partidosPanel.setLayout(new BoxLayout(partidosPanel, BoxLayout.X_AXIS));
+		Component horizontalGlue = Box.createHorizontalGlue();
+		horizontalGlue.setBackground(UIManager.getColor("ColorChooser.background"));
+		partidosPanel.add(horizontalGlue);
+		JLabel lblPartidos = new JLabel("");
+		lblPartidos.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPartidos.setIcon(new ImageIcon("src\\Reto1\\fotos\\JORNADA ORDENADA.png"));
+		noticiaPanel.add(Box.createHorizontalGlue());
+		partidosPanel.add(lblPartidos);
+	     matchesPanel.add(partidosPanel);
+		
 		Panel panel = new Panel();
 		panel.setBackground(new Color(139, 0, 0));
 		contentPane.add(panel, BorderLayout.SOUTH);
@@ -244,11 +331,14 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		lblFooter2.setFont(new Font("Calibri", Font.BOLD, 14));
 		panel.add(lblFooter2);
 		
+		JPanel panelFondo = new JPanel ();
+		contentPane.add(panelFondo);
 		JLabel labelFondo = new JLabel("");
 		labelFondo.setHorizontalAlignment(SwingConstants.CENTER);
-		labelFondo.setIcon(new ImageIcon("C:\\Users\\ik_1DW3A\\Downloads\\fondoweb.jpg"));
-		
-		contentPane.add(labelFondo, BorderLayout.CENTER);
+		labelFondo.setIcon(new ImageIcon("src\\Reto1\\fotos\\Fondo.png"));
+		Dimension panelFondoSize = panelFondo.getSize();
+		labelFondo.setSize(panelFondoSize);
+		panelFondo.add(labelFondo, BorderLayout.CENTER);
 	}
 
 }
