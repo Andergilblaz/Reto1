@@ -247,7 +247,7 @@ public class CalendarioING extends JFrame {
 
         ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
 
-        JLabel imageLabel1 = new JLabel(new ImageIcon("C:\\Users\\ik_1DW3A\\Downloads\\ImagenesJuntas.png"));
+        JLabel imageLabel1 = new JLabel(new ImageIcon("C:\\Users\\ik_1DW3A\\Downloads\\ImagenesJuntas (1).png"));
 
         JScrollPane scrollPane = new JScrollPane(imageLabel1);
 
