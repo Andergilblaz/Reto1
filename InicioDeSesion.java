@@ -18,6 +18,7 @@ import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
 
 public class InicioDeSesion extends JFrame implements ActionListener, FocusListener{
 
@@ -29,6 +30,7 @@ public class InicioDeSesion extends JFrame implements ActionListener, FocusListe
 	private JTextField txtNombre;
 	private JLabel lblContraseña;
 	private JPasswordField Contraseña;
+	private JLabel lblLogo;
 
 	/**
 	 * Launch the application.
@@ -53,17 +55,17 @@ public class InicioDeSesion extends JFrame implements ActionListener, FocusListe
 	public InicioDeSesion() {
 		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 394, 229);
+		setBounds(100, 100, 498, 242);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("src/Reto1/fotos/ideogram.jpeg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\ik_1DW3A\\eclipse-workspace\\Java\\src\\Reto1\\fotos\\LogoWaterpolo.png"));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		lblTexto = new JLabel("Introduzca usuario y contraseña");
-		lblTexto.setBounds(-23, 10, 426, 29);
+		lblTexto.setBounds(29, 10, 426, 29);
 		lblTexto.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTexto.setFont(new Font("Calibri", Font.BOLD, 19));
 		contentPane.add(lblTexto);
@@ -74,7 +76,7 @@ public class InicioDeSesion extends JFrame implements ActionListener, FocusListe
 		contentPane.add(lblUsuario);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(165, 68, 146, 29);
+		txtNombre.setBounds(165, 68, 141, 29);
 		contentPane.add(txtNombre);
 		txtNombre.addActionListener(this);
 		txtNombre.addFocusListener(this);
@@ -87,12 +89,18 @@ public class InicioDeSesion extends JFrame implements ActionListener, FocusListe
 		
 		btnEntrar = new JButton("Entrar");
 		btnEntrar.setFont(new Font("Calibri", Font.BOLD, 20));
-		btnEntrar.setBounds(131, 147, 118, 31);
+		btnEntrar.setBounds(175, 146, 118, 29);
 		contentPane.add(btnEntrar);
 		
 		Contraseña = new JPasswordField();
 		Contraseña.setBounds(165, 107, 141, 29);
 		contentPane.add(Contraseña);
+		
+		lblLogo = new JLabel("");
+		lblLogo.setLabelFor(lblLogo);
+		lblLogo.setIcon(new ImageIcon(InicioDeSesion.class.getResource("/Reto1/fotos/LogoWaterpoloPequeña.png")));
+		lblLogo.setBounds(326, 29, 158, 146);
+		contentPane.add(lblLogo);
 		btnEntrar.addActionListener(this);
 	}
 	
