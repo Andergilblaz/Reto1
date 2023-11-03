@@ -77,6 +77,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		JButton btnPaginaPrincipal = new JButton("Página Principal");
 		menuBar.add(btnPaginaPrincipal);
 		btnPaginaPrincipal.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
@@ -340,5 +341,5 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		labelFondo.setSize(panelFondoSize);
 		panelFondo.add(labelFondo, BorderLayout.CENTER);
 	}
-
+		
 }

@@ -53,13 +53,13 @@ public class InicioDeSesion extends JFrame implements ActionListener, FocusListe
 	 * Create the frame.
 	 */
 	public InicioDeSesion() {
-		setTitle("Login");
+		setTitle("Login Personal Autorizado");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 498, 242);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("/Reto1/fotos/LogoWaterpolo.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("src/Reto1/fotos/LogoWaterpolo.png"));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -101,6 +101,11 @@ public class InicioDeSesion extends JFrame implements ActionListener, FocusListe
 		lblLogo.setIcon(new ImageIcon(InicioDeSesion.class.getResource("/Reto1/fotos/LogoWaterpoloPequeña.png")));
 		lblLogo.setBounds(326, 29, 158, 146);
 		contentPane.add(lblLogo);
+		
+		JLabel lblTexto2 = new JLabel("(Personal Autorizado)");
+		lblTexto2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTexto2.setBounds(168, 29, 147, 29);
+		contentPane.add(lblTexto2);
 		btnEntrar.addActionListener(this);
 	}
 	
