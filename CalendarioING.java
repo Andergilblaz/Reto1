@@ -33,7 +33,6 @@ public class CalendarioING extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtCalendario;
 	
 
 	/**
@@ -258,12 +257,10 @@ public class CalendarioING extends JFrame {
 
         getContentPane().add(scrollPane, BorderLayout.CENTER);
         
-        txtCalendario = new JTextField();
-        txtCalendario.setHorizontalAlignment(SwingConstants.CENTER);
-        txtCalendario.setFont(new Font("Calibri", Font.BOLD, 20));
-        txtCalendario.setText("Schedule:");
-        scrollPane.setColumnHeaderView(txtCalendario);
-        txtCalendario.setColumns(10);
+        JLabel lblNewLabel = new JLabel("Schedule");
+        lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 30));
+        lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        scrollPane.setColumnHeaderView(lblNewLabel);
         
      
     }
