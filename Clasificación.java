@@ -1,4 +1,4 @@
-package Java;
+package Reto1;
 
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
@@ -36,7 +36,7 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 
 
-public class Clasificacion extends JFrame {
+public class Clasificación extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -46,7 +46,7 @@ public class Clasificacion extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Clasificacion frame = new Clasificacion();
+					Clasificación frame = new Clasificación();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,7 +55,7 @@ public class Clasificacion extends JFrame {
 		});
 	}
 
-	public Clasificacion() {
+	public Clasificación() {
 		
 		contentPane = new JPanel() {
             /**
@@ -75,7 +75,7 @@ public class Clasificacion extends JFrame {
 		
 		setBackground(new Color(255, 255, 255));
 		setForeground(new Color(139, 0, 0));
-		setIconImage(Toolkit.getDefaultToolkit().getImage("I:\\.shortcut-targets-by-id\\15dkCqPjbMIsgGF0lsmzUfUoErx1EL_qN\\G3-Reto1\\LMSG\\Fotos\\ideogram.jpeg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("/Reto1/fotos/LogoWaterpolo.png"));
 		setAlwaysOnTop(true);
 		setTitle("Resultados Waterpolo Español");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -26,7 +26,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
 
-public class calendario extends JFrame {
+public class Calendario extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -39,7 +39,7 @@ public class calendario extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					calendario frame = new calendario();
+					Calendario frame = new Calendario();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,7 +48,7 @@ public class calendario extends JFrame {
 		});
 	}
 
-	public calendario() {
+	public Calendario() {
 		setBackground(new Color(255, 255, 255));
 		setForeground(new Color(139, 0, 0));
 		setIconImage(Toolkit.getDefaultToolkit().getImage("I:\\.shortcut-targets-by-id\\15dkCqPjbMIsgGF0lsmzUfUoErx1EL_qN\\G3-Reto1\\LMSG\\Fotos\\ideogram.jpeg"));
@@ -227,7 +227,7 @@ public class calendario extends JFrame {
 	public void showImage() {
         JLabel imageLabel = new JLabel();
         
-        ImageIcon originalImageIcon = new ImageIcon("C:\\Users\\ik_1DW3A\\Pictures\\Saved Pictures\\calendario.png");
+        ImageIcon originalImageIcon = new ImageIcon("src/Reto1/fotos/calendario.png");
         int originalWidth = originalImageIcon.getIconWidth();
         int originalHeight = originalImageIcon.getIconHeight();
 

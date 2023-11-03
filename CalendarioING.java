@@ -22,7 +22,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JMenuBar;
 import javax.swing.JSeparator;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
@@ -235,7 +234,7 @@ public class CalendarioING extends JFrame {
 	public void showImage() {
         JLabel imageLabel = new JLabel();
         
-        ImageIcon originalImageIcon = new ImageIcon("file:///E:/RETO1/CalendarioING%20juntos.jpg");
+        ImageIcon originalImageIcon = new ImageIcon("src/Reto1/fotos/ImagenesJuntas.png");
         int originalWidth = originalImageIcon.getIconWidth();
         int originalHeight = originalImageIcon.getIconHeight();
 
@@ -246,7 +245,7 @@ public class CalendarioING extends JFrame {
 
         ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
 
-        JLabel imageLabel1 = new JLabel(new ImageIcon("C:\\Users\\ik_1DW3A\\Downloads\\ImagenesJuntas (1).png"));
+        JLabel imageLabel1 = new JLabel(new ImageIcon("src/Reto1/fotos/ImagenesJuntas.png"));
 
         JScrollPane scrollPane = new JScrollPane(imageLabel1);
 

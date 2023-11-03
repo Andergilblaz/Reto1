@@ -48,6 +48,7 @@ public class NoticiaPaginaPrincipal extends JFrame {
 		
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("/Reto1/fotos/LogoWaterpolo.png"));
 		
 		JPanel containerPanelLeft = new JPanel(new BorderLayout());
 		int margenT = 50;
@@ -81,7 +82,7 @@ public class NoticiaPaginaPrincipal extends JFrame {
 	     noticiaPanel.add(Box.createHorizontalGlue());
 	     JLabel lblNoticiaWP = new JLabel("");
 	     lblNoticiaWP.setHorizontalAlignment(SwingConstants.CENTER);
-	     lblNoticiaWP.setIcon(new ImageIcon("G:\\.shortcut-targets-by-id\\15dkCqPjbMIsgGF0lsmzUfUoErx1EL_qN\\G3-Reto1\\Fotos\\Fotos Web Java\\noticia waterpolo.jpg"));
+	     lblNoticiaWP.setIcon(new ImageIcon("/Reto1/fotos/noticia waterpolo.jpg"));
 	     noticiaPanel.add(lblNoticiaWP);
 	     noticiaPanel.add(Box.createHorizontalGlue());
 	     newsPanel.add(noticiaPanel);
@@ -92,7 +93,7 @@ public class NoticiaPaginaPrincipal extends JFrame {
 	     JLabel lblNuevaNoticiaWP = new JLabel("");
 	     lblNuevaNoticiaWP.setBackground(new Color(255, 255, 255));
 	     lblNuevaNoticiaWP.setHorizontalAlignment(SwingConstants.CENTER);
-	     lblNuevaNoticiaWP.setIcon(new ImageIcon("G:\\.shortcut-targets-by-id\\15dkCqPjbMIsgGF0lsmzUfUoErx1EL_qN\\G3-Reto1\\Fotos\\Fotos Web Java\\noticia nueva waterpolo.jpg"));
+	     lblNuevaNoticiaWP.setIcon(new ImageIcon("/Reto1/fotos/noticia nueva waterpolo.jpg"));
 	     nuevaNoticiaPanel.add(lblNuevaNoticiaWP);
 	     nuevaNoticiaPanel.add(Box.createHorizontalGlue());
 	     newsPanel.add(nuevaNoticiaPanel);
@@ -124,7 +125,7 @@ public class NoticiaPaginaPrincipal extends JFrame {
 		partidosPanel.add(Box.createHorizontalGlue());
 		JLabel lblPartidos = new JLabel("");
 		lblPartidos.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPartidos.setIcon(new ImageIcon("G:\\.shortcut-targets-by-id\\15dkCqPjbMIsgGF0lsmzUfUoErx1EL_qN\\G3-Reto1\\Fotos\\JORNADA ORDENADA.png"));
+		lblPartidos.setIcon(new ImageIcon("/Reto1/fotos/JORNADA ORDENADA.png"));
 		noticiaPanel.add(Box.createHorizontalGlue());
 		partidosPanel.add(lblPartidos);
 	     matchesPanel.add(partidosPanel);

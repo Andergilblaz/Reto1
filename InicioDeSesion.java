@@ -59,7 +59,7 @@ public class InicioDeSesion extends JFrame implements ActionListener, FocusListe
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\ik_1DW3A\\eclipse-workspace\\Java\\src\\Reto1\\fotos\\LogoWaterpolo.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("/Reto1/fotos/LogoWaterpolo.png"));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

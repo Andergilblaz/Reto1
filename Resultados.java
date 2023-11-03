@@ -66,7 +66,7 @@ public class Resultados extends JFrame {
 	public Resultados() {
 		setBackground(new Color(255, 255, 255));
 		setForeground(new Color(139, 0, 0));
-		setIconImage(Toolkit.getDefaultToolkit().getImage("I:\\.shortcut-targets-by-id\\15dkCqPjbMIsgGF0lsmzUfUoErx1EL_qN\\G3-Reto1\\LMSG\\Fotos\\ideogram.jpeg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("/Reto1/fotos/LogoWaterpolo.png"));
 		setAlwaysOnTop(true);
 		setTitle("Resultados Waterpolo Español");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
