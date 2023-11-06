@@ -69,7 +69,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 	public MenuFondoFooterPaginaPrincipal() {
 		setBackground(new Color(255, 255, 255));
 		setForeground(new Color(139, 0, 0));
-		setIconImage(Toolkit.getDefaultToolkit().getImage("/Reto1/fotos/LogoWaterpolo.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("src/Reto1/fotos/LogoWaterpolo.png"));
 		setAlwaysOnTop(true);
 		setTitle("Resultados Waterpolo Español");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
