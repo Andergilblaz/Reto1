@@ -14,7 +14,7 @@
 	import java.awt.event.ActionListener;
 	import java.awt.event.FocusEvent;
 	import java.awt.event.FocusListener;
-	import java.util.Map;
+
 	import java.awt.Font;
 	import java.awt.Toolkit;
 	
@@ -22,6 +22,8 @@
 	import javax.swing.JTextField;
 	import javax.swing.JPasswordField;
 	import javax.swing.ImageIcon;
+	
+	import Reto1.Gestion;
 	
 	public class InicioDeSesion extends JFrame implements ActionListener, FocusListener{
 	
@@ -34,8 +36,7 @@
 		private JLabel lblContraseña;
 		private JPasswordField Contraseña;
 		private JLabel lblLogo;
-		private Map<String, String> cuentas;
-		
+
 		/**
 		 * Launch the application.
 		 */
@@ -64,7 +65,7 @@
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 			setLocationRelativeTo(null);
 			setIconImage(Toolkit.getDefaultToolkit().getImage("src/Reto1/fotos/LogoWaterpolo.png"));
-	
+	    
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
 			
@@ -113,13 +114,14 @@
 			btnEntrar.addActionListener(this);
 		}
 		
+		
 	
 		@Override
 		public void actionPerformed(ActionEvent ae) {
 		// obtengo sobre que componente se ha realizado la accion
 		Object o = ae.getSource();
 		
-		if (o == btnEntrar || o == this.txtNombre || o == this.Contraseña){
+		if (cuentasGuardadas.containsKey(txtNombre) && cuentas.get(txtNombre).equals(password)) {
 			// si se ha pulsado btnAceptar
 			// si se ha pulsado txtNombre
 			// si se ha pulsado txtPassword
@@ -175,8 +177,8 @@
 		public void focusLost(FocusEvent fe) {
 		// Obtengo sobre que componente de texto ose ha realizado la accion
 			txtNombre.select(0, 0);
-			
-			
+	
+		
 		}
 			}
 	

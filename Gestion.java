@@ -12,7 +12,10 @@ public class Gestion extends JFrame {
     private DefaultTableModel tableModel;
     private JTable cuentasTable;
     private JButton agregarCuentaButton;
-    private List cuentaListeners
+    private List<CuentaListener> cuentaListeners = new ArrayList<>();
+
+
+
     private ArrayList<Cuenta> cuentasGuardadas;
 
     public Gestion() {
@@ -96,7 +99,5 @@ class Cuenta {
         return contraseña;
     }
     
-    public void agregarCuentaListener(CuentaListener listener) {
-      cuentaListeners.add(listener);
-  }
+    
 }
