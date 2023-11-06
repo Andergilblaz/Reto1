@@ -30,9 +30,22 @@ import java.awt.Label;
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 
+import Reto1.Calendario; 
+import Reto1.CalendarioING; 
+import Reto1.Clasificación; 
+import Reto1.ContactoWeb; 
+import Reto1.InicioDeSesion; 
+import Reto1.ListaDeEquipos; 
+import Reto1.ListaEquiposIngles; 
+import Reto1.MenuFondoFooterPaginaPrincipal; 
+
+
+
+@SuppressWarnings("unused")
 public class MenuFondoFooterPaginaPrincipal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private static final JMenu PaginaPrincipal = null;
 	private JPanel contentPane;
 
 	/**
@@ -50,8 +63,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 			}
 		});
 	}
-
-	/**
+		/**
 	 * Create the frame.
 	 */
 	public MenuFondoFooterPaginaPrincipal() {
@@ -76,132 +88,124 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		
 		JButton btnPaginaPrincipal = new JButton("Página Principal");
 		menuBar.add(btnPaginaPrincipal);
-		btnPaginaPrincipal.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnPaginaPrincipal.setBackground(new Color(139, 0, 0));
 		btnPaginaPrincipal.setForeground(new Color(255, 255, 255));
 		btnPaginaPrincipal.setFont(new Font("Calibri", Font.BOLD, 20));
-		
+		btnPaginaPrincipal.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          // Abre el DocumentoNuevo
+          MenuFondoFooterPaginaPrincipal menuFondoFooterPaginaPrincipal = new MenuFondoFooterPaginaPrincipal();
+					menuFondoFooterPaginaPrincipal.setVisible(true);
+          dispose();
+      }
+  });
 		
 		JButton btnResultados = new JButton("Resultados");
 		menuBar.add(btnResultados);
 		btnResultados.setForeground(new Color(255, 255, 255));
 		btnResultados.setBackground(new Color(139, 0, 0));
 		btnResultados.setFont(new Font("Calibri", Font.BOLD, 20));
+    btnResultados.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // Abre el DocumentoNuevo
+            Resultados Resultados = new Resultados();
+            Resultados.setVisible(true);
+            dispose();
+        }
+    });
 		
-		JMenu mnCalendario = new JMenu("Calendario");
-		mnCalendario.setFont(new Font("Calibri", Font.BOLD, 20));
-		mnCalendario.setForeground(new Color(255, 255, 255));
-		mnCalendario.setBackground(new Color(139, 0, 0));
-		menuBar.add(mnCalendario);
-		
-		JMenuItem mntmCalendario = new JMenuItem("Calendario");
-		mntmCalendario.setBackground(new Color(139, 0, 0));
-		mntmCalendario.setForeground(new Color(255, 255, 255));
-		mnCalendario.add(mntmCalendario);
-		
-		JMenuItem mntmJornada1 = new JMenuItem("Jornada 1");
-		mntmJornada1.setForeground(new Color(255, 255, 255));
-		mntmJornada1.setBackground(new Color(139, 0, 0));
-		mnCalendario.add(mntmJornada1);
-		
-		JMenuItem mntmJornada2 = new JMenuItem("Jornada 2");
-		mntmJornada2.setForeground(new Color(255, 255, 255));
-		mntmJornada2.setBackground(new Color(139, 0, 0));
-		mnCalendario.add(mntmJornada2);
-		
-		JMenuItem mntmJornada3 = new JMenuItem("Jornada 3");
-		mntmJornada3.setForeground(new Color(255, 255, 255));
-		mntmJornada3.setBackground(new Color(139, 0, 0));
-		mnCalendario.add(mntmJornada3);
-		
-		JMenuItem mntmJornada4 = new JMenuItem("Jornada 4");
-		mntmJornada4.setBackground(new Color(139, 0, 0));
-		mntmJornada4.setForeground(new Color(255, 255, 255));
-		mnCalendario.add(mntmJornada4);
-		
-		JMenuItem mntmJornada5 = new JMenuItem("Jornada5");
-		mntmJornada5.setBackground(new Color(139, 0, 0));
-		mntmJornada5.setForeground(new Color(255, 255, 255));
-		mnCalendario.add(mntmJornada5);
-		
-		JMenuItem mntmJornada6 = new JMenuItem("Jornada 6");
-		mntmJornada6.setForeground(new Color(255, 255, 255));
-		mntmJornada6.setBackground(new Color(139, 0, 0));
-		mnCalendario.add(mntmJornada6);
-		
-		JMenuItem mntmJornada7 = new JMenuItem("Jornada 7");
-		mntmJornada7.setForeground(new Color(255, 255, 255));
-		mntmJornada7.setBackground(new Color(139, 0, 0));
-		mnCalendario.add(mntmJornada7);
-		
-		JMenuItem mntmJornada8 = new JMenuItem("Jornada 8");
-		mntmJornada8.setForeground(new Color(255, 255, 255));
-		mntmJornada8.setBackground(new Color(139, 0, 0));
-		mnCalendario.add(mntmJornada8);
-		
-		JMenuItem mntmJornada9 = new JMenuItem("Jornada 9");
-		mntmJornada9.setForeground(new Color(255, 255, 255));
-		mntmJornada9.setBackground(new Color(139, 0, 0));
-		mnCalendario.add(mntmJornada9);
-		
-		JMenuItem mntmJornada10 = new JMenuItem("Jornada 10");
-		mntmJornada10.setForeground(new Color(255, 255, 255));
-		mntmJornada10.setBackground(new Color(139, 0, 0));
-		mnCalendario.add(mntmJornada10);
+		JButton btnCalendario = new JButton("Calendario");
+		btnCalendario.setFont(new Font("Calibri", Font.BOLD, 20));
+		menuBar.add(btnCalendario);
+		btnCalendario.setForeground(new Color(255, 255, 255));
+		btnCalendario.setBackground(new Color(139, 0, 0));
+    btnCalendario.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          // Abre el DocumentoNuevo
+          Calendario Calendario = new Calendario();
+          Calendario.setVisible(true);
+          dispose();
+      }
+  });
 		
 		JButton btnListaEquipos = new JButton("Lista Equipos");
 		menuBar.add(btnListaEquipos);
 		btnListaEquipos.setBackground(new Color(139, 0, 0));
 		btnListaEquipos.setForeground(new Color(255, 255, 255));
 		btnListaEquipos.setFont(new Font("Calibri", Font.BOLD, 20));
+	  btnListaEquipos.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          // Abre el DocumentoNuevo
+          ListaEquipos ListaEquipos = new ListaEquipos();
+          ListaEquipos.setVisible(true);
+          dispose();
+      }
+  });
+	
 		
 		JButton btnClasificacion = new JButton("Clasificación");
 		menuBar.add(btnClasificacion);
 		btnClasificacion.setForeground(new Color(255, 255, 255));
 		btnClasificacion.setBackground(new Color(139, 0, 0));
 		btnClasificacion.setFont(new Font("Calibri", Font.BOLD, 20));
+	  btnClasificacion.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          // Abre el DocumentoNuevo
+          Clasificación Clasificación = new Clasificación();
+          Clasificación.setVisible(true);
+          dispose();
+      }
+  });
+		JButton btnSobreNosotros = new JButton("Sobre Nosotros");
+		menuBar.add(btnSobreNosotros);
+		btnSobreNosotros.setFont(new Font("Calibri", Font.BOLD, 20));
+		btnSobreNosotros.setForeground(new Color(255, 255, 255));
+		btnSobreNosotros.setBackground(new Color(139, 0, 0));
+		menuBar.add(btnSobreNosotros);
+		btnSobreNosotros.addActionListener(new ActionListener() {
+	      @Override
+	      public void actionPerformed(ActionEvent e) {
+	          // Abre el DocumentoNuevo
+	          SobreNosotros SobreNosotros = new SobreNosotros();
+	          SobreNosotros.setVisible(true);
+	          dispose();
+	      }
+	  });
 		
-		JMenu mnSobreNosotros = new JMenu("Sobre Nosotros");
-		mnSobreNosotros.setFont(new Font("Calibri", Font.BOLD, 20));
-		mnSobreNosotros.setForeground(new Color(255, 255, 255));
-		mnSobreNosotros.setBackground(new Color(139, 0, 0));
-		menuBar.add(mnSobreNosotros);
-		
-		JMenuItem mntmQuienesSomos = new JMenuItem("¿Quienes Somos?");
-		mntmQuienesSomos.setForeground(new Color(255, 255, 255));
-		mntmQuienesSomos.setBackground(new Color(139, 0, 0));
-		mnSobreNosotros.add(mntmQuienesSomos);
-		
-		JMenuItem mntmComoHaSurgido = new JMenuItem("¿Cómo ha surgido esta web?");
-		mntmComoHaSurgido.setForeground(new Color(255, 255, 255));
-		mntmComoHaSurgido.setBackground(new Color(139, 0, 0));
-		mnSobreNosotros.add(mntmComoHaSurgido);
-		
-		JMenu mnFAQ = new JMenu("FAQ");
-		mnFAQ.setFont(new Font("Calibri", Font.BOLD, 20));
-		mnFAQ.setBackground(new Color(139, 0, 0));
-		mnFAQ.setForeground(new Color(255, 255, 255));
-		menuBar.add(mnFAQ);
-		
-		JMenuItem mntmComoFunciona = new JMenuItem("¿Cómo funciona esta web?");
-		mntmComoFunciona.setForeground(new Color(255, 255, 255));
-		mntmComoFunciona.setBackground(new Color(139, 0, 0));
-		mnFAQ.add(mntmComoFunciona);
-		
-		JMenuItem mntmQueHago = new JMenuItem("¿Que hago si hay un error?");
-		mntmQueHago.setBackground(new Color(139, 0, 0));
-		mntmQueHago.setForeground(new Color(255, 255, 255));
-		mnFAQ.add(mntmQueHago);
+		JButton btnFAQ = new JButton("FAQ");
+		btnFAQ.setFont(new Font("Calibri", Font.BOLD, 20));
+		btnFAQ.setBackground(new Color(139, 0, 0));
+		btnFAQ.setForeground(new Color(255, 255, 255));
+		menuBar.add(btnFAQ);
+		btnFAQ.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          // Abre el DocumentoNuevo
+         	FAQ FAQ = new FAQ();
+         	FAQ.setVisible(true);
+          dispose();
+      }
+  });
 		
 		JButton btnInicioSesion = new JButton("Inicio de sesión");
 		menuBar.add(btnInicioSesion);
 		btnInicioSesion.setFont(new Font("Calibri", Font.BOLD, 20));
 		btnInicioSesion.setBackground(new Color(139, 0, 0));
 		btnInicioSesion.setForeground(new Color(255, 255, 255));
+		btnInicioSesion.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          // Abre el DocumentoNuevo
+      	InicioDeSesion InicioDeSesion = new InicioDeSesion();
+      	InicioDeSesion.setVisible(true);
+          dispose();
+      }
+  });
 		
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
@@ -217,18 +221,36 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		mntmEspañol.setForeground(new Color(255, 255, 255));
 		mntmEspañol.setBackground(new Color(139, 0, 0));
 		mnIdioma.add(mntmEspañol);
+		mntmEspañol.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          // Abre el DocumentoNuevo
+      	MenuFondoFooterPaginaPrincipal MenuFondoFooterPaginaPrincipal = new MenuFondoFooterPaginaPrincipal();
+      	MenuFondoFooterPaginaPrincipal.setVisible(true);
+          dispose();
+      }
+  });
 		
 		JMenuItem mntmIngles = new JMenuItem("English");
 		mntmIngles.setForeground(new Color(255, 255, 255));
 		mntmIngles.setBackground(new Color(139, 0, 0));
 		mnIdioma.add(mntmIngles);
 		
+		
 		JButton btnContacto = new JButton("Contacto");
 		menuBar.add(btnContacto);
 		btnContacto.setForeground(new Color(255, 255, 255));
 		btnContacto.setBackground(new Color(139, 0, 0));
 		btnContacto.setFont(new Font("Calibri", Font.BOLD, 20));
-
+		btnContacto.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          // Abre el DocumentoNuevo
+      	ContactoWeb ContactoWeb = new ContactoWeb();
+      	ContactoWeb.setVisible(true);
+          dispose();
+      }
+  });
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
