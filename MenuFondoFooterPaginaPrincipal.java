@@ -353,15 +353,6 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		lblFooter2.setForeground(new Color(255, 255, 255));
 		lblFooter2.setFont(new Font("Calibri", Font.BOLD, 14));
 		panel.add(lblFooter2);
-		
-		JPanel panelFondo = new JPanel ();
-		contentPane.add(panelFondo);
-		JLabel labelFondo = new JLabel("");
-		labelFondo.setHorizontalAlignment(SwingConstants.CENTER);
-		labelFondo.setIcon(new ImageIcon("src\\Reto1\\fotos\\Fondo.png"));
-		Dimension panelFondoSize = panelFondo.getSize();
-		labelFondo.setSize(panelFondoSize);
-		panelFondo.add(labelFondo, BorderLayout.CENTER);
 	}
 		
 }
