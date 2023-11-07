@@ -97,17 +97,7 @@ public class Clasificación extends JFrame {
         
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-        
-        table.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
-        table.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
-        table.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
-        table.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
-        table.getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
-        table.getColumnModel().getColumn(6).setCellRenderer(centerRenderer);
-        table.getColumnModel().getColumn(7).setCellRenderer(centerRenderer);
-        table.getColumnModel().getColumn(8).setCellRenderer(centerRenderer);
-        table.getColumnModel().getColumn(9).setCellRenderer(centerRenderer);
-        
+
         TableColumn column = table.getColumnModel().getColumn(0);
         column.setMinWidth(80);
         column.setMaxWidth(80);
