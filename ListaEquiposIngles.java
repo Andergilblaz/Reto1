@@ -111,6 +111,7 @@ public class ListaEquiposIngles extends JFrame {
         tableHeader.setFont(new Font("Calibri", Font.BOLD, 20));
         tableHeader.setBackground(Color.WHITE);
         tableHeader.setForeground(new Color(35, 33, 156));
+	tableHeader.setReorderingAllowed(false);
  
         contentPane.setLayout(new BorderLayout(0, 0));
 		
