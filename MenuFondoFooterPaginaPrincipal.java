@@ -35,8 +35,7 @@ import Reto1.CalendarioING;
 import Reto1.Clasificación; 
 import Reto1.ContactoWeb; 
 import Reto1.InicioDeSesion; 
-import Reto1.ListaDeEquipos; 
-import Reto1.ListaEquiposIngles; 
+import Reto1.ListaDeEquipos;
 import Reto1.MenuFondoFooterPaginaPrincipal; 
 
 
@@ -57,6 +56,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 				try {
 					MenuFondoFooterPaginaPrincipal frame = new MenuFondoFooterPaginaPrincipal();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -77,6 +77,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
 		this.setExtendedState(Frame.MAXIMIZED_BOTH);
+		setLocationRelativeTo(null);
 		
 		
 		JMenuBar menuBar = new JMenuBar();
