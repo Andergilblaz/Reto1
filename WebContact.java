@@ -19,15 +19,15 @@ import java.awt.event.FocusListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class ContactoWeb extends JFrame {
+public class WebContact extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtAsunto;
+	private JTextField txtSubject;
 	private JTextField txtNumero;
 	private JTextField txtEmail;
 	private JTextField txtNombreYApellido;
-	private JButton btnEnviar;
+	private JButton btnSubmit;
 	private boolean enterPressed = false;
 	
 	/**
@@ -37,7 +37,7 @@ public class ContactoWeb extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ContactoWeb frame = new ContactoWeb();
+					WebContact frame = new WebContact();
 					frame.setResizable (false);
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -50,12 +50,12 @@ public class ContactoWeb extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ContactoWeb() {
+	public WebContact() {
 		setBackground(new Color(255, 255, 255));
 		setForeground(new Color(139, 0, 0));
 		setIconImage(Toolkit.getDefaultToolkit().getImage("/Reto1/fotos/LogoWaterpolo.png"));
 		setAlwaysOnTop(true);
-		setTitle("Resultados Waterpolo Español");
+		setTitle("Spanish Waterpolo Results");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1016, 657);
 		setLocationRelativeTo (null);
@@ -69,34 +69,34 @@ public class ContactoWeb extends JFrame {
 		contentPane.add(panelForm, BorderLayout.CENTER);
 		panelForm.setLayout(null);
 		 
-		JLabel lblForm = new JLabel("Formulario de contacto");
+		JLabel lblForm = new JLabel("Contact form");
 		lblForm.setFont(new Font("Calibri", Font.BOLD, 26));
-		lblForm.setBounds(371, 35, 259, 36);
+		lblForm.setBounds(427, 35, 148, 36);
 		panelForm.add(lblForm, BorderLayout.CENTER);
 		
-		JLabel txtInstruccion = new JLabel("Rellena este formulario y un representante se pondrá en contacto contigo antes de 24 horas laborales.");
+		JLabel txtInstruccion = new JLabel("Fill in this form and an agent will get in touch with you before 24 business hours. ");
 		txtInstruccion.setFont(new Font("Calibri", Font.PLAIN, 20));
-		txtInstruccion.setBounds(75, 81, 871, 48);
+		txtInstruccion.setBounds(160, 81, 681, 48);
 		panelForm.add(txtInstruccion,BorderLayout.CENTER);
 			      
-		JLabel txtNombre = new JLabel("Nombre completo:");
+		JLabel txtNombre = new JLabel("Full name:");
 		txtNombre.setFont(new Font("Calibri", Font.PLAIN, 20));
-		txtNombre.setBounds(44, 161, 163, 36);
+		txtNombre.setBounds(111, 161, 163, 36);
 		panelForm.add(txtNombre,BorderLayout.CENTER);
 		
 		txtNombreYApellido = new JTextField();
-		txtNombreYApellido.setText("Nombre y apellido");
+		txtNombreYApellido.setText("First name and last name");
 		txtNombreYApellido.setForeground(Color.GRAY);
 		txtNombreYApellido.setFont(new Font("Calibri", Font.PLAIN, 20));
 		txtNombreYApellido.setColumns(10);
-		txtNombreYApellido.setBounds(217, 165, 253, 28);
+		txtNombreYApellido.setBounds(214, 165, 253, 28);
 		panelForm.add(txtNombreYApellido,BorderLayout.CENTER);
 		
 	
 		txtNombreYApellido.addFocusListener(new FocusListener() {
 		    @Override
 		    public void focusGained(FocusEvent e) {
-		        if (txtNombreYApellido.getText().equals("Nombre y apellido")) {
+		        if (txtNombreYApellido.getText().equals("First name and last name")) {
 		            txtNombreYApellido.setText("");
 		            txtNombreYApellido.setForeground(Color.BLACK);
 		        }
@@ -105,29 +105,29 @@ public class ContactoWeb extends JFrame {
 		    @Override
 		    public void focusLost(FocusEvent e) {
 		        if (txtNombreYApellido.getText().isEmpty()) {
-		            txtNombreYApellido.setText("Nombre y apellido");
+		            txtNombreYApellido.setText("First name and last name");
 		            txtNombreYApellido.setForeground(Color.GRAY);
 		        }
 		    }
 		});
 		
-		JLabel lblNumeroDeTelfono = new JLabel("Número de teléfono:");
+		JLabel lblNumeroDeTelfono = new JLabel("Phone number:");
 		lblNumeroDeTelfono.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblNumeroDeTelfono.setBounds(272, 207, 225, 36);
+		lblNumeroDeTelfono.setBounds(301, 207, 225, 36);
 		panelForm.add(lblNumeroDeTelfono,BorderLayout.CENTER);
 		
 		txtNumero = new JTextField();
-		txtNumero.setText("Tu número de contacto");
+		txtNumero.setText("Your contact number");
 		txtNumero.setForeground(Color.GRAY);
 		txtNumero.setFont(new Font("Calibri", Font.PLAIN, 20));
 		txtNumero.setColumns(10);
-		txtNumero.setBounds(463, 211, 259, 28);
+		txtNumero.setBounds(440, 211, 259, 28);
 		panelForm.add(txtNumero,BorderLayout.CENTER);
 		
 		txtNumero.addFocusListener(new FocusListener() {
 			    @Override
 			    public void focusGained(FocusEvent e) {
-			        if (txtNumero.getText().equals("Tu número de contacto")) {
+			        if (txtNumero.getText().equals("Your contact number")) {
 			            txtNumero.setText("");
 			            txtNumero.setForeground(Color.BLACK); 
 			        }
@@ -136,39 +136,39 @@ public class ContactoWeb extends JFrame {
 			    @Override
 			    public void focusLost(FocusEvent e) {
 			        if (txtNumero.getText().isEmpty()) {
-			            txtNumero.setText("Tu número de contacto");
+			            txtNumero.setText("Your contact number");
 			            txtNumero.setForeground(Color.GRAY);  
 			        }
 			    }
 			});
 		
-		JLabel lblAsunto = new JLabel("Asunto:");
-		lblAsunto.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblAsunto.setBounds(371, 253, 120, 36);
-		panelForm.add(lblAsunto,BorderLayout.CENTER);
+		JLabel lblSubject = new JLabel("Subject:");
+		lblSubject.setFont(new Font("Calibri", Font.PLAIN, 20));
+		lblSubject.setBounds(371, 253, 120, 36);
+		panelForm.add(lblSubject,BorderLayout.CENTER);
 		
-		txtAsunto = new JTextField("Asunto");
-		txtAsunto.setForeground(Color.GRAY);
-		txtAsunto.setFont(new Font("Calibri", Font.PLAIN, 20));
-		txtAsunto.setColumns(10);
-		txtAsunto.setBounds(448, 257, 177, 28);
-		panelForm.add(txtAsunto,BorderLayout.CENTER);
+		txtSubject = new JTextField("Subject");
+		txtSubject.setForeground(Color.GRAY);
+		txtSubject.setFont(new Font("Calibri", Font.PLAIN, 20));
+		txtSubject.setColumns(10);
+		txtSubject.setBounds(448, 257, 177, 28);
+		panelForm.add(txtSubject,BorderLayout.CENTER);
 		
 
-	        txtAsunto.addFocusListener(new FocusListener() {
+	        txtSubject.addFocusListener(new FocusListener() {
 	            @Override
 	            public void focusGained(FocusEvent e) {
-	                if (txtAsunto.getText().equals("Asunto")) {
-	                    txtAsunto.setText("");
-	                    txtAsunto.setForeground(Color.BLACK);
+	                if (txtSubject.getText().equals("Subject")) {
+	                    txtSubject.setText("");
+	                    txtSubject.setForeground(Color.BLACK);
 	                }
 	            }
 
 	            @Override
 	            public void focusLost(FocusEvent e) {
-	                if (txtAsunto.getText().isEmpty()) {
-	                    txtAsunto.setText("Asunto");
-	                    txtAsunto.setForeground(Color.GRAY);
+	                if (txtSubject.getText().isEmpty()) {
+	                    txtSubject.setText("Subject");
+	                    txtSubject.setForeground(Color.GRAY);
 	                }
 	            }
 	        });
@@ -176,14 +176,14 @@ public class ContactoWeb extends JFrame {
 
 		JLabel lblEmail = new JLabel("Email:");
 		lblEmail.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblEmail.setBounds(494, 161, 58, 36);
+		lblEmail.setBounds(502, 161, 58, 36);
 		panelForm.add(lblEmail,BorderLayout.CENTER);
 
 	        txtEmail = new JTextField("Email");
 	        txtEmail.setForeground(Color.GRAY);
 	        txtEmail.setFont(new Font("Calibri", Font.PLAIN, 20));
 	        txtEmail.setColumns(10);
-	        txtEmail.setBounds(562, 165, 398, 28);
+	        txtEmail.setBounds(570, 165, 343, 28);
 	        panelForm.add(txtEmail);
 
 	        
@@ -206,75 +206,75 @@ public class ContactoWeb extends JFrame {
 	        });
 
 		
-		JLabel lblMensaje = new JLabel("Mensaje:");
-		lblMensaje.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblMensaje.setBounds(460, 295, 82, 36);
-		panelForm.add(lblMensaje);
+		JLabel lblMessage = new JLabel("Message:");
+		lblMessage.setFont(new Font("Calibri", Font.PLAIN, 20));
+		lblMessage.setBounds(460, 295, 82, 36);
+		panelForm.add(lblMessage);
 	      
 		
-		 JTextArea txtMensaje = new JTextArea("Mensaje");
-		 txtMensaje.setForeground(Color.GRAY);
-	        txtMensaje.setFont(new Font("Calibri", Font.PLAIN, 20));
-	        txtMensaje.setToolTipText("");
-	        txtMensaje.setLineWrap(true);
-	        txtMensaje.setWrapStyleWord(true);
-	        JScrollPane scrollPane = new JScrollPane(txtMensaje);
+		 JTextArea txtMessage = new JTextArea("Message");
+		 txtMessage.setForeground(Color.GRAY);
+	        txtMessage.setFont(new Font("Calibri", Font.PLAIN, 20));
+	        txtMessage.setToolTipText("");
+	        txtMessage.setLineWrap(true);
+	        txtMessage.setWrapStyleWord(true);
+	        JScrollPane scrollPane = new JScrollPane(txtMessage);
 	        scrollPane.setToolTipText("10");
 	        scrollPane.setBounds(312, 341, 377, 209);
 	        panelForm.add(scrollPane, BorderLayout.CENTER);
 	        
 
-	        txtMensaje.addFocusListener(new FocusListener() {
+	        txtMessage.addFocusListener(new FocusListener() {
 	     	    @Override
 	     	    public void focusGained(FocusEvent e) {
-	     	        if (txtMensaje.getText().equals("Mensaje")) {
-	     	            txtMensaje.setText("");
-	     	            txtMensaje.setForeground(Color.BLACK); 
+	     	        if (txtMessage.getText().equals("Message")) {
+	     	            txtMessage.setText("");
+	     	            txtMessage.setForeground(Color.BLACK); 
 	     	        }
 	     	    }
 
 	     	    @Override
 	     	    public void focusLost(FocusEvent e) {
-	     	        if (txtMensaje.getText().isEmpty()) {
-	     	            txtMensaje.setText("Mensaje");
-	     	            txtMensaje.setForeground(Color.GRAY);  
+	     	        if (txtMessage.getText().isEmpty()) {
+	     	            txtMessage.setText("Message");
+	     	            txtMessage.setForeground(Color.GRAY);  
 	     	        }
 	     	    }
 	     	});
-	        btnEnviar = new JButton("Enviar");
-	        btnEnviar.setBounds(412, 560, 85, 21);
-	        btnEnviar.addActionListener(null);
-	        panelForm.add(btnEnviar);
+	        btnSubmit = new JButton("Submit");
+	        btnSubmit.setBounds(412, 560, 85, 21);
+	        btnSubmit.addActionListener(null);
+	        panelForm.add(btnSubmit);
 	        
-	        btnEnviar.addActionListener(new ActionListener() {
+	        btnSubmit.addActionListener(new ActionListener() {
 	     	    @Override
 	     	    public void actionPerformed(ActionEvent e) {
 	     			// TODO Auto-generated method stub
 	     		    String nombre = txtNombreYApellido.getText();
 	     		        String email = txtEmail.getText();
-	     		        String asunto = txtAsunto.getText();
-	     		        String mensaje = "Gracias " + nombre + " por ponerte en contacto con nosotros. \n"+ "Pronto recibirás una respuesta en el correo " + email + ".";
-	     			JOptionPane.showMessageDialog(ContactoWeb.this,mensaje,"Mensaje con asunto '"+ asunto + "' enviado",JOptionPane.INFORMATION_MESSAGE,null); 
+	     		        String Subject = txtSubject.getText();
+	     		        String Message = "Than you " + nombre + " for contacting us. \n"+ "We will get in touch with you in the email " + email + ".";
+	     			JOptionPane.showMessageDialog(WebContact.this,Message,"Message with subject '"+ Subject + "' was sended",JOptionPane.INFORMATION_MESSAGE,null); 
 	     		}
 	     	});
 	        
-	        JButton btnNuevo = new JButton("Nuevo");
-	        btnNuevo.setBounds(511, 560, 85, 21);
-	        panelForm.add(btnNuevo);
+	        JButton btnNew = new JButton("New");
+	        btnNew.setBounds(511, 560, 85, 21);
+	        panelForm.add(btnNew);
 	   
-	        btnNuevo.addActionListener(new ActionListener() {
+	        btnNew.addActionListener(new ActionListener() {
 	     	    @Override
 	     	    public void actionPerformed(ActionEvent e) {
-	     	        txtNombreYApellido.setText("Nombre y apellido");
+	     	        txtNombreYApellido.setText("First name and last name");
 	     	        txtNombreYApellido.setForeground(Color.GRAY);
-	     	        txtNumero.setText("Tu número de contacto");
+	     	        txtNumero.setText("Your contact number");
 	     	        txtNumero.setForeground(Color.GRAY);
-	     	        txtAsunto.setText("Asunto");
-	     	        txtAsunto.setForeground(Color.GRAY);
+	     	        txtSubject.setText("Subject");
+	     	        txtSubject.setForeground(Color.GRAY);
 	     	        txtEmail.setText("Email");
 	     	        txtEmail.setForeground(Color.GRAY);
-	     	        txtMensaje.setText("Mensaje");
-	     	        txtMensaje.setForeground(Color.GRAY);
+	     	        txtMessage.setText("Message");
+	     	        txtMessage.setForeground(Color.GRAY);
 	     	    }
 	     	});
 	     
@@ -303,28 +303,28 @@ public class ContactoWeb extends JFrame {
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
 	                if (!enterPressed) {
-	                    txtAsunto.requestFocus();
+	                    txtSubject.requestFocus();
 	                    enterPressed = true;
 	                }
 	            }
 	        });
 
-	        txtAsunto.addActionListener(new ActionListener() {
+	        txtSubject.addActionListener(new ActionListener() {
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
 	                if (!enterPressed) {
-	                    txtMensaje.requestFocus();
+	                    txtMessage.requestFocus();
 	                    enterPressed = true;
 	                }
 	            }
 	        });
 
-	        txtMensaje.addKeyListener(new KeyAdapter() {
+	        txtMessage.addKeyListener(new KeyAdapter() {
 	            @Override
 	            public void keyReleased(KeyEvent e) {
-	                if (e.getKeyCode() == KeyEvent.VK_ENTER && e.getSource() == txtMensaje) {
+	                if (e.getKeyCode() == KeyEvent.VK_ENTER && e.getSource() == txtMessage) {
 	                    if (!enterPressed) {
-	                        btnEnviar.doClick();
+	                        btnSubmit.doClick();
 	                        enterPressed = true;
 	                    }
 	                } else {
@@ -354,19 +354,19 @@ public class ContactoWeb extends JFrame {
 	             }
 	         });
 
-	         txtAsunto.addFocusListener(new FocusAdapter() {
+	         txtSubject.addFocusListener(new FocusAdapter() {
 	             @Override
 	             public void focusGained(FocusEvent e) {
 	                 enterPressed = false;
 	             }
 	         });
 
-	         txtMensaje.addKeyListener(new KeyAdapter() {
+	         txtMessage.addKeyListener(new KeyAdapter() {
 	             @Override
 	             public void keyReleased(KeyEvent e) {
-	                 if (e.getKeyCode() == KeyEvent.VK_ENTER && e.getSource() == txtMensaje) {
+	                 if (e.getKeyCode() == KeyEvent.VK_ENTER && e.getSource() == txtMessage) {
 	                     if (!enterPressed) {
-	                         btnEnviar.doClick();
+	                         btnSubmit.doClick();
 	                         enterPressed = true;
 	                     }
 	                 } else {
@@ -394,7 +394,7 @@ public class ContactoWeb extends JFrame {
 	         });
 
 	         // Crea un DocumentFilter para limitar el campo txtNumero a 21 caracteres
-	        AbstractDocument txtNumeroDocument = (AbstractDocument) txtNumero.getDocument();
+	         AbstractDocument txtNumeroDocument = (AbstractDocument) txtNumero.getDocument();
 	         txtNumeroDocument.setDocumentFilter(new DocumentFilter() {
 	             @Override
 	             public void insertString(DocumentFilter.FilterBypass fb, int offset, String text, AttributeSet attr) throws BadLocationException {
