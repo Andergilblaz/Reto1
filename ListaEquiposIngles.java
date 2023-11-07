@@ -91,7 +91,13 @@ public class ListaEquiposIngles extends JFrame {
         table.setRowHeight(40);
         
         table.setEnabled(false);
-
+        
+        table.getColumnModel().getColumn(0).setResizable(false);
+        table.getColumnModel().getColumn(1).setResizable(false);
+        table.getColumnModel().getColumn(2).setResizable(false);
+        table.getColumnModel().getColumn(3).setResizable(false);
+        table.getColumnModel().getColumn(4).setResizable(false);
+  
 	table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         table.getTableHeader().setResizingAllowed(false); 
 		
