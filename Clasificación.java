@@ -1,7 +1,7 @@
 package Reto1;
 
 import java.awt.EventQueue;
-import java.awt.FlowLayout;
+
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
@@ -13,25 +13,16 @@ import javax.swing.table.TableColumn;
 
 import java.awt.BorderLayout;
 
-import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Label;
-import java.awt.Panel;
+
 import java.awt.Toolkit;
 import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JMenuBar;
-import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JMenu;
 import javax.swing.JLabel;
-import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 
@@ -80,7 +71,7 @@ public class Clasificación extends JFrame {
 		setAlwaysOnTop(true);
 		setTitle("Resultados Waterpolo Español");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 893, 414);
+		setBounds(100, 100, 1000, 375);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo (null);
 		
@@ -133,7 +124,6 @@ public class Clasificación extends JFrame {
         tableHeader.setForeground(new Color(35, 33, 156));
  
         contentPane.setLayout(new BorderLayout(0, 0));
-        contentPane.add(new JScrollPane(table), BorderLayout.CENTER);
 		
 		JLabel lblNewLabel = new JLabel("Clasificacion Waterpolo Temporada 2023/24");
 	    lblNewLabel.setForeground(Color.BLACK);
@@ -143,30 +133,16 @@ public class Clasificación extends JFrame {
 	    JPanel topPanel = new JPanel(new BorderLayout());
 	    topPanel.add(lblNewLabel, BorderLayout.NORTH);
 	    topPanel.add(new JScrollPane(table), BorderLayout.CENTER);
-	    contentPane.add(topPanel, BorderLayout.CENTER);
-
-	    JPanel abbreviationPanel = new JPanel();
-	    abbreviationPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-
-	    JLabel abbreviationLabel1 = new JLabel("PG - Partidos Ganados   ");
-	    JLabel abbreviationLabel2 = new JLabel("PP - Partidos Perdidos   ");
-	    JLabel abbreviationLabel3 = new JLabel("PE - Partidos Empatados   ");
-	    JLabel abbreviationLabel4 = new JLabel("GF - Goles a Favor   ");
-	    JLabel abbreviationLabel5 = new JLabel("GC - Goles en Contra   ");
-	    JLabel abbreviationLabel6 = new JLabel("DG - Diferencia de Goles   ");
-	    JLabel abbreviationLabel7 = new JLabel("PJ - Partidos Jugados   ");
-
-	    abbreviationPanel.add(abbreviationLabel7);
-	    abbreviationPanel.add(abbreviationLabel1);
-	    abbreviationPanel.add(abbreviationLabel2);
-	    abbreviationPanel.add(abbreviationLabel3);
-	    abbreviationPanel.add(abbreviationLabel4);
-	    abbreviationPanel.add(abbreviationLabel5);
-	    abbreviationPanel.add(abbreviationLabel6);
+	    
+	    JLabel lblAbbreviations = new JLabel("Abreviaturas: PG - Partidos Ganados   PP - Partidos Perdidos   PE - Partidos Empatados   GF - Goles a Favor   GC - Goles en Contra   DG - Diferencia de Goles   PJ - Partidos Jugados   ");
+	    lblAbbreviations.setForeground(Color.BLACK);
+	    lblAbbreviations.setFont(new Font("Calibri", Font.BOLD, 13));
+	    lblAbbreviations.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		contentPane.add(topPanel, BorderLayout.NORTH);
 		JScrollPane scrollPane = new JScrollPane(table);
 		contentPane.add(scrollPane, BorderLayout.CENTER);
+		contentPane.add(lblAbbreviations, BorderLayout.SOUTH);
 	    setContentPane(contentPane);
     }
 }
