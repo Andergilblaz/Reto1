@@ -65,7 +65,7 @@ public class ListaEquipos extends JFrame {
 		setForeground(new Color(139, 0, 0));
 		setIconImage(Toolkit.getDefaultToolkit().getImage("src\\Reto1\\fotos\\LogoWaterpoloPequeña.png"));
 		setAlwaysOnTop(true);
-		setTitle("Resultados Waterpolo Español");
+		setTitle("Equipos Waterpolo Español");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 978, 356);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
