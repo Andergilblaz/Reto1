@@ -94,6 +94,8 @@ public class Clasificación extends JFrame {
         table.setGridColor(new Color(35, 33, 156));
 
         table.setRowHeight(40);
+	
+	table.setEnabled(false); //Si necesita hacer que la tabla sea editable, debe eliminarla.
         
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
