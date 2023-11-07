@@ -2,8 +2,8 @@ package Reto1;
 
 import java.awt.EventQueue;
 
+
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
@@ -12,244 +12,120 @@ import javax.swing.table.TableColumn;
 
 import java.awt.BorderLayout;
 
-import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+
 import java.awt.Toolkit;
 import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JMenuBar;
-import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
-import javax.swing.JMenuItem;
-import javax.swing.JMenu;
+import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+
 
 public class ListaEquiposIngles extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
-
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				
+				try {
+					ListaEquiposIngles frame = new ListaEquiposIngles();
+					frame.setVisible(true);
+					frame.setResizable (false);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		});
 	}
 
 	public ListaEquiposIngles() {
+		
+		contentPane = new JPanel() {
+			private static final long serialVersionUID = 1L;
+
+			@Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Image background = new ImageIcon(" ").getImage();
+                g.drawImage(background, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
+		
 		setBackground(new Color(255, 255, 255));
 		setForeground(new Color(139, 0, 0));
-		setIconImage(Toolkit.getDefaultToolkit().getImage("Reto1/fotos/LogoWaterpolo.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("src\\Reto1\\fotos\\LogoWaterpoloPequeña.png"));
 		setAlwaysOnTop(true);
-		setTitle("Spanish Water Polo Results");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1287, 755);
-		contentPane = new JPanel();
+		setTitle("Spanish Waterpolo Teams");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 978, 356);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBorderPainted(false);
-		menuBar.setBackground(new Color(139, 0, 0));
-		menuBar.setFont(new Font("Calibri", Font.BOLD, 20));
-		setJMenuBar(menuBar);
-		
-		
-		JButton btnPaginaPrincipal = new JButton("Home page");
-		menuBar.add(btnPaginaPrincipal);
-		btnPaginaPrincipal.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnPaginaPrincipal.setBackground(new Color(139, 0, 0));
-		btnPaginaPrincipal.setForeground(new Color(255, 255, 255));
-		btnPaginaPrincipal.setFont(new Font("Calibri", Font.BOLD, 20));
-		
-		
-		JButton btnResultados = new JButton("Results");
-		menuBar.add(btnResultados);
-		btnResultados.setForeground(new Color(255, 255, 255));
-		btnResultados.setBackground(new Color(139, 0, 0));
-		btnResultados.setFont(new Font("Calibri", Font.BOLD, 20));
-		
-		JMenu mnCalendario = new JMenu("Schedule");
-		mnCalendario.setFont(new Font("Calibri", Font.BOLD, 20));
-		mnCalendario.setForeground(new Color(255, 255, 255));
-		mnCalendario.setBackground(new Color(139, 0, 0));
-		menuBar.add(mnCalendario);
-		
-		JMenuItem mntmCalendario = new JMenuItem("Calendario");
-		mntmCalendario.setBackground(new Color(139, 0, 0));
-		mntmCalendario.setForeground(new Color(255, 255, 255));
-		mnCalendario.add(mntmCalendario);
-		
-		JMenuItem mntmJornada1 = new JMenuItem("Jornada 1");
-		mntmJornada1.setForeground(new Color(255, 255, 255));
-		mntmJornada1.setBackground(new Color(139, 0, 0));
-		mnCalendario.add(mntmJornada1);
-		
-		JMenuItem mntmJornada2 = new JMenuItem("Jornada 2");
-		mntmJornada2.setForeground(new Color(255, 255, 255));
-		mntmJornada2.setBackground(new Color(139, 0, 0));
-		mnCalendario.add(mntmJornada2);
-		
-		JMenuItem mntmJornada3 = new JMenuItem("Jornada 3");
-		mntmJornada3.setForeground(new Color(255, 255, 255));
-		mntmJornada3.setBackground(new Color(139, 0, 0));
-		mnCalendario.add(mntmJornada3);
-		
-		JMenuItem mntmJornada4 = new JMenuItem("Jornada 4");
-		mntmJornada4.setBackground(new Color(139, 0, 0));
-		mntmJornada4.setForeground(new Color(255, 255, 255));
-		mnCalendario.add(mntmJornada4);
-		
-		JMenuItem mntmJornada5 = new JMenuItem("Jornada5");
-		mntmJornada5.setBackground(new Color(139, 0, 0));
-		mntmJornada5.setForeground(new Color(255, 255, 255));
-		mnCalendario.add(mntmJornada5);
-		
-		JMenuItem mntmJornada6 = new JMenuItem("Jornada 6");
-		mntmJornada6.setForeground(new Color(255, 255, 255));
-		mntmJornada6.setBackground(new Color(139, 0, 0));
-		mnCalendario.add(mntmJornada6);
-		
-		JMenuItem mntmJornada7 = new JMenuItem("Jornada 7");
-		mntmJornada7.setForeground(new Color(255, 255, 255));
-		mntmJornada7.setBackground(new Color(139, 0, 0));
-		mnCalendario.add(mntmJornada7);
-		
-		JMenuItem mntmJornada8 = new JMenuItem("Jornada 8");
-		mntmJornada8.setForeground(new Color(255, 255, 255));
-		mntmJornada8.setBackground(new Color(139, 0, 0));
-		mnCalendario.add(mntmJornada8);
-		
-		JMenuItem mntmJornada9 = new JMenuItem("Jornada 9");
-		mntmJornada9.setForeground(new Color(255, 255, 255));
-		mntmJornada9.setBackground(new Color(139, 0, 0));
-		mnCalendario.add(mntmJornada9);
-		
-		JMenuItem mntmJornada10 = new JMenuItem("Jornada 10");
-		mntmJornada10.setForeground(new Color(255, 255, 255));
-		mntmJornada10.setBackground(new Color(139, 0, 0));
-		mnCalendario.add(mntmJornada10);
-		
-		JButton btnListaEquipos = new JButton("Lista Equipos");
-		menuBar.add(btnListaEquipos);
-		btnListaEquipos.setBackground(new Color(139, 0, 0));
-		btnListaEquipos.setForeground(new Color(255, 255, 255));
-		btnListaEquipos.setFont(new Font("Calibri", Font.BOLD, 20));
-		
-		JButton btnClasificacion = new JButton("Clasificación");
-		menuBar.add(btnClasificacion);
-		btnClasificacion.setForeground(new Color(255, 255, 255));
-		btnClasificacion.setBackground(new Color(139, 0, 0));
-		btnClasificacion.setFont(new Font("Calibri", Font.BOLD, 20));
-		
-		JMenu mnSobreNosotros = new JMenu("Sobre Nosotros");
-		mnSobreNosotros.setFont(new Font("Calibri", Font.BOLD, 20));
-		mnSobreNosotros.setForeground(new Color(255, 255, 255));
-		mnSobreNosotros.setBackground(new Color(139, 0, 0));
-		menuBar.add(mnSobreNosotros);
-		
-		JMenuItem mntmQuienesSomos = new JMenuItem("¿Quienes Somos?");
-		mntmQuienesSomos.setForeground(new Color(255, 255, 255));
-		mntmQuienesSomos.setBackground(new Color(139, 0, 0));
-		mnSobreNosotros.add(mntmQuienesSomos);
-		
-		JMenuItem mntmComoHaSurgido = new JMenuItem("¿Cómo ha surgido esta web?");
-		mntmComoHaSurgido.setForeground(new Color(255, 255, 255));
-		mntmComoHaSurgido.setBackground(new Color(139, 0, 0));
-		mnSobreNosotros.add(mntmComoHaSurgido);
-		
-		JMenu mnFAQ = new JMenu("FAQ");
-		mnFAQ.setFont(new Font("Calibri", Font.BOLD, 20));
-		mnFAQ.setBackground(new Color(139, 0, 0));
-		mnFAQ.setForeground(new Color(255, 255, 255));
-		menuBar.add(mnFAQ);
-		
-		JMenuItem mntmComoFunciona = new JMenuItem("¿Cómo funciona esta web?");
-		mntmComoFunciona.setForeground(new Color(255, 255, 255));
-		mntmComoFunciona.setBackground(new Color(139, 0, 0));
-		mnFAQ.add(mntmComoFunciona);
-		
-		JMenuItem mntmQueHago = new JMenuItem("¿Que hago si hay un error?");
-		mntmQueHago.setBackground(new Color(139, 0, 0));
-		mntmQueHago.setForeground(new Color(255, 255, 255));
-		mnFAQ.add(mntmQueHago);
-		
-		JButton btnInicioSesion = new JButton("Inicio de sesión");
-		menuBar.add(btnInicioSesion);
-		btnInicioSesion.setFont(new Font("Calibri", Font.BOLD, 20));
-		btnInicioSesion.setBackground(new Color(139, 0, 0));
-		btnInicioSesion.setForeground(new Color(255, 255, 255));
-		
-		JSeparator separator = new JSeparator();
-		separator.setOrientation(SwingConstants.VERTICAL);
-		menuBar.add(separator);
-		
-		JMenu mnIdioma = new JMenu("ES/EN");
-		mnIdioma.setForeground(new Color(255, 255, 255));
-		mnIdioma.setBackground(new Color(139, 0, 0));
-		menuBar.add(mnIdioma);
-		
-		JMenuItem mntmEspañol = new JMenuItem("Español");
-		mntmEspañol.setForeground(new Color(255, 255, 255));
-		mntmEspañol.setBackground(new Color(139, 0, 0));
-		mnIdioma.add(mntmEspañol);
-		
-		JMenuItem mntmIngles = new JMenuItem("English");
-		mntmIngles.setForeground(new Color(255, 255, 255));
-		mntmIngles.setBackground(new Color(139, 0, 0));
-		mnIdioma.add(mntmIngles);
-		
-		JButton btnContacto = new JButton("Contacto");
-		menuBar.add(btnContacto);
-		btnContacto.setForeground(new Color(255, 255, 255));
-		btnContacto.setBackground(new Color(139, 0, 0));
-		btnContacto.setFont(new Font("Calibri", Font.BOLD, 20));
-
-		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
+		setLocationRelativeTo (null);
 		
 		DefaultTableModel tableModel = new DefaultTableModel(
-                new Object[][] {
-                        {"CN Atlétic Barceloneta", "Cataluña", "Barcelona", "Club Natació Atlétic-Barcelona", "Placa del Mar, s/n"},
-                        {"CN La Latina", "Madrid", "Madrid", "Deportiva Municipal de La Latina", "PLAZA CEBADA, 15"},
-                        {"Urbat IKE", "Gipuzkoa", "Eibar", "Paco Yoldi de Anoeta", "P.º de Anoeta, 18(Donostia)"},
-                        {"Club Askartza", "Bizkaia", "Leioa", "Piscina de colegio Askartza Claret", "Sarriena Auzoa, 173"},
-                        {"CN Terrassa", "Cataluña", "Terrassa", "Instalaciones Área Olímpica", "Av. de l'Abat Marcet, 200"},
-                        {"Tenerife Echeyde", "Tenerife", "Santa Cruz de Tenerife", "Piscina Municipal Acidalio Lorenzo", "Av. de Benito Pérez Armas, 1"},
-                },
-                new String[] {
-                        "Nombre Equipo", "Provincia", "Ciudad", "Piscina", "Direccion"
-                }
-        );
+				new Object[][] {
+                    {"CN Atlétic Barceloneta", "Cataluña", "Barcelona", "Club Natació Atlétic-Barcelona", "Placa del Mar, s/n"},
+                    {"CN La Latina", "Madrid", "Madrid", "Deportiva Municipal de La Latina", "PLAZA CEBADA, 15"},
+                    {"Urbat IKE", "Gipuzkoa", "Eibar", "Paco Yoldi de Anoeta", "P.º de Anoeta, 18(Donostia)"},
+                    {"Club Askartza", "Bizkaia", "Leioa", "Piscina de colegio Askartza Claret", "Sarriena Auzoa, 173"},
+                    {"CN Terrassa", "Cataluña", "Terrassa", "Instalaciones Área Olímpica", "Av. de l'Abat Marcet, 200"},
+                    {"Tenerife Echeyde", "Tenerife", "Santa Cruz de Tenerife", "Piscina Municipal Acidalio Lorenzo", "Av. de Benito Pérez Armas, 1"},
+            },
+            new String[] {
+                    "Team Name", "Province", "City", "Pool", "Address"
+            }
+    );
 
         table = new JTable(tableModel);
-        table.setFont(new Font("Calibri", Font.BOLD, 20));
-        table.setGridColor(new Color(139, 0, 0));
-
-        TableColumn column = table.getColumnModel().getColumn(0);
-        column.setPreferredWidth(300);
+        table.setFont(new Font("Calibri", Font.BOLD, 16));
+        table.setGridColor(new Color(35, 33, 156));
 
         table.setRowHeight(40);
+        
+        table.setEnabled(false); //Si necesita hacer que la tabla sea editable, debe eliminarla.
+
+        TableColumn column = table.getColumnModel().getColumn(0);
+        column.setMinWidth(170);
+        column.setMaxWidth(170);
+        column.setPreferredWidth(170);
+        
+        TableColumn column2 = table.getColumnModel().getColumn(1);
+        column2.setMinWidth(120);
+        column2.setMaxWidth(120);
+        column2.setPreferredWidth(120);
+        
+        TableColumn column3 = table.getColumnModel().getColumn(2);
+        column3.setMinWidth(160);
+        column3.setMaxWidth(160);
+        column3.setPreferredWidth(160);
 
         JTableHeader tableHeader = table.getTableHeader();
         tableHeader.setFont(new Font("Calibri", Font.BOLD, 20));
         tableHeader.setBackground(Color.WHITE);
-        tableHeader.setForeground(new Color(139, 0, 0));
+        tableHeader.setForeground(new Color(35, 33, 156));
  
         contentPane.setLayout(new BorderLayout(0, 0));
-        contentPane.add(new JScrollPane(table), BorderLayout.CENTER);
-
-        JLabel lblNewLabel = new JLabel("Listado de los equipos:");
-        lblNewLabel.setForeground(Color.BLACK);
-        lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 20));
-        contentPane.add(lblNewLabel, BorderLayout.NORTH);
-
-        setContentPane(contentPane);
-	}
+		
+		JLabel lblNewLabel = new JLabel("List of teams:");
+	    lblNewLabel.setForeground(Color.BLACK);
+	    lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 25));
+	    lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+	    
+	    JPanel topPanel = new JPanel(new BorderLayout());
+	    topPanel.add(lblNewLabel, BorderLayout.NORTH);
+	    topPanel.add(new JScrollPane(table), BorderLayout.CENTER);
+		
+		contentPane.add(topPanel, BorderLayout.NORTH);
+		JScrollPane scrollPane = new JScrollPane(table);
+		contentPane.add(scrollPane, BorderLayout.CENTER);
+	    setContentPane(contentPane);
+    }
 }
