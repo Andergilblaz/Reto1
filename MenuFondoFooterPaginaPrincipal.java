@@ -98,7 +98,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
           // Abre el DocumentoNuevo
           MenuFondoFooterPaginaPrincipal menuFondoFooterPaginaPrincipal = new MenuFondoFooterPaginaPrincipal();
 					menuFondoFooterPaginaPrincipal.setVisible(true);
-          dispose();
+        
       }
   });
 		
@@ -113,7 +113,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
             // Abre el DocumentoNuevo
             Resultados Resultados = new Resultados();
             Resultados.setVisible(true);
-            dispose();
+            
         }
     });
 		
@@ -128,7 +128,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
           // Abre el DocumentoNuevo
           Calendario Calendario = new Calendario();
           Calendario.setVisible(true);
-          dispose();
+         
       }
   });
 		
@@ -143,7 +143,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
           // Abre el DocumentoNuevo
           ListaEquipos ListaEquipos = new ListaEquipos();
           ListaEquipos.setVisible(true);
-          dispose();
+          
       }
   });
 	
@@ -159,7 +159,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
           // Abre el DocumentoNuevo
           Clasificación Clasificación = new Clasificación();
           Clasificación.setVisible(true);
-          dispose();
+         
       }
   });
 		JButton btnSobreNosotros = new JButton("Sobre Nosotros");
@@ -174,7 +174,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 	          // Abre el DocumentoNuevo
 	          SobreNosotros SobreNosotros = new SobreNosotros();
 	          SobreNosotros.setVisible(true);
-	          dispose();
+	        
 	      }
 	  });
 		
@@ -189,7 +189,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
           // Abre el DocumentoNuevo
          	FAQ FAQ = new FAQ();
          	FAQ.setVisible(true);
-          dispose();
+        
       }
   });
 		
@@ -204,7 +204,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
           // Abre el DocumentoNuevo
       	InicioDeSesion InicioDeSesion = new InicioDeSesion();
       	InicioDeSesion.setVisible(true);
-          dispose();
+        
       }
   });
 		
@@ -228,7 +228,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
           // Abre el DocumentoNuevo
       	MenuFondoFooterPaginaPrincipal MenuFondoFooterPaginaPrincipal = new MenuFondoFooterPaginaPrincipal();
       	MenuFondoFooterPaginaPrincipal.setVisible(true);
-          dispose();
+          
       }
   });
 		
@@ -249,7 +249,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
           // Abre el DocumentoNuevo
       	ContactoWeb ContactoWeb = new ContactoWeb();
       	ContactoWeb.setVisible(true);
-          dispose();
+         
       }
   });
 		setContentPane(contentPane);
