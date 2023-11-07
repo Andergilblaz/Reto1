@@ -6,27 +6,30 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.io.*;
 
 public class Gestion extends JFrame {
 
-    private DefaultTableModel tableModel;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+		private DefaultTableModel tableModel;
     private JTable cuentasTable;
     private JButton agregarCuentaButton;
-    private List<CuentaListener> cuentaListeners = new ArrayList<>();
-
-
-
+    private JButton eliminarCuentaButton;
     private ArrayList<Cuenta> cuentasGuardadas;
+    private String archivoCuentas = "cuentas.dat";
 
     public Gestion() {
         setTitle("Registro de Cuentas");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 300);
+        setLocationRelativeTo(null);
 
         tableModel = new DefaultTableModel();
         tableModel.addColumn("Usuario");
         tableModel.addColumn("Contraseña");
-        
 
         cuentasTable = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(cuentasTable);
@@ -39,9 +42,19 @@ public class Gestion extends JFrame {
             }
         });
 
+        eliminarCuentaButton = new JButton("Eliminar Cuenta");
+        eliminarCuentaButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                eliminarCuenta();
+            }
+        });
+
         cargarCuentasGuardadas(); // Cargar cuentas almacenadas al iniciar la ventana.
 
-        getContentPane().add(agregarCuentaButton, BorderLayout.SOUTH);
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(agregarCuentaButton);
+        buttonPanel.add(eliminarCuentaButton);
+        getContentPane().add(buttonPanel, BorderLayout.SOUTH);
     }
 
     public void agregarCuenta() {
@@ -52,19 +65,47 @@ public class Gestion extends JFrame {
             Cuenta nuevaCuenta = new Cuenta(usuario, contraseña);
             cuentasGuardadas.add(nuevaCuenta); // Agregar cuenta a la lista de cuentas.
             tableModel.addRow(new Object[]{nuevaCuenta.getUsuario(), nuevaCuenta.getContraseña()});
+            guardarCuentas();
+        }
+    }
+
+    public void eliminarCuenta() {
+        int selectedRow = cuentasTable.getSelectedRow();
+
+        if (selectedRow != -1) {
+            cuentasGuardadas.remove(selectedRow);
+            tableModel.removeRow(selectedRow);
+            guardarCuentas();
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecciona una cuenta para eliminar.", "Error", JOptionPane.WARNING_MESSAGE);
         }
     }
 
     public void cargarCuentasGuardadas() {
-        // Simula la carga de cuentas almacenadas en tu sistema.
-        cuentasGuardadas = new ArrayList<>();
-        cuentasGuardadas.add(new Cuenta("andergilblaz", "1234"));
-        cuentasGuardadas.add(new Cuenta("alainluque", "1234"));
-        cuentasGuardadas.add(new Cuenta("xinyu", "1234"));
-        cuentasGuardadas.add(new Cuenta("artem", "1234"));
+        try {
+            FileInputStream fileInput = new FileInputStream(archivoCuentas);
+            ObjectInputStream objectInput = new ObjectInputStream(fileInput);
+            cuentasGuardadas = (ArrayList<Cuenta>) objectInput.readObject();
+            objectInput.close();
+            fileInput.close();
 
-        for (Cuenta cuenta : cuentasGuardadas) {
-            tableModel.addRow(new Object[]{cuenta.getUsuario(), cuenta.getContraseña()});
+            for (Cuenta cuenta : cuentasGuardadas) {
+                tableModel.addRow(new Object[]{cuenta.getUsuario(), cuenta.getContraseña()});
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            cuentasGuardadas = new ArrayList<>();
+        }
+    }
+
+    public void guardarCuentas() {
+        try {
+            FileOutputStream fileOutput = new FileOutputStream(archivoCuentas);
+            ObjectOutputStream objectOutput = new ObjectOutputStream(fileOutput);
+            objectOutput.writeObject(cuentasGuardadas);
+            objectOutput.close();
+            fileOutput.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -74,6 +115,7 @@ public class Gestion extends JFrame {
                 try {
                     Gestion frame = new Gestion();
                     frame.setVisible(true);
+                    frame.setResizable(false);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -82,8 +124,12 @@ public class Gestion extends JFrame {
     }
 }
 
-class Cuenta {
-    private String usuario;
+class Cuenta implements Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+		private String usuario;
     private String contraseña;
 
     public Cuenta(String usuario, String contraseña) {
@@ -98,6 +144,4 @@ class Cuenta {
     public String getContraseña() {
         return contraseña;
     }
-    
-    
 }

@@ -23,8 +23,6 @@
 	import javax.swing.JPasswordField;
 	import javax.swing.ImageIcon;
 	
-	import Reto1.Gestion;
-	
 	public class InicioDeSesion extends JFrame implements ActionListener, FocusListener{
 	
 		private static final long serialVersionUID = 1L;
@@ -36,17 +34,22 @@
 		private JLabel lblContraseña;
 		private JPasswordField Contraseña;
 		private JLabel lblLogo;
+		private static Gestion ventanaGestion;
+		private ControladorCuentas controladorCuentas;
 
 		/**
 		 * Launch the application.
 		 */
 		public static void main(String[] args) {
+			ControladorCuentas controladorCuentas = new ControladorCuentas();
+		  InicioDeSesion ventanaInicioSesion = new InicioDeSesion(controladorCuentas, ventanaGestion);
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
 						InicioDeSesion frame = new InicioDeSesion();
 						frame.setVisible(true);
 						frame.setResizable(false);
+						ventanaInicioSesion.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -57,7 +60,7 @@
 		/**
 		 * Create the frame.
 		 */
-		public InicioDeSesion() {
+		public InicioDeSesion(ControladorCuentas controladorCuentas, Gestion ventanaGestion) {
 			setTitle("Login Personal Autorizado");
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(100, 100, 498, 242);
@@ -65,9 +68,12 @@
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 			setLocationRelativeTo(null);
 			setIconImage(Toolkit.getDefaultToolkit().getImage("src/Reto1/fotos/LogoWaterpolo.png"));
-	    
+			this.ventanaGestion = ventanaGestion;
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
+			this.controladorCuentas = controladorCuentas;
+		  this.ventanaGestion = ventanaGestion;
+      
 			
 			lblTexto = new JLabel("Introduzca usuario y contraseña");
 			lblTexto.setBounds(29, 10, 426, 29);
@@ -114,74 +120,51 @@
 			btnEntrar.addActionListener(this);
 		}
 		
-		
-	
+		 
+  
+		 public InicioDeSesion() {
+			// TODO Apéndice de constructor generado automáticamente
+		}
+
 		@Override
-		public void actionPerformed(ActionEvent ae) {
-		// obtengo sobre que componente se ha realizado la accion
-		Object o = ae.getSource();
-		
-		if (cuentasGuardadas.containsKey(txtNombre) && cuentas.get(txtNombre).equals(password)) {
-			// si se ha pulsado btnAceptar
-			// si se ha pulsado txtNombre
-			// si se ha pulsado txtPassword
-			//Compruebo si son correctos
-			//Los datos de referencia son nombre "andergilblaz" password "1234"
-			String nombre = this.txtNombre.getText();
-			@SuppressWarnings("deprecation")
-			String password = this.Contraseña.getText();
-			if (nombre.equals("andergilblaz") && password.equals("1234")) {
-		    JOptionPane.showMessageDialog(this, "Entrando al modo edición del usuario: " + nombre);
-		    MenuFondoFooterPaginaPrincipal vh = new MenuFondoFooterPaginaPrincipal();
-		    vh.setTitle("Modo edición del usuario " + nombre);
-		    vh.setVisible(true);
-		    dispose();
-			}
-			else if (nombre.equals("alainluque")&& password.equals("1234")) {
-				JOptionPane.showMessageDialog(this, "Entrando al modo edición del usuario: " + nombre);
-				MenuFondoFooterPaginaPrincipal vh = new MenuFondoFooterPaginaPrincipal();
-				vh.setTitle("Modo edición del usuario " + nombre);
-				vh.setVisible(true);
-				dispose();
-			}
-			else if (nombre.equals("xinyu")&& password.equals("1234")) {
-				JOptionPane.showMessageDialog(this, "Entrando al modo edición del usuario: " + nombre);
-				MenuFondoFooterPaginaPrincipal vh = new MenuFondoFooterPaginaPrincipal();
-				vh.setTitle("Modo edición del usuario " + nombre);
-				vh.setVisible(true);
-				dispose();
-			}
-			else if (nombre.equals("artem")&& password.equals("1234")) {
-				JOptionPane.showMessageDialog(this, "Entrando al modo edición del usuario: " + nombre);
-				MenuFondoFooterPaginaPrincipal vh = new MenuFondoFooterPaginaPrincipal();
-				vh.setTitle("Modo edición del usuario " + nombre);
-				vh.setVisible(true);
-				dispose();
-				
-			}
-		else {
-			//Si el login no es correcrto
-			this.lblTexto.setText("Credenciales incorrectas. Intentelo de nuevo.");
-		}
-		}
-				}
-	
+	    public void actionPerformed(ActionEvent ae) {
+	        Object o = ae.getSource();
+
+	        if (o == btnEntrar) {
+	            String usuario = txtNombre.getText();
+	            char[] contraseñaIngresada = Contraseña.getPassword();
+	            String contraseña = new String(contraseñaIngresada);
+
+	            if (controladorCuentas.validarCredenciales(usuario, contraseña)) {
+	                // Las credenciales son válidas, puedes proceder con la autenticación.
+	                JOptionPane.showMessageDialog(this, "Accediendo al modo edición del usuario " + usuario);
+	                // Abre la ventana de gestión y cierra la ventana de inicio de sesión
+	                MenuFondoFooterPaginaPrincipal vh = new MenuFondoFooterPaginaPrincipal();
+	        				vh.setTitle("Modo edición del usuario " + usuario);
+	        				vh.setVisible(true);
+	        				dispose();
+	            } else {
+	                // Las credenciales no son válidas.
+	                JOptionPane.showMessageDialog(this, "Credenciales incorrectas. Acceso denegado.");
+	            }
+	        }
+	    }
+
+
 		@Override
-		public void focusGained(FocusEvent fe) {
-			// Obtengo sobre que componente de texto ose ha realizado la accion
-			Object o = fe.getSource();
-			((JTextField) o).select(0, txtNombre.getText().length());
+		public void focusGained(FocusEvent e) {
+			// TODO Apéndice de método generado automáticamente
+			
 		}
-	
+
 		@Override
-		public void focusLost(FocusEvent fe) {
-		// Obtengo sobre que componente de texto ose ha realizado la accion
-			txtNombre.select(0, 0);
-	
-		
+		public void focusLost(FocusEvent e) {
+			// TODO Apéndice de método generado automáticamente
+			
 		}
-			}
-	
+		
+			
+		}
 	
 	
 		
