@@ -36,7 +36,7 @@ public class ListaEquipos extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					equipo frame = new equipo();
+					ListaEquipos frame = new ListaEquipos();
 					frame.setVisible(true);
 					frame.setResizable (false);
 				} catch (Exception e) {
