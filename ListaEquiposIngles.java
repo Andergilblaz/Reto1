@@ -90,8 +90,11 @@ public class ListaEquiposIngles extends JFrame {
 
         table.setRowHeight(40);
         
-        table.setEnabled(false); //Si necesita hacer que la tabla sea editable, debe eliminarla.
+        table.setEnabled(false);
 
+	table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        table.getTableHeader().setResizingAllowed(false); 
+		
         TableColumn column = table.getColumnModel().getColumn(0);
         column.setMinWidth(170);
         column.setMaxWidth(170);
