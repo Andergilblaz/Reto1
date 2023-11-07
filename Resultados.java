@@ -10,24 +10,15 @@ import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JMenuBar;
-import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
-import javax.swing.JMenuItem;
-import javax.swing.JMenu;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 import java.awt.Component;
 import javax.swing.JTabbedPane;
-import java.awt.FlowLayout;
-import javax.swing.BoxLayout;
 
 public class Resultados extends JFrame {
 
@@ -56,7 +47,7 @@ public class Resultados extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("/Reto1/fotos/LogoWaterpolo.png"));
 		setAlwaysOnTop(true);
 		setTitle("Resultados Waterpolo Español");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 780, 498);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
