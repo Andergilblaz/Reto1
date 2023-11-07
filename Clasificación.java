@@ -95,10 +95,10 @@ public class Clasificación extends JFrame {
 
         table.setRowHeight(40);
 	
-	table.setEnabled(false); //Si necesita hacer que la tabla sea editable, debe eliminarla.
+	table.setEnabled(false); 
 
-	table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF); // prohibición de cambiar el tamaño de las columnas, eliminar en el caso de una cuenta de administración.
-        table.getTableHeader().setResizingAllowed(false); //prohibición de cambiar el tamaño de las columnas, eliminar en el caso de una cuenta de administración.
+	table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF); 
+        table.getTableHeader().setResizingAllowed(false);
         
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
@@ -127,7 +127,7 @@ public class Clasificación extends JFrame {
         tableHeader.setFont(new Font("Calibri", Font.BOLD, 20));
         tableHeader.setBackground(Color.WHITE);
         tableHeader.setForeground(new Color(35, 33, 156));
-	tableHeader.setReorderingAllowed(false); //prohibición de mezclar columnas, eliminar en caso de cuenta de administración.
+	tableHeader.setReorderingAllowed(false); 
  
         contentPane.setLayout(new BorderLayout(0, 0));
 		
