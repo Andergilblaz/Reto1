@@ -71,7 +71,8 @@ public class Gestion extends JFrame {
 
     public void agregarCuenta() {
     	@SuppressWarnings("unused")
-			String aviso = JOptionPane.showInputDialog("⚠ Una vez introducida una nueva cuenta, no es editable, tendrias que eliminarla y volver a crearla.⚠ ");
+    	String aviso = "⚠ Una vez introducida una nueva cuenta, no es editable, tendrías que eliminarla y volver a crearla. ⚠";
+    	JOptionPane.showMessageDialog(this, aviso, "Aviso", JOptionPane.INFORMATION_MESSAGE);
       String usuario = JOptionPane.showInputDialog("Nombre de usuario:");
       String contraseña = JOptionPane.showInputDialog("Contraseña:");
 
