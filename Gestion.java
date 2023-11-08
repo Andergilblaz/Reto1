@@ -81,7 +81,8 @@ public class Gestion extends JFrame {
         }
     }
 
-    public void cargarCuentasGuardadas() {
+    @SuppressWarnings("unchecked")
+		public void cargarCuentasGuardadas() {
         try {
             FileInputStream fileInput = new FileInputStream(archivoCuentas);
             ObjectInputStream objectInput = new ObjectInputStream(fileInput);
