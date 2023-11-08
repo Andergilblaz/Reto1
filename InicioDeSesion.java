@@ -34,15 +34,15 @@
 		private JLabel lblContraseña;
 		private JPasswordField Contraseña;
 		private JLabel lblLogo;
-		private static Gestion ventanaGestion;
-		private ControladorCuentas controladorCuentas;
+		private ControladorCuentas controladorCuentas; // Agrega una referencia al ControladorCuentas
 
 		/**
 		 * Launch the application.
 		 */
 		public static void main(String[] args) {
 			ControladorCuentas controladorCuentas = new ControladorCuentas();
-		  InicioDeSesion ventanaInicioSesion = new InicioDeSesion(controladorCuentas, ventanaGestion);
+      Gestion ventanaGestion = new Gestion();
+      InicioDeSesion ventanaInicioSesion = new InicioDeSesion(controladorCuentas, ventanaGestion);
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
@@ -68,14 +68,10 @@
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 			setLocationRelativeTo(null);
 			setIconImage(Toolkit.getDefaultToolkit().getImage("src/Reto1/fotos/LogoWaterpolo.png"));
-			this.ventanaGestion = ventanaGestion;
 			setContentPane(contentPane);
 			contentPane.setLayout(null);
 			this.controladorCuentas = controladorCuentas;
-		  this.ventanaGestion = ventanaGestion;
-      
-			
-			lblTexto = new JLabel("Introduzca usuario y contraseña");
+		  lblTexto = new JLabel("Introduzca usuario y contraseña");
 			lblTexto.setBounds(29, 10, 426, 29);
 			lblTexto.setHorizontalAlignment(SwingConstants.CENTER);
 			lblTexto.setFont(new Font("Calibri", Font.BOLD, 19));

@@ -1,16 +1,25 @@
+package Reto1;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.border.EmptyBorder;
+import Reto1.Gestion;
+import Reto1.InicioDeSesion;
+import Reto1.ControladorCuentas;
 
 public class BienvenidaDialog extends JDialog {
-    private JProgressBar progressBar;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+		private JProgressBar progressBar;
     private Timer timer;
     private int progress = 0;
 
-    public BienvenidaDialog(JFrame parent, String nombreUsuario) {
-        super(parent, "Bienvenido " + nombreUsuario, true);
+    public BienvenidaDialog(BienvenidaDialog bienvenidaDialog, Object usuario) {
+        super(bienvenidaDialog, "Bienvenido " + usuario, true);
         setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
         setLayout(new BorderLayout());
 
@@ -21,7 +30,7 @@ public class BienvenidaDialog extends JDialog {
         add(progressBar, BorderLayout.CENTER);
 
         pack();
-        setLocationRelativeTo(parent);
+        setLocationRelativeTo(bienvenidaDialog);
 
         timer = new Timer(100, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -37,21 +46,16 @@ public class BienvenidaDialog extends JDialog {
 
         timer.start();
     }
-}
 
-public class InicioDeSesion extends JFrame implements ActionListener, FocusListener {
-    // ...
-
-    @Override
-    public void actionPerformed(ActionEvent ae) {
+    public void actionPerformed(ActionEvent ae, Object usuario, Object contraseña) {
         // ...
 
-        if (nombre.equals("andergilblaz") && password.equals("1234")) {
-            BienvenidaDialog bienvenidaDialog = new BienvenidaDialog(this, nombre);
+        if (usuario.equals("andergilblaz") && contraseña.equals("1234")) {
+            BienvenidaDialog bienvenidaDialog = new BienvenidaDialog(this, usuario);
             bienvenidaDialog.setVisible(true);
 
             MenuFondoFooterPaginaPrincipal vh = new MenuFondoFooterPaginaPrincipal();
-            vh.setTitle("Modo edición del usuario " + nombre);
+            vh.setTitle("Modo edición del usuario " + usuario);
             vh.setVisible(true);
             dispose(); // Cierra la ventana de inicio de sesión.
         } else {

@@ -21,8 +21,7 @@ public class ControladorCuentas {
     public List<Cuenta> getCuentasGuardadas() {
         // Cambia esta función para devolver una lista de cuentas guardadas.
         List<Cuenta> cuentasGuardadas = new ArrayList<>();
-        // Aquí debes cargar las cuentas desde tus datos guardados.
-        // Puedes recorrer el mapa 'cuentas' y agregar cada cuenta a la lista.
+        // Para recorrer el mapa 'cuentas' y agregar cada cuenta a la lista.
         for (Map.Entry<String, String> entry : cuentas.entrySet()) {
             cuentasGuardadas.add(new Cuenta(entry.getKey(), entry.getValue()));
         }
@@ -31,12 +30,12 @@ public class ControladorCuentas {
     
     public void agregarCuenta(String usuario, String contraseña) {
       cuentas.put(usuario, contraseña);
-      // Aquí puedes agregar código para guardar la cuenta en tus datos guardados.
+      // Código para guardar la cuenta en tus datos guardados.
   }
 
   public void eliminarCuenta(String usuario) {
       cuentas.remove(usuario);
-      // Aquí puedes agregar código para eliminar la cuenta de tus datos guardados.
+      // Código para eliminar la cuenta de tus datos guardados.
   }
 
   public List<String> getUsuarios() {
