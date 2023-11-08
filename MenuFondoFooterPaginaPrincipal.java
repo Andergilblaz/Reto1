@@ -37,7 +37,7 @@ import Reto1.ContactoWeb;
 import Reto1.InicioDeSesion; 
 import Reto1.ListaDeEquipos;
 import Reto1.MenuFondoFooterPaginaPrincipal; 
-
+import Reto1.MenuFondoFooterPaginaPrincipalING; 
 
 
 @SuppressWarnings("unused")
@@ -228,7 +228,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
           // Abre el DocumentoNuevo
       	MenuFondoFooterPaginaPrincipal MenuFondoFooterPaginaPrincipal = new MenuFondoFooterPaginaPrincipal();
       	MenuFondoFooterPaginaPrincipal.setVisible(true);
-          
+        dispose();
       }
   });
 		
@@ -236,7 +236,15 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		mntmIngles.setForeground(new Color(255, 255, 255));
 		mntmIngles.setBackground(new Color(139, 0, 0));
 		mnIdioma.add(mntmIngles);
-		
+		mntmIngles.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          // Abre el DocumentoNuevo
+      	MenuFondoFooterPaginaPrincipalING MenuFondoFooterPaginaPrincipalING = new MenuFondoFooterPaginaPrincipalING();
+      	MenuFondoFooterPaginaPrincipalING.setVisible(true);
+          dispose();
+      }
+  });
 		
 		JButton btnContacto = new JButton("Contacto");
 		menuBar.add(btnContacto);

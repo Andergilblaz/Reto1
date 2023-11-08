@@ -38,6 +38,7 @@ import Reto1.InicioDeSesion;
 import Reto1.ListaDeEquipos; 
 import Reto1.ListaEquiposIngles; 
 import Reto1.MenuFondoFooterPaginaPrincipalING; 
+import Reto1.MenuFondoFooterPaginaPrincipal; 
 
 
 
@@ -192,10 +193,6 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
       }
   });
 		
-		JSeparator separator = new JSeparator();
-		separator.setOrientation(SwingConstants.VERTICAL);
-		menuBar.add(separator);
-		
 		JButton btnInicioSesion = new JButton("Log in");
 		menuBar.add(btnInicioSesion);
 		btnInicioSesion.setFont(new Font("Calibri", Font.BOLD, 20));
@@ -211,6 +208,9 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
       }
   });
 		
+		JSeparator separator = new JSeparator();
+		menuBar.add(separator);
+		
 		JMenu mnIdioma = new JMenu("ES/EN");
 		mnIdioma.setFont(new Font("Calibri", Font.BOLD, 20));
 		mnIdioma.setForeground(new Color(255, 255, 255));
@@ -225,7 +225,7 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
           // Abre el DocumentoNuevo
-      	MenuFondoFooterPaginaPrincipalING MenuFondoFooterPaginaPrincipal = new MenuFondoFooterPaginaPrincipalING();
+      	MenuFondoFooterPaginaPrincipal MenuFondoFooterPaginaPrincipal = new MenuFondoFooterPaginaPrincipal();
       	MenuFondoFooterPaginaPrincipal.setVisible(true);
           dispose();
       }
@@ -235,6 +235,15 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 		mntmIngles.setForeground(new Color(255, 255, 255));
 		mntmIngles.setBackground(new Color(139, 0, 0));
 		mnIdioma.add(mntmIngles);
+		mntmIngles.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          // Abre el DocumentoNuevo
+      	MenuFondoFooterPaginaPrincipalING menuFondoFooterPaginaPrincipalING = new MenuFondoFooterPaginaPrincipalING();
+				menuFondoFooterPaginaPrincipalING.setVisible(true);
+          
+      }
+  });
 		
 		
 		JButton btnContacto = new JButton("Contact us");
