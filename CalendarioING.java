@@ -57,7 +57,7 @@ public class CalendarioING extends JFrame {
 		setAlwaysOnTop(true);
 		setTitle("Spanish Water Polo Results");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 899, 569);
+		setBounds(100, 100, 978, 569);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
