@@ -46,6 +46,7 @@ public class Calendario extends JFrame {
 		setBounds(100, 100, 1063, 585);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLocationRelativeTo(null);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
