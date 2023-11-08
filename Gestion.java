@@ -50,7 +50,12 @@ public class Gestion extends JFrame {
         agregarCuentaButton = new JButton("Agregar Cuenta");
         agregarCuentaButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                agregarCuenta();
+                try {
+									agregarCuenta();
+								} catch (FileNotFoundException e1) {
+									// TODO Bloque catch generado automáticamente
+									e1.printStackTrace();
+								}
             }
         });
 
@@ -69,7 +74,7 @@ public class Gestion extends JFrame {
         getContentPane().add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    public void agregarCuenta() {
+    public void agregarCuenta() throws FileNotFoundException {
     	@SuppressWarnings("unused")
     	String aviso = "⚠ Una vez introducida una nueva cuenta, no es editable, tendrías que eliminarla y volver a crearla. ⚠";
     	JOptionPane.showMessageDialog(this, aviso, "Aviso", JOptionPane.INFORMATION_MESSAGE);
@@ -81,6 +86,8 @@ public class Gestion extends JFrame {
           cuentasGuardadas.add(nuevaCuenta);
           tableModel.addRow(new Object[]{nuevaCuenta.getUsuario(), nuevaCuenta.getContraseña()});
           guardarCuentas();
+          String nuevaRutaArchivo = "src/Reto1/cuentas.dat";
+          FileOutputStream fileOutput = new FileOutputStream(nuevaRutaArchivo);
       } else {
           JOptionPane.showMessageDialog(this, "Usuario o contraseña vacíos, no se puede agregar la cuenta.", "Error", JOptionPane.WARNING_MESSAGE);
       }
