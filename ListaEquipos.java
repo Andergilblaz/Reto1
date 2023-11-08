@@ -27,8 +27,7 @@ import javax.swing.JLabel;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 
-
-public class ListaEquiposIngles extends JFrame {
+public class ListaEquipos extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -38,7 +37,7 @@ public class ListaEquiposIngles extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ListaEquiposIngles frame = new ListaEquiposIngles();
+					ListaEquipos frame = new ListaEquipos();
 					frame.setVisible(true);
 					frame.setResizable (false);
 				} catch (Exception e) {
@@ -48,7 +47,7 @@ public class ListaEquiposIngles extends JFrame {
 		});
 	}
 
-	public ListaEquiposIngles() {
+	public ListaEquipos() {
 		addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
                 initialClick = e.getPoint();
@@ -83,7 +82,7 @@ public class ListaEquiposIngles extends JFrame {
 		setForeground(new Color(139, 0, 0));
 		setIconImage(Toolkit.getDefaultToolkit().getImage("src\\Reto1\\fotos\\LogoWaterpoloPequeña.png"));
 		setAlwaysOnTop(true);
-		setTitle("Spanish Waterpolo Teams");
+		setTitle("Equipos Waterpolo Español");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 978, 356);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -99,7 +98,7 @@ public class ListaEquiposIngles extends JFrame {
                     {"Tenerife Echeyde", "Tenerife", "Santa Cruz de Tenerife", "Piscina Municipal Acidalio Lorenzo", "Av. de Benito Pérez Armas, 1"},
             },
             new String[] {
-                    "Team Name", "Province", "City", "Pool", "Address"
+                    "Nombre Equipo", "Provincia", "Ciudad", "Piscina", "Direccion"
             }
     );
 
@@ -108,7 +107,7 @@ public class ListaEquiposIngles extends JFrame {
         table.setGridColor(new Color(139, 0, 0));
 
         table.setRowHeight(40);
-        
+
         table.setEnabled(false);
         
         table.getColumnModel().getColumn(0).setResizable(false);
@@ -116,7 +115,7 @@ public class ListaEquiposIngles extends JFrame {
         table.getColumnModel().getColumn(2).setResizable(false);
         table.getColumnModel().getColumn(3).setResizable(false);
         table.getColumnModel().getColumn(4).setResizable(false);
-  
+        
         TableColumn column = table.getColumnModel().getColumn(0);
         column.setMinWidth(170);
         column.setMaxWidth(170);
@@ -136,11 +135,11 @@ public class ListaEquiposIngles extends JFrame {
         tableHeader.setFont(new Font("Calibri", Font.BOLD, 20));
         tableHeader.setBackground(Color.WHITE);
         tableHeader.setForeground(new Color(139, 0, 0));
-	tableHeader.setReorderingAllowed(false);
+        tableHeader.setReorderingAllowed(false);
  
         contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel = new JLabel("List of teams:");
+		JLabel lblNewLabel = new JLabel("Lista de Equipos:");
 	    lblNewLabel.setForeground(Color.BLACK);
 	    lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 25));
 	    lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
