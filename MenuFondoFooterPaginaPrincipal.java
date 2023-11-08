@@ -97,7 +97,8 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
       public void actionPerformed(ActionEvent e) {
           // Abre el DocumentoNuevo
           MenuFondoFooterPaginaPrincipal menuFondoFooterPaginaPrincipal = new MenuFondoFooterPaginaPrincipal();
-					menuFondoFooterPaginaPrincipal.setVisible(true);
+		menuFondoFooterPaginaPrincipal.setVisible(true);
+	      dispose();
         
       }
   });
