@@ -43,7 +43,7 @@ public class Calendario extends JFrame {
 		setAlwaysOnTop(true);
 		setTitle("Resultados Waterpolo Español");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1063, 585);
+		setBounds(100, 100, 978, 585);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
