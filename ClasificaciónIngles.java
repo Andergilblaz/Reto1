@@ -89,7 +89,7 @@ public class ClasificaciónIngles extends JFrame {
 		setAlwaysOnTop(true);
 		setTitle("Spanish Waterpolo Classification");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 1000, 375);
+		setBounds(100, 100, 978, 375);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo (null);
 		
