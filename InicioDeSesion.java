@@ -122,29 +122,34 @@
 				// TODO Apéndice de constructor generado automáticamente
 			}
 	
-			@Override
-		    public void actionPerformed(ActionEvent ae) {
-		        Object o = ae.getSource();
-	
-		        if (o == btnEntrar) {
-		            String usuario = txtNombre.getText();
-		            char[] contraseñaIngresada = Contraseña.getPassword();
-		            String contraseña = new String(contraseñaIngresada);
-	
-		            if (controladorCuentas.validarCredenciales(usuario, contraseña)) {
-		                // Las credenciales son válidas, puedes proceder con la autenticación.
-		                JOptionPane.showMessageDialog(this, "Accediendo al modo edición del usuario " + usuario);
-		                // Abre la ventana de gestión y cierra la ventana de inicio de sesión
-		                MenuFondoFooterPaginaPrincipal vh = new MenuFondoFooterPaginaPrincipal();
-		        				vh.setTitle("Modo edición del usuario " + usuario);
-		        				vh.setVisible(true);
-		        				dispose();
-		            } else {
-		                // Las credenciales no son válidas.
-		                JOptionPane.showMessageDialog(this, "Credenciales incorrectas. Acceso denegado.");
-		            }
-		        }
-		    }
+			 @Override
+			 public void actionPerformed(ActionEvent ae) {
+			     Object o = ae.getSource();
+
+			     if (o == btnEntrar) {
+			         String usuario = txtNombre.getText();
+			         char[] contraseñaIngresada = Contraseña.getPassword();
+			         String contraseña = new String(contraseñaIngresada);
+
+			         if (!usuario.isEmpty() && !contraseña.isEmpty()) {
+			             if (controladorCuentas.validarCredenciales(usuario, contraseña)) {
+			                 // Las credenciales son válidas, puedes proceder con la autenticación.
+			                 JOptionPane.showMessageDialog(this, "Accediendo al modo edición del usuario " + "[" + usuario +"]");
+			                 // Abre la ventana de gestión y cierra la ventana de inicio de sesión
+			                 MenuFondoFooterPaginaPrincipal vh = new MenuFondoFooterPaginaPrincipal();
+			                 vh.setTitle("Modo edición del usuario " + "[" + usuario +"]");
+			                 vh.setVisible(true);
+			                 dispose();
+			             } else {
+			                 // Las credenciales no son válidas.
+			                 JOptionPane.showMessageDialog(this, "Credenciales incorrectas. Acceso denegado.");
+			             }
+			         } else {
+			             JOptionPane.showMessageDialog(this, "Usuario o contraseña vacíos, por favor ingresa ambos.", "Error", JOptionPane.WARNING_MESSAGE);
+			         }
+			     }
+			 }
+
 	
 	
 			@Override

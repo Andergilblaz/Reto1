@@ -27,11 +27,23 @@ public class Gestion extends JFrame {
         setSize(400, 300);
         setLocationRelativeTo(null);
 
-        tableModel = new DefaultTableModel();
-        tableModel.addColumn("Usuario");
-        tableModel.addColumn("Contraseña");
+        tableModel = new DefaultTableModel() {
+          /**
+					 * 
+					 */
+					private static final long serialVersionUID = 1L;
 
-        cuentasTable = new JTable(tableModel);
+					@Override
+          public boolean isCellEditable(int row, int column) {
+              // Hacer que todas las celdas no sean editables
+              return false;
+          }
+      };
+
+      tableModel.addColumn("Usuario");
+      tableModel.addColumn("Contraseña");
+
+      cuentasTable = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(cuentasTable);
         getContentPane().add(scrollPane, BorderLayout.CENTER);
 
@@ -58,16 +70,20 @@ public class Gestion extends JFrame {
     }
 
     public void agregarCuenta() {
-        String usuario = JOptionPane.showInputDialog("Nombre de usuario:");
-        String contraseña = JOptionPane.showInputDialog("Contraseña:");
+    	@SuppressWarnings("unused")
+			String aviso = JOptionPane.showInputDialog("⚠ Una vez introducida una nueva cuenta, no es editable, tendrias que eliminarla y volver a crearla.⚠ ");
+      String usuario = JOptionPane.showInputDialog("Nombre de usuario:");
+      String contraseña = JOptionPane.showInputDialog("Contraseña:");
 
-        if (usuario != null && contraseña != null) {
-            Cuenta nuevaCuenta = new Cuenta(usuario, contraseña);
-            cuentasGuardadas.add(nuevaCuenta); // Agregar cuenta a la lista de cuentas.
-            tableModel.addRow(new Object[]{nuevaCuenta.getUsuario(), nuevaCuenta.getContraseña()});
-            guardarCuentas();
-        }
-    }
+      if (usuario != null && !usuario.isEmpty() && contraseña != null && !contraseña.isEmpty()) {
+          Cuenta nuevaCuenta = new Cuenta(usuario, contraseña);
+          cuentasGuardadas.add(nuevaCuenta);
+          tableModel.addRow(new Object[]{nuevaCuenta.getUsuario(), nuevaCuenta.getContraseña()});
+          guardarCuentas();
+      } else {
+          JOptionPane.showMessageDialog(this, "Usuario o contraseña vacíos, no se puede agregar la cuenta.", "Error", JOptionPane.WARNING_MESSAGE);
+      }
+  }
 
     public void eliminarCuenta() {
         int selectedRow = cuentasTable.getSelectedRow();
