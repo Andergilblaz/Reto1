@@ -94,7 +94,7 @@ public class FAQ extends JFrame {
         lblNewLabel_4.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         panel_1.add(lblNewLabel_4);
         
-        JLabel lblNewLabel_5 = new JLabel("<html>5: ¿Cómo contactarte?<br>- Si no ha encontrado la respuesta a su pregunta, siempre puede enviarnos un mensaje utilizando <br>la tabla del menú \"Contacto\".</html>");
+        JLabel lblNewLabel_5 = new JLabel("<html>5: ¿Cómo contactarnos?<br>- Si no ha encontrado la respuesta a su pregunta, siempre puede enviarnos un mensaje utilizando <br>el formulario del menú \"Contacto\".</html>");
         lblNewLabel_5.setFont(new Font("Calibri", Font.BOLD, 20));
         lblNewLabel_5.setVerticalAlignment(SwingConstants.TOP);
         lblNewLabel_5.setHorizontalAlignment(SwingConstants.LEFT);
