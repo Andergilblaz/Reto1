@@ -242,4 +242,5 @@ public class Clasificación extends JFrame {
 	Object e5dg;
 	Object e6dg;
 
+	
 }
