@@ -35,7 +35,7 @@ import Reto1.CalendarioING;
 import Reto1.Clasificación; 
 import Reto1.ContactoWeb; 
 import Reto1.InicioDeSesion; 
-import Reto1.ListaDeEquipos;
+import Reto1.ListaEquipos;
 import Reto1.MenuFondoFooterPaginaPrincipal; 
 import Reto1.MenuFondoFooterPaginaPrincipalING; 
 
