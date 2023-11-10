@@ -89,18 +89,18 @@ public class Clasificación extends JFrame {
 		setAlwaysOnTop(true);
 		setTitle("Resultados Waterpolo Español");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 978, 399);
+		setBounds(100, 100, 985, 372);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo (null);
 		
 		DefaultTableModel tableModel = new DefaultTableModel(
                 new Object[][] {
-                        {"1", "CN Atlétic Barceloneta (Catalán)", "25", "10", "8", "1", "1", "68", "45", "+23"},
-                        {"2", "CN La Latina (Madrid)", "20", "10", "6", "2", "2", "60", "43", "+17"},
-                        {"3", "Urbat IKE (Eibar)", "19", "10", "6", "3", "1", "60", "50", "+10"},
-                        {"4", "Club Askartza (Leioa)", "17", "10", "5", "3", "2", "52", "60", "-8"},
-                        {"5", "CN Terrassa (Catalán)", "17", "10", "5", "3", "2", "55", "57", "-2"},
-                        {"6", "Tenerife Echeyde (Tenerife)", "12", "10", "3", "4","3", "45", "70", "-25"},
+                        {"1", e1, e1p, e1pj, e1pg, e1pp, e1pe, e1gf, e1gc, e1dg},
+                        {"2", e2, e2p, e2pj, e2pg, e2pp, e2pe, e2gf, e2gc, e2dg},
+                        {"3", e3, e3p, e3pj, e3pg, e3pp, e3pe, e3gf, e3gc, e3dg},
+                        {"4", e4, e4p, e4pj, e4pg, e4pp, e4pe, e4gf, e4gc, e4dg},
+                        {"5", e5, e5p, e5pj, e5pg, e5pp, e5pe, e5gf, e5gc, e5dg},
+                        {"6", e6, e6p, e6pj, e6pg, e6pp, e6pe, e6gf, e6gc, e6dg},
                 },
                 new String[] {
                         "Posicion", "Equipos", "Puntos", "PJ", "PG", "PP", "PE", "GF", "GC", "DG"
@@ -169,4 +169,77 @@ public class Clasificación extends JFrame {
 		contentPane.add(lblAbbreviations, BorderLayout.SOUTH);
 	    setContentPane(contentPane);
     }
+	
+	//Equipos	
+	Object e1; //Barceloneta
+	Object e2; //Urbat
+	Object e3; //Latina
+	Object e4; //Terrasa
+	Object e5; //Askartza
+	Object e6; //Tenerife
+	
+	//Puntos
+	Object e1p;
+	Object e2p;
+	Object e3p;
+	Object e4p;
+	Object e5p;
+	Object e6p;
+	
+	//Partidos jugados	
+	Object e1pj; 
+	Object e2pj;
+	Object e3pj;
+	Object e4pj;
+	Object e5pj;
+	Object e6pj;
+
+	//Partidos ganados
+	Object e1pg;
+	Object e2pg;
+	Object e3pg;
+	Object e4pg;
+	Object e5pg;
+	Object e6pg;
+	
+	//Partidos perdidos
+	Object e1pp;
+	Object e2pp;
+	Object e3pp;
+	Object e4pp;
+	Object e5pp;
+	Object e6pp;
+	
+	//Partidos empatados
+	Object e1pe; 
+	Object e2pe;
+	Object e3pe;
+	Object e4pe;
+	Object e5pe;
+	Object e6pe;
+	
+	//Goles a favor
+	Object e1gf;
+	Object e2gf;
+	Object e3gf;
+	Object e4gf;
+	Object e5gf;
+	Object e6gf;
+	
+	//Goles en contra
+	Object e1gc;
+	Object e2gc;
+	Object e3gc;
+	Object e4gc;
+	Object e5gc;
+	Object e6gc;
+	
+	// Diferencia de goles
+	Object e1dg;
+	Object e2dg;
+	Object e3dg;
+	Object e4dg;
+	Object e5dg;
+	Object e6dg;
+
 }
