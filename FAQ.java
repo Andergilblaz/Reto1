@@ -45,6 +45,7 @@ public class FAQ extends JFrame {
 		setBounds(100, 100, 978, 602);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLocationRelativeTo(null);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
