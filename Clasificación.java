@@ -145,7 +145,7 @@ public class Clasificación extends JFrame {
         tableHeader.setFont(new Font("Calibri", Font.BOLD, 20));
         tableHeader.setBackground(Color.WHITE);
         tableHeader.setForeground(new Color(139, 0, 0));
-	tableHeader.setReorderingAllowed(false); 
+        tableHeader.setReorderingAllowed(false); 
  
         contentPane.setLayout(new BorderLayout(0, 0));
 		
