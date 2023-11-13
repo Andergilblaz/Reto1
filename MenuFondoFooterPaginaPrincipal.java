@@ -1,5 +1,5 @@
 package Reto1;
-
+//Agregar importaciones para la funcionalidad de todos los componentes
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -46,10 +46,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private static final JMenu PaginaPrincipal = null;
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
+	//lanzando la aplicación
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -63,9 +60,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 			}
 		});
 	}
-		/**
-	 * Create the frame.
-	 */
+	//mostrando todos los componentes de la aplicación
 	public MenuFondoFooterPaginaPrincipal() {
 		setBackground(new Color(255, 255, 255));
 		setForeground(new Color(139, 0, 0));
@@ -79,29 +74,13 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		this.setExtendedState(Frame.MAXIMIZED_BOTH);
 		setLocationRelativeTo(null);
 		
+		//creando un menú en la parte superior de la pantalla con botones como: Resultados, Calendario, Lista Equipos, etc.
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBorderPainted(false);
 		menuBar.setBackground(new Color(139, 0, 0));
 		menuBar.setFont(new Font("Calibri", Font.BOLD, 20));
 		setJMenuBar(menuBar);
-		
-		
-		JButton btnPaginaPrincipal = new JButton("Página Principal");
-		menuBar.add(btnPaginaPrincipal);
-		btnPaginaPrincipal.setBackground(new Color(139, 0, 0));
-		btnPaginaPrincipal.setForeground(new Color(255, 255, 255));
-		btnPaginaPrincipal.setFont(new Font("Calibri", Font.BOLD, 20));
-		btnPaginaPrincipal.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
-          MenuFondoFooterPaginaPrincipal menuFondoFooterPaginaPrincipal = new MenuFondoFooterPaginaPrincipal();
-		menuFondoFooterPaginaPrincipal.setVisible(true);
-	      dispose();
-        
-      }
-  });
 		
 		JButton btnResultados = new JButton("Resultados");
 		menuBar.add(btnResultados);
@@ -213,6 +192,8 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
 		menuBar.add(separator);
+
+		//menú con selección de idioma PaginaPrincipal
 		
 		JMenu mnIdioma = new JMenu("ES/EN");
 		mnIdioma.setFont(new Font("Calibri", Font.BOLD, 20));
@@ -269,6 +250,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel containerPanelLeft = new JPanel(new BorderLayout());
+		
 		int margenT = 50;
 		int margenL = 40;
 		int margenB = 70;
@@ -282,7 +264,9 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 	     int margen = 10;
 	     newsPanel.setBorder(BorderFactory.createEmptyBorder(margen, margen, margen, margen));
 	     containerPanelLeft.add(newsPanel);
-	     
+
+	     //panel a la izquierda de la pantalla que muestra 2 fotos con noticias
+		
 	     JPanel centerPanel = new JPanel();
 	     centerPanel.setBackground(new Color(139, 0, 0));
 	     centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.X_AXIS));
@@ -325,7 +309,9 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		matchesPanel.setLayout(new BoxLayout(matchesPanel, BoxLayout.Y_AXIS));
 		matchesPanel.setBorder(BorderFactory.createEmptyBorder(margen, margen, margen, margen));
 		containerPanelRight.add(matchesPanel);
-	     
+
+		//Panel en el lado derecho de la pantalla que muestra los juegos posteriores
+		
 	     JPanel centerPanelPartidos = new JPanel();
 	     centerPanelPartidos.setBackground(new Color(139, 0, 0));
 	     centerPanelPartidos.setLayout(new BoxLayout(centerPanelPartidos, BoxLayout.X_AXIS));
@@ -349,6 +335,8 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		noticiaPanel.add(Box.createHorizontalGlue());
 		partidosPanel.add(lblPartidos);
 	     matchesPanel.add(partidosPanel);
+
+		//panel a continuación para mostrar las conexiones con nosotros
 		
 		Panel panel = new Panel();
 		panel.setBackground(new Color(139, 0, 0));
