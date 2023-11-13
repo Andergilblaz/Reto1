@@ -53,6 +53,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 				try {
 					MenuFondoFooterPaginaPrincipal frame = new MenuFondoFooterPaginaPrincipal();
 					frame.setVisible(true);
+					//prohibición de cambiar el tamaño de la aplicación
 					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
