@@ -334,7 +334,7 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 		partidosPanel.add(lblPartidos);
 	     matchesPanel.add(partidosPanel);
 
-		//panel a continuación para mostrar las conexiones con nosotros
+		//panel below to show connections to us
 		
 		Panel panel = new Panel();
 		panel.setBackground(new Color(139, 0, 0));
