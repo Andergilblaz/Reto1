@@ -67,7 +67,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		setForeground(new Color(139, 0, 0));
 		setIconImage(Toolkit.getDefaultToolkit().getImage("src/Reto1/fotos/LogoWaterpolo.png"));
 		setAlwaysOnTop(true);
-		setTitle("Resultados Waterpolo Español");
+		setTitle("Waterpolo Español");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 282, 530);
 		contentPane = new JPanel();
@@ -91,11 +91,10 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
     btnResultados.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            // Abre el DocumentoNuevo
+            // Abre el Documento Resultados
             Resultados Resultados = new Resultados();
             Resultados.setVisible(true);
-		Resultados.setResizable(false);
-            
+	Resultados.setResizable(false);
         }
     });
 		
@@ -107,7 +106,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
     btnCalendario.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
+          // Abre el Documento Calendario
           Calendario Calendario = new Calendario();
           Calendario.setVisible(true);
          Calendario.setResizable(false);
@@ -122,7 +121,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 	  btnListaEquipos.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
+          // Abre el Documento Lista Equipos
           ListaEquipos ListaEquipos = new ListaEquipos();
           ListaEquipos.setVisible(true);
           ListaEquipos.setResizable(false);
@@ -138,7 +137,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 	  btnClasificacion.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
+          // Abre el Documento Clasificación
           Clasificación Clasificación = new Clasificación();
           Clasificación.setVisible(true);
          Clasificación.setResizable(false);
@@ -153,7 +152,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		btnSobreNosotros.addActionListener(new ActionListener() {
 	      @Override
 	      public void actionPerformed(ActionEvent e) {
-	          // Abre el DocumentoNuevo
+	          // Abre el Documento Sobre Nosotros
 	          SobreNosotros SobreNosotros = new SobreNosotros();
 	          SobreNosotros.setVisible(true);
 	        SobreNosotros.setResizable(false);
@@ -168,7 +167,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		btnFAQ.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
+          // Abre el Documento FAQ
          	FAQ FAQ = new FAQ();
          	FAQ.setVisible(true);
         FAQ.setResizable(false);
@@ -183,7 +182,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		btnInicioSesion.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
+          // Abre el Documento Inicio de Sesion
       	InicioDeSesion InicioDeSesion = new InicioDeSesion();
       	InicioDeSesion.setVisible(true);
         InicioDeSesion.setResizable(false);
@@ -209,7 +208,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		mntmEspañol.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
+          // Abre el Documento Pagina Prinsipal (Español)
       	MenuFondoFooterPaginaPrincipal MenuFondoFooterPaginaPrincipal = new MenuFondoFooterPaginaPrincipal();
       	MenuFondoFooterPaginaPrincipal.setVisible(true);
         dispose();
@@ -224,7 +223,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		mntmIngles.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
+          // Abre el Documento Pagina Prinsipal (Ingles)
       	MenuFondoFooterPaginaPrincipalING MenuFondoFooterPaginaPrincipalING = new MenuFondoFooterPaginaPrincipalING();
       	MenuFondoFooterPaginaPrincipalING.setVisible(true);
           dispose();
@@ -240,15 +239,16 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		btnContacto.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
+          // Abre el Documento Contacto Web
       	ContactoWeb ContactoWeb = new ContactoWeb();
       	ContactoWeb.setVisible(true);
 	     ContactoWeb.setResizable(false);
-         
       }
   });
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
+		
+		 //panel a la izquierda de la pantalla que muestra 2 fotos con noticias
 		
 		JPanel containerPanelLeft = new JPanel(new BorderLayout());
 		
@@ -265,8 +265,6 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 	     int margen = 10;
 	     newsPanel.setBorder(BorderFactory.createEmptyBorder(margen, margen, margen, margen));
 	     containerPanelLeft.add(newsPanel);
-
-	     //panel a la izquierda de la pantalla que muestra 2 fotos con noticias
 		
 	     JPanel centerPanel = new JPanel();
 	     centerPanel.setBackground(new Color(139, 0, 0));
@@ -301,6 +299,8 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 	     nuevaNoticiaPanel.add(Box.createHorizontalGlue());
 	     newsPanel.add(nuevaNoticiaPanel);
 		
+		//Panel en el lado derecho de la pantalla que muestra los juegos posteriores
+		
 	     JPanel containerPanelRight = new JPanel(new BorderLayout());
 		containerPanelRight.setBorder(BorderFactory.createEmptyBorder(margenT, margenL, margenB, margenR));
 		contentPane.add(containerPanelRight, BorderLayout.EAST);
@@ -311,8 +311,6 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		matchesPanel.setBorder(BorderFactory.createEmptyBorder(margen, margen, margen, margen));
 		containerPanelRight.add(matchesPanel);
 
-		//Panel en el lado derecho de la pantalla que muestra los juegos posteriores
-		
 	     JPanel centerPanelPartidos = new JPanel();
 	     centerPanelPartidos.setBackground(new Color(139, 0, 0));
 	     centerPanelPartidos.setLayout(new BoxLayout(centerPanelPartidos, BoxLayout.X_AXIS));
