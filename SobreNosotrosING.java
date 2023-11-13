@@ -87,7 +87,7 @@ public class SobreNosotrosING extends JFrame {
         
         JPanel panel = new JPanel();
         panel.setLayout(null);
-        tabbedPane.addTab("Week1", null, panel, null);
+        tabbedPane.addTab("Who we are?", null, panel, null);
         
         JPanel panel_1 = new JPanel();
         panel_1.setLayout(null);
@@ -104,7 +104,7 @@ public class SobreNosotrosING extends JFrame {
         lblNewLabel_1.setBounds(174, 367, 421, 42);
         panel_1.add(lblNewLabel_1);
         
-        JLabel lblNewLabel_4 = new JLabel("¿Who we are?");
+        JLabel lblNewLabel_4 = new JLabel("Who we are?");
         lblNewLabel_4.setFont(new Font("Calibri", Font.BOLD, 30));
         lblNewLabel_4.setBounds(288, 25, 193, 66);
         panel_1.add(lblNewLabel_4);
@@ -115,7 +115,7 @@ public class SobreNosotrosING extends JFrame {
         panel_1.add(lblNewLabel_2);
         
         JPanel panel_5 = new JPanel();
-        tabbedPane.addTab("Week2", null, panel_5, null);
+        tabbedPane.addTab("How does this website come about?", null, panel_5, null);
         panel_5.setLayout(null);
         
         JPanel panel_1_1 = new JPanel();
