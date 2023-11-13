@@ -1,5 +1,5 @@
 package Reto1;
-
+//Add imports for all component functionality
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -22,12 +22,14 @@ public class CalendarioING extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel lblNewLabel;
+	//launching the application
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					CalendarioING frame = new CalendarioING();
 					frame.setVisible(true);
+					//prohibit changing the size of the application
 					frame.setResizable (false);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +37,7 @@ public class CalendarioING extends JFrame {
 			}
 		});
 	}
-
+	//showing all application components
 	public CalendarioING() {
 		setBackground(new Color(255, 255, 255));
 		setForeground(new Color(139, 0, 0));
@@ -53,6 +55,7 @@ public class CalendarioING extends JFrame {
 		
 		showImage();
 	}
+	//opening a new method to display the following components
 	public void showImage() {
 		ImageIcon originalImageIcon = new ImageIcon("src/Reto1/fotos/ImagenesJuntas.png");
         int targetWidth = 900;
@@ -72,12 +75,11 @@ public class CalendarioING extends JFrame {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
         getContentPane().add(scrollPane, BorderLayout.CENTER);
-        
+        	//adding a new Label
         lblNewLabel = new JLabel("Schedule:");
         lblNewLabel.setForeground(Color.BLACK);
 	    lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 25));
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         scrollPane.setColumnHeaderView(lblNewLabel);
-        
     }
 }
