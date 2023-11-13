@@ -94,16 +94,23 @@ public class Gestion extends JFrame {
   }
 
     public void eliminarCuenta() {
-        int selectedRow = cuentasTable.getSelectedRow();
+      int selectedRow = cuentasTable.getSelectedRow();
 
-        if (selectedRow != -1) {
-            cuentasGuardadas.remove(selectedRow);
-            tableModel.removeRow(selectedRow);
-            guardarCuentas();
-        } else {
-            JOptionPane.showMessageDialog(this, "Selecciona una cuenta para eliminar.", "Error", JOptionPane.WARNING_MESSAGE);
-        }
-    }
+      if (selectedRow != -1) {
+          Cuenta cuentaAEliminar = cuentasGuardadas.get(selectedRow);
+
+          if (!cuentaAEliminar.getUsuario().equals("Supremo")) { // Evitar eliminar la cuenta "admin"
+              cuentasGuardadas.remove(selectedRow);
+              tableModel.removeRow(selectedRow);
+              guardarCuentas();
+          } else {
+              JOptionPane.showMessageDialog(this, "No puedes eliminar la cuenta 'Supremo'", "Error", JOptionPane.WARNING_MESSAGE);
+          }
+      } else {
+          JOptionPane.showMessageDialog(this, "Selecciona una cuenta para eliminar.", "Error", JOptionPane.WARNING_MESSAGE);
+      }
+  }
+
 
     @SuppressWarnings("unchecked")
 		public void cargarCuentasGuardadas() {
