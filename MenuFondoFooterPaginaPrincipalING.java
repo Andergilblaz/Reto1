@@ -35,11 +35,10 @@ import Reto1.CalendarioING;
 import Reto1.Clasificación; 
 import Reto1.ContactoWeb; 
 import Reto1.InicioDeSesion; 
-import Reto1.ListaDeEquipos; 
+import Reto1.ListaEquipos; 
 import Reto1.ListaEquiposIngles; 
 import Reto1.MenuFondoFooterPaginaPrincipalING; 
 import Reto1.MenuFondoFooterPaginaPrincipal; 
-
 
 
 @SuppressWarnings("unused")
@@ -58,6 +57,7 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 				try {
 					MenuFondoFooterPaginaPrincipalING frame = new MenuFondoFooterPaginaPrincipalING();
 					frame.setVisible(true);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -78,6 +78,7 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
 		this.setExtendedState(Frame.MAXIMIZED_BOTH);
+		setLocationRelativeTo(null);
 		
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -97,8 +98,9 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
       public void actionPerformed(ActionEvent e) {
           // Abre el DocumentoNuevo
           MenuFondoFooterPaginaPrincipalING menuFondoFooterPaginaPrincipal = new MenuFondoFooterPaginaPrincipalING();
-					menuFondoFooterPaginaPrincipal.setVisible(true);
+		menuFondoFooterPaginaPrincipal.setVisible(true);
           dispose();
+          
       }
   });
 		
@@ -111,9 +113,9 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             // Abre el DocumentoNuevo
-            Resultados Resultados = new Resultados();
-            Resultados.setVisible(true);
-            dispose();
+            ResultadosING ResultadosING = new ResultadosING();
+            ResultadosING.setVisible(true);
+            ResultadosING.setResizable(false);
         }
     });
 		
@@ -126,9 +128,9 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
           // Abre el DocumentoNuevo
-          Calendario Calendario = new Calendario();
-          Calendario.setVisible(true);
-          dispose();
+          CalendarioING CalendarioING = new CalendarioING();
+          CalendarioING.setVisible(true);
+          CalendarioING.setResizable(false);
       }
   });
 		
@@ -141,9 +143,9 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
           // Abre el DocumentoNuevo
-          ListaEquipos ListaEquipos = new ListaEquipos();
-          ListaEquipos.setVisible(true);
-          dispose();
+          ListaEquiposIngles ListaEquiposIngles = new ListaEquiposIngles();
+          ListaEquiposIngles.setVisible(true);
+          ListaEquiposIngles.setResizable(false);
       }
   });
 	
@@ -157,9 +159,9 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
           // Abre el DocumentoNuevo
-          Clasificación Clasificación = new Clasificación();
-          Clasificación.setVisible(true);
-          dispose();
+          ClasificaciónIngles ClasificaciónIngles = new ClasificaciónIngles();
+          ClasificaciónIngles.setVisible(true);
+          ClasificaciónIngles.setResizable(false);
       }
   });
 		JButton btnSobreNosotros = new JButton("About us");
@@ -174,7 +176,7 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 	          // Abre el DocumentoNuevo
 	          SobreNosotros SobreNosotros = new SobreNosotros();
 	          SobreNosotros.setVisible(true);
-	          dispose();
+	          SobreNosotros.setResizable(false);
 	      }
 	  });
 		
@@ -187,9 +189,9 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
           // Abre el DocumentoNuevo
-         	FAQ FAQ = new FAQ();
-         	FAQ.setVisible(true);
-          dispose();
+         	FAQIngles FAQIngles = new FAQIngles();
+         	FAQIngles.setVisible(true);
+         	FAQIngles.setResizable(false);
       }
   });
 		
@@ -209,6 +211,7 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
   });
 		
 		JSeparator separator = new JSeparator();
+		separator.setOrientation(SwingConstants.VERTICAL);
 		menuBar.add(separator);
 		
 		JMenu mnIdioma = new JMenu("ES/EN");
@@ -255,9 +258,9 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
           // Abre el DocumentoNuevo
-      	ContactoWeb ContactoWeb = new ContactoWeb();
-      	ContactoWeb.setVisible(true);
-          dispose();
+    	WebContact WebContact = new WebContact();
+    	WebContact.setVisible(true);
+    	WebContact.setResizable(false);
       }
   });
 		setContentPane(contentPane);
@@ -295,7 +298,7 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 	     noticiaPanel.add(Box.createHorizontalGlue());
 	     JLabel lblNoticiaWP = new JLabel("");
 	     lblNoticiaWP.setHorizontalAlignment(SwingConstants.CENTER);
-	     lblNoticiaWP.setIcon(new ImageIcon("src\\Reto1\\fotos\\Noticia ingles 2.png"));
+	     lblNoticiaWP.setIcon(new ImageIcon("src/Reto1/fotos/Noticia ingles.png"));
 	     noticiaPanel.add(lblNoticiaWP);
 	     noticiaPanel.add(Box.createHorizontalGlue());
 	     newsPanel.add(noticiaPanel);
@@ -306,7 +309,7 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 	     JLabel lblNuevaNoticiaWP = new JLabel("");
 	     lblNuevaNoticiaWP.setBackground(new Color(255, 255, 255));
 	     lblNuevaNoticiaWP.setHorizontalAlignment(SwingConstants.CENTER);
-	     lblNuevaNoticiaWP.setIcon(new ImageIcon("src\\Reto1\\fotos\\Noticia ingles.png"));
+	     lblNuevaNoticiaWP.setIcon(new ImageIcon("src/Reto1/fotos/Noticia ingles 2.png"));
 	     nuevaNoticiaPanel.add(lblNuevaNoticiaWP);
 	     nuevaNoticiaPanel.add(Box.createHorizontalGlue());
 	     newsPanel.add(nuevaNoticiaPanel);
@@ -340,7 +343,7 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 		partidosPanel.add(horizontalGlue);
 		JLabel lblPartidos = new JLabel("");
 		lblPartidos.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPartidos.setIcon(new ImageIcon("src\\Reto1\\fotos\\Jornada ordenada ingles.png"));
+		lblPartidos.setIcon(new ImageIcon("src/Reto1/fotos/Jornada ordenada ingles.png"));
 		noticiaPanel.add(Box.createHorizontalGlue());
 		partidosPanel.add(lblPartidos);
 	     matchesPanel.add(partidosPanel);
