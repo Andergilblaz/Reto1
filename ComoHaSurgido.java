@@ -26,7 +26,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
 
-public class QuienesSomos extends JFrame {
+public class ComoHaSurgido extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -38,7 +38,7 @@ public class QuienesSomos extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					QuienesSomos frame = new QuienesSomos();
+					ComoHaSurgido frame = new ComoHaSurgido();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,7 +47,7 @@ public class QuienesSomos extends JFrame {
 		});
 	}
 
-	public QuienesSomos() {
+	public ComoHaSurgido() {
 		setBackground(new Color(255, 255, 255));
 		setForeground(new Color(139, 0, 0));
 		setIconImage(Toolkit.getDefaultToolkit().getImage("I:\\.shortcut-targets-by-id\\15dkCqPjbMIsgGF0lsmzUfUoErx1EL_qN\\G3-Reto1\\LMSG\\Fotos\\ideogram.jpeg"));
@@ -91,34 +91,29 @@ public class QuienesSomos extends JFrame {
         panel.setLayout(null);
         scrollPane.setViewportView(panel);
         
-        JLabel lblNewLabel = new JLabel("Somos un grupo apasionado de estudiantes de Desarrollo de Aplicaciones Web");
+        JLabel lblNewLabel = new JLabel("Esta web ha surgido con el objetivo de que toda aquella persona que quiera informarse ");
         lblNewLabel.setFont(new Font("Calibri", Font.PLAIN, 17));
-        lblNewLabel.setBounds(121, 315, 556, 42);
+        lblNewLabel.setBounds(93, 315, 612, 42);
         panel.add(lblNewLabel);
         
-        JLabel lblNewLabel_1 = new JLabel("que comparten un interés común por la creación de experiencias digitales impactantes y funcionales.");
+        JLabel lblNewLabel_1 = new JLabel("sobre la División de Honor de Waterpolo pueda hacerlo,");
         lblNewLabel_1.setFont(new Font("Calibri", Font.PLAIN, 17));
-        lblNewLabel_1.setBounds(44, 367, 709, 42);
+        lblNewLabel_1.setBounds(197, 367, 404, 42);
         panel.add(lblNewLabel_1);
         
-        JLabel lblNewLabel_2 = new JLabel("Nuestros 3 principios:");
+        JLabel lblNewLabel_2 = new JLabel("por eso empezamos a desarrollar esta web en grupo, para facilitar el acceso a la información.");
         lblNewLabel_2.setFont(new Font("Calibri", Font.PLAIN, 17));
-        lblNewLabel_2.setBounds(167, 428, 162, 25);
+        lblNewLabel_2.setBounds(72, 429, 653, 25);
         panel.add(lblNewLabel_2);
         
-        JLabel lblNewLabel_3 = new JLabel("Minimalismo, Accesibilidad, Funcionalidad ");
-        lblNewLabel_3.setFont(new Font("Calibri", Font.ITALIC, 17));
-        lblNewLabel_3.setBounds(328, 419, 320, 42);
-        panel.add(lblNewLabel_3);
-        
-        JLabel lblNewLabel_4 = new JLabel("¿Quiénes Somos?");
+        JLabel lblNewLabel_4 = new JLabel("¿Cómo ha surgido esta web?");
         lblNewLabel_4.setFont(new Font("Calibri", Font.BOLD, 30));
-        lblNewLabel_4.setBounds(284, 25, 229, 66);
+        lblNewLabel_4.setBounds(216, 25, 366, 66);
         panel.add(lblNewLabel_4);
         
         JLabel lblNewLabel_5 = new JLabel("New label");
         lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\ik_1DW3A\\eclipse-workspace\\Java\\src\\Reto1\\fotos\\LogoWaterpoloPequeña.png"));
-        lblNewLabel_5.setBounds(323, 101, 152, 192);
+        lblNewLabel_5.setBounds(323, 101, 152, 195);
         panel.add(lblNewLabel_5);
         
     }
