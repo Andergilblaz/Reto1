@@ -1,5 +1,5 @@
 package Reto1;
-
+//Add imports for all component functionality
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -48,15 +48,14 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 	private static final JMenu PaginaPrincipal = null;
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
+	//launching the application
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					MenuFondoFooterPaginaPrincipalING frame = new MenuFondoFooterPaginaPrincipalING();
 					frame.setVisible(true);
+					//prohibit changing the size of the application
 					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -64,9 +63,7 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 			}
 		});
 	}
-		/**
-	 * Create the frame.
-	 */
+	//showing all application components
 	public MenuFondoFooterPaginaPrincipalING() {
 		setBackground(new Color(255, 255, 255));
 		setForeground(new Color(139, 0, 0));
@@ -79,31 +76,15 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 		contentPane.setBorder(null);
 		this.setExtendedState(Frame.MAXIMIZED_BOTH);
 		setLocationRelativeTo(null);
-		
+
+		//creating a menu at the top of the screen with buttons such as: Results, Calendar, Team List, etc.
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBorderPainted(false);
 		menuBar.setBackground(new Color(139, 0, 0));
 		menuBar.setFont(new Font("Calibri", Font.BOLD, 20));
 		setJMenuBar(menuBar);
-		
-		
-		JButton btnPaginaPrincipal = new JButton("Home");
-		menuBar.add(btnPaginaPrincipal);
-		btnPaginaPrincipal.setBackground(new Color(139, 0, 0));
-		btnPaginaPrincipal.setForeground(new Color(255, 255, 255));
-		btnPaginaPrincipal.setFont(new Font("Calibri", Font.BOLD, 20));
-		btnPaginaPrincipal.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
-          MenuFondoFooterPaginaPrincipalING menuFondoFooterPaginaPrincipal = new MenuFondoFooterPaginaPrincipalING();
-		menuFondoFooterPaginaPrincipal.setVisible(true);
-          dispose();
-          
-      }
-  });
-		
+
 		JButton btnResultados = new JButton("Results");
 		menuBar.add(btnResultados);
 		btnResultados.setForeground(new Color(255, 255, 255));
@@ -112,7 +93,7 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
     btnResultados.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            // Abre el DocumentoNuevo
+            // Open the ResultadosING Document
             ResultadosING ResultadosING = new ResultadosING();
             ResultadosING.setVisible(true);
             ResultadosING.setResizable(false);
@@ -127,7 +108,7 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
     btnCalendario.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
+          // Open the CalendarioING Document
           CalendarioING CalendarioING = new CalendarioING();
           CalendarioING.setVisible(true);
           CalendarioING.setResizable(false);
@@ -142,13 +123,12 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 	  btnListaEquipos.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
+          // Open the ListaEquiposIngles Document
           ListaEquiposIngles ListaEquiposIngles = new ListaEquiposIngles();
           ListaEquiposIngles.setVisible(true);
           ListaEquiposIngles.setResizable(false);
       }
-  });
-	
+  });	
 		
 		JButton btnClasificacion = new JButton("League Table");
 		menuBar.add(btnClasificacion);
@@ -158,7 +138,7 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 	  btnClasificacion.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
+          // Open the ClasificaciónIngles Document
           ClasificaciónIngles ClasificaciónIngles = new ClasificaciónIngles();
           ClasificaciónIngles.setVisible(true);
           ClasificaciónIngles.setResizable(false);
@@ -173,10 +153,10 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 		btnSobreNosotros.addActionListener(new ActionListener() {
 	      @Override
 	      public void actionPerformed(ActionEvent e) {
-	          // Abre el DocumentoNuevo
-	          SobreNosotros SobreNosotros = new SobreNosotros();
-	          SobreNosotros.setVisible(true);
-	          SobreNosotros.setResizable(false);
+	          // Open the SobreNosotrosIngles Document
+	          SobreNosotrosIngles SobreNosotrosIngles = new SobreNosotrosIngles();
+	          SobreNosotrosIngles.setVisible(true);
+	          SobreNosotrosIngles.setResizable(false);
 	      }
 	  });
 		
@@ -188,7 +168,7 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 		btnFAQ.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
+          // Open the FAQIngles Document
          	FAQIngles FAQIngles = new FAQIngles();
          	FAQIngles.setVisible(true);
          	FAQIngles.setResizable(false);
@@ -203,16 +183,18 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 		btnInicioSesion.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
+          // Open the InicioDeSesion Document
       	InicioDeSesion InicioDeSesion = new InicioDeSesion();
       	InicioDeSesion.setVisible(true);
-          dispose();
+        InicioDeSesion.setResizable(false);
       }
   });
 		
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
 		menuBar.add(separator);
+
+		//menu with language selection Main Page
 		
 		JMenu mnIdioma = new JMenu("ES/EN");
 		mnIdioma.setFont(new Font("Calibri", Font.BOLD, 20));
@@ -227,7 +209,7 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 		mntmEspañol.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
+          // Open the Document Main Page (Spanish)
       	MenuFondoFooterPaginaPrincipal MenuFondoFooterPaginaPrincipal = new MenuFondoFooterPaginaPrincipal();
       	MenuFondoFooterPaginaPrincipal.setVisible(true);
           dispose();
@@ -241,7 +223,7 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 		mntmIngles.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
+          // Open the Document Main Page (English)
       	MenuFondoFooterPaginaPrincipalING menuFondoFooterPaginaPrincipalING = new MenuFondoFooterPaginaPrincipalING();
 				menuFondoFooterPaginaPrincipalING.setVisible(true);
           
@@ -257,7 +239,7 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 		btnContacto.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-          // Abre el DocumentoNuevo
+          // Open the WebContact Document
     	WebContact WebContact = new WebContact();
     	WebContact.setVisible(true);
     	WebContact.setResizable(false);
@@ -265,6 +247,8 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
   });
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
+
+		//panel on the left of the screen that shows 2 photos with news
 		
 		JPanel containerPanelLeft = new JPanel(new BorderLayout());
 		int margenT = 50;
@@ -313,6 +297,8 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 	     nuevaNoticiaPanel.add(lblNuevaNoticiaWP);
 	     nuevaNoticiaPanel.add(Box.createHorizontalGlue());
 	     newsPanel.add(nuevaNoticiaPanel);
+
+		//Panel on the right side of the screen showing subsequent games
 		
 	     JPanel containerPanelRight = new JPanel(new BorderLayout());
 		containerPanelRight.setBorder(BorderFactory.createEmptyBorder(margenT, margenL, margenB, margenR));
@@ -347,6 +333,8 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 		noticiaPanel.add(Box.createHorizontalGlue());
 		partidosPanel.add(lblPartidos);
 	     matchesPanel.add(partidosPanel);
+
+		//panel a continuación para mostrar las conexiones con nosotros
 		
 		Panel panel = new Panel();
 		panel.setBackground(new Color(139, 0, 0));
