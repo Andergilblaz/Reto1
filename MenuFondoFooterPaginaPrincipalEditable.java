@@ -15,7 +15,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JMenuBar;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import javax.swing.JLabel;
 import java.awt.Component;
@@ -63,16 +65,16 @@ public class MenuFondoFooterPaginaPrincipalEditable extends JFrame {
 	}
 	//mostrando todos los componentes de la aplicación
 	public MenuFondoFooterPaginaPrincipalEditable() {
+		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setBackground(new Color(255, 255, 255));
 		setForeground(new Color(139, 0, 0));
 		setIconImage(Toolkit.getDefaultToolkit().getImage("src/Reto1/fotos/LogoWaterpolo.png"));
 		setAlwaysOnTop(true);
-		setTitle("Waterpolo Español");
+		setTitle("Waterpolo Español para editores");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 282, 530);
+		setBounds(100, 100, 1134, 774);
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
-		this.setExtendedState(Frame.MAXIMIZED_BOTH);
 		setLocationRelativeTo(null);
 		
 		//creando un menú en la parte superior de la pantalla con botones como: Resultados, Calendario, Lista Equipos, etc.
@@ -82,6 +84,8 @@ public class MenuFondoFooterPaginaPrincipalEditable extends JFrame {
 		menuBar.setBackground(new Color(139, 0, 0));
 		menuBar.setFont(new Font("Calibri", Font.BOLD, 20));
 		setJMenuBar(menuBar);
+		
+		//Botón Resultados
 		
 		JButton btnResultados = new JButton("Resultados");
 		menuBar.add(btnResultados);
@@ -98,6 +102,8 @@ public class MenuFondoFooterPaginaPrincipalEditable extends JFrame {
         }
     });
 		
+  //Botón Calendario
+    
 		JButton btnCalendario = new JButton("Calendario");
 		btnCalendario.setFont(new Font("Calibri", Font.BOLD, 20));
 		menuBar.add(btnCalendario);
@@ -113,6 +119,8 @@ public class MenuFondoFooterPaginaPrincipalEditable extends JFrame {
       }
   });
 		
+  //Botón Lista Equipos
+    
 		JButton btnListaEquipos = new JButton("Lista Equipos");
 		menuBar.add(btnListaEquipos);
 		btnListaEquipos.setBackground(new Color(139, 0, 0));
@@ -128,6 +136,7 @@ public class MenuFondoFooterPaginaPrincipalEditable extends JFrame {
       }
   });
 	
+	//Botón Clasificación
 		
 		JButton btnClasificacion = new JButton("Clasificación");
 		menuBar.add(btnClasificacion);
@@ -138,11 +147,14 @@ public class MenuFondoFooterPaginaPrincipalEditable extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
           // Abre el Documento Clasificación
-          ClasificaciónEditable ClasificaciónEditable = new ClasificaciónEditable();
+          Clasificación ClasificaciónEditable = new Clasificación();
           ClasificaciónEditable.setVisible(true);
          ClasificaciónEditable.setResizable(false);
       }
   });
+	  
+	//Botón Sobre Nosotros
+	  
 		JButton btnSobreNosotros = new JButton("Sobre Nosotros");
 		menuBar.add(btnSobreNosotros);
 		btnSobreNosotros.setFont(new Font("Calibri", Font.BOLD, 20));
@@ -159,6 +171,8 @@ public class MenuFondoFooterPaginaPrincipalEditable extends JFrame {
 	      }
 	  });
 		
+		//Botón FAQ
+		
 		JButton btnFAQ = new JButton("FAQ");
 		btnFAQ.setFont(new Font("Calibri", Font.BOLD, 20));
 		btnFAQ.setBackground(new Color(139, 0, 0));
@@ -174,62 +188,42 @@ public class MenuFondoFooterPaginaPrincipalEditable extends JFrame {
       }
   });
 		
-/*		JButton btnInicioSesion = new JButton("Inicio de sesión");
-		menuBar.add(btnInicioSesion);
-		btnInicioSesion.setFont(new Font("Calibri", Font.BOLD, 20));
-		btnInicioSesion.setBackground(new Color(139, 0, 0));
-		btnInicioSesion.setForeground(new Color(255, 255, 255));
-		btnInicioSesion.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-          // Abre el Documento Inicio de Sesion
-      	InicioDeSesion InicioDeSesion = new InicioDeSesion();
-      	InicioDeSesion.setVisible(true);
-        InicioDeSesion.setResizable(false);
-      }
-  });*/
-		
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
 		menuBar.add(separator);
-/*
-		//menú con selección de idioma PaginaPrincipal
 		
-		JMenu mnIdioma = new JMenu("ES/EN");
-		mnIdioma.setFont(new Font("Calibri", Font.BOLD, 20));
-		mnIdioma.setForeground(new Color(255, 255, 255));
-		mnIdioma.setBackground(new Color(139, 0, 0));
-		menuBar.add(mnIdioma);
+		//Botón Cerrar de sesión
 		
-		JMenuItem mntmEspañol = new JMenuItem("Español");
-		mntmEspañol.setForeground(new Color(255, 255, 255));
-		mntmEspañol.setBackground(new Color(139, 0, 0));
-		mnIdioma.add(mntmEspañol);
-		mntmEspañol.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-          // Abre el Documento Pagina Prinsipal (Español)
-      	MenuFondoFooterPaginaPrincipalEditable MenuFondoFooterPaginaPrincipal = new MenuFondoFooterPaginaPrincipalEditable();
-      	MenuFondoFooterPaginaPrincipal.setVisible(true);
-        dispose();
-	      MenuFondoFooterPaginaPrincipal.setResizable(false);
-      }
-  });
+		JButton btnCerrar = new JButton("Cerrar de sesión");
+		btnCerrar.setFont(new Font("Calibri", Font.BOLD, 20));
+		btnCerrar.setBackground(new Color(139, 0, 0));
+		btnCerrar.setForeground(new Color(255, 255, 255));
+		menuBar.add(btnCerrar);
+		btnCerrar.addActionListener(new ActionListener() {
+			    @Override
+			    public void actionPerformed(ActionEvent e) {
+			    	//Obtiene el componente principal de la ventana
+			    	Component parentComponent = SwingUtilities.getWindowAncestor(btnCerrar);
+			    	// Muestra un cuadro de diálogo pidiendo confirmación para cerrar la sesión.
+			    	int choice = JOptionPane.showOptionDialog(parentComponent,
+			                "¿Está seguro de que desea cerrar la sesión?",
+			                "Cerrar sesión",
+			                JOptionPane.YES_NO_OPTION,
+			                JOptionPane.QUESTION_MESSAGE,
+			                null,
+			                new Object[]{"Sí", "No"},
+			                "No");
+
+			        if (choice == JOptionPane.YES_OPTION) {
+			            dispose();// Cerrando la ventana actual.
+			            MenuFondoFooterPaginaPrincipal menuFondoFooterPaginaPrincipal = new MenuFondoFooterPaginaPrincipal();
+						menuFondoFooterPaginaPrincipal.setVisible(true);
+						menuFondoFooterPaginaPrincipal.setResizable(false);
+			        }
+			    }
+			});
 		
-		JMenuItem mntmIngles = new JMenuItem("English");
-		mntmIngles.setForeground(new Color(255, 255, 255));
-		mntmIngles.setBackground(new Color(139, 0, 0));
-		mnIdioma.add(mntmIngles);
-		mntmIngles.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-          // Abre el Documento Pagina Prinsipal (Ingles)
-      	MenuFondoFooterPaginaPrincipalING MenuFondoFooterPaginaPrincipalING = new MenuFondoFooterPaginaPrincipalING();
-      	MenuFondoFooterPaginaPrincipalING.setVisible(true);
-          dispose();
-	     MenuFondoFooterPaginaPrincipalING.setResizable(false);
-      }
-  });*/
+		//Botón Contacto
 		
 		JButton btnContacto = new JButton("Contacto");
 		menuBar.add(btnContacto);
@@ -283,7 +277,7 @@ public class MenuFondoFooterPaginaPrincipalEditable extends JFrame {
 	     noticiaPanel.add(Box.createHorizontalGlue());
 	     JLabel lblNoticiaWP = new JLabel("");
 	     lblNoticiaWP.setHorizontalAlignment(SwingConstants.CENTER);
-	     lblNoticiaWP.setIcon(new ImageIcon("src\\Reto1\\fotos\\noticia waterpolo.png"));
+	     lblNoticiaWP.setIcon(new ImageIcon("src/Reto1/fotos/noticia waterpolo.png"));
 	     noticiaPanel.add(lblNoticiaWP);
 	     noticiaPanel.add(Box.createHorizontalGlue());
 	     newsPanel.add(noticiaPanel);
@@ -323,19 +317,17 @@ public class MenuFondoFooterPaginaPrincipalEditable extends JFrame {
 		centerPanelPartidos.add(Box.createHorizontalGlue()); 
 	     matchesPanel.add(centerPanelPartidos);
 	    
-		JPanel partidosPanel = new JPanel();
-		partidosPanel.setLayout(new BoxLayout(partidosPanel, BoxLayout.X_AXIS));
-		Component horizontalGlue = Box.createHorizontalGlue();
-		horizontalGlue.setBackground(UIManager.getColor("ColorChooser.background"));
-		partidosPanel.add(horizontalGlue);
-		JLabel lblPartidos = new JLabel("");
-		lblPartidos.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPartidos.setIcon(new ImageIcon("src\\Reto1\\fotos\\JORNADA ORDENADA.png"));
-		noticiaPanel.add(Box.createHorizontalGlue());
-		partidosPanel.add(lblPartidos);
-	     matchesPanel.add(partidosPanel);
-
-		//panel a continuación para mostrar las conexiones con nosotros
+	     JPanel partidosPanel = new JPanel();
+			partidosPanel.setLayout(new BoxLayout(partidosPanel, BoxLayout.X_AXIS));
+			Component horizontalGlue = Box.createHorizontalGlue();
+			horizontalGlue.setBackground(UIManager.getColor("ColorChooser.background"));
+			partidosPanel.add(horizontalGlue);
+			JLabel lblPartidos = new JLabel("");
+			lblPartidos.setHorizontalAlignment(SwingConstants.CENTER);
+			lblPartidos.setIcon(new ImageIcon("src\\Reto1\\fotos\\JORNADA ORDENADA.png"));
+			noticiaPanel.add(Box.createHorizontalGlue());
+			partidosPanel.add(lblPartidos);
+			matchesPanel.add(partidosPanel);
 		
 		Panel panel = new Panel();
 		panel.setBackground(new Color(139, 0, 0));
@@ -355,5 +347,4 @@ public class MenuFondoFooterPaginaPrincipalEditable extends JFrame {
 		lblFooter2.setFont(new Font("Calibri", Font.BOLD, 14));
 		panel.add(lblFooter2);
 	}
-		
 }
