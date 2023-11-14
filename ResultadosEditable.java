@@ -1016,14 +1016,14 @@
 	        lblE66.setBounds(87, 51, 184, 25);
 	        panel_1_1_1_1_2.add(lblE66);
 	        
-	        JLabel lblJornada_2_1_1 = new JLabel("Jornada 6");
+	       JLabel lblJornada_2_1_1 = new JLabel("Jornada 6");
 	        lblJornada_2_1_1.setFont(new Font("Calibri", Font.BOLD, 25));
 	        lblJornada_2_1_1.setBounds(314, 10, 100, 31);
 	        panel_1_1_1_1_2.add(lblJornada_2_1_1);
 	        
 	        JLabel lblE6R6 = new JLabel("-");
 	        lblE6R6.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE6R6.setBounds(305, 57, 29, 13);
+	        lblE6R6.setBounds(305, 48, 29, 31);
 	        panel_1_1_1_1_2.add(lblE6R6);
 	        
 	        JLabel lblNewLabel_5_2_1_1_1 = new JLabel("VS");
@@ -1033,7 +1033,7 @@
 	        
 	        JLabel lblE5R6 = new JLabel("-");
 	        lblE5R6.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE5R6.setBounds(400, 57, 29, 13);
+	        lblE5R6.setBounds(400, 48, 29, 31);
 	        panel_1_1_1_1_2.add(lblE5R6);
 	        
 	        JLabel lblE56 = new JLabel("Club Askartza");
@@ -1122,39 +1122,125 @@
 	        panel_1_1_1_1_2.add(btnEditarE6R6);
 	        
 	        JButton btnEditarE4R6 = new JButton("Editar");
+	        btnEditarE4R6.addActionListener(new ActionListener() {
+	          public void actionPerformed(ActionEvent e) {
+	              String nuevoTexto = JOptionPane.showInputDialog(lblE4R6, "Introduce el nuevo resultado:");
+	              
+	              if (nuevoTexto != null) {
+	                  // Verificar si el texto contiene solo números
+	                  if (nuevoTexto.matches("[0-9]+")) {
+	                      // Actualizar el texto solo si contiene números
+	                  	lblE4R6.setText(nuevoTexto);
+	                  } else {
+	                      // Mensaje de error si el texto no contiene solo números
+	                      JOptionPane.showMessageDialog(lblE4R6, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
+	                  }
+	              }
+	          }
+	      });
+	        btnEditarE4R6.addActionListener(new ActionListener() {
+	        	public void actionPerformed(ActionEvent e) {
+	        	}
+	        });
 	        btnEditarE4R6.setFont(new Font("Calibri", Font.PLAIN, 20));
 	        btnEditarE4R6.setBounds(10, 85, 85, 25);
 	        panel_1_1_1_1_2.add(btnEditarE4R6);
 	        
-	        JButton btnEditarE2R2_1 = new JButton("Editar");
-	        btnEditarE2R2_1.setFont(new Font("Calibri", Font.PLAIN, 20));
-	        btnEditarE2R2_1.setBounds(10, 118, 85, 25);
-	        panel_1_1_1_1_2.add(btnEditarE2R2_1);
+	        JButton btnEditarE2R6 = new JButton("Editar");
+	        btnEditarE2R6.addActionListener(new ActionListener() {
+	          public void actionPerformed(ActionEvent e) {
+              String nuevoTexto = JOptionPane.showInputDialog(lblE2R6, "Introduce el nuevo resultado:");
+              
+              if (nuevoTexto != null) {
+                  // Verificar si el texto contiene solo números
+                  if (nuevoTexto.matches("[0-9]+")) {
+                      // Actualizar el texto solo si contiene números
+                  	lblE2R6.setText(nuevoTexto);
+                  } else {
+                      // Mensaje de error si el texto no contiene solo números
+                      JOptionPane.showMessageDialog(lblE2R6, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
+                  }
+              }
+          }
+      });
+	        btnEditarE2R6.addActionListener(new ActionListener() {
+	        	public void actionPerformed(ActionEvent e) {
+	        	}
+	        });
+	        btnEditarE2R6.setFont(new Font("Calibri", Font.PLAIN, 20));
+	        btnEditarE2R6.setBounds(10, 118, 85, 25);
+	        panel_1_1_1_1_2.add(btnEditarE2R6);
 	        
-	        JButton btnEditarE5R2_1 = new JButton("Editar");
-	        btnEditarE5R2_1.setFont(new Font("Calibri", Font.PLAIN, 20));
-	        btnEditarE5R2_1.setBounds(644, 115, 85, 25);
-	        panel_1_1_1_1_2.add(btnEditarE5R2_1);
+	        JButton btnEditarE1R6 = new JButton("Editar");
+	        btnEditarE1R6.addActionListener(new ActionListener() {
+	          public void actionPerformed(ActionEvent e) {
+	              String nuevoTexto = JOptionPane.showInputDialog(lblE1R6, "Introduce el nuevo resultado:");
+	              
+	              if (nuevoTexto != null) {
+	                  // Verificar si el texto contiene solo números
+	                  if (nuevoTexto.matches("[0-9]+")) {
+	                      // Actualizar el texto solo si contiene números
+	                  	lblE1R6.setText(nuevoTexto);
+	                  } else {
+	                      // Mensaje de error si el texto no contiene solo números
+	                      JOptionPane.showMessageDialog(lblE1R6, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
+	                  }
+	              }
+	          }
+	      });
+	        btnEditarE1R6.setFont(new Font("Calibri", Font.PLAIN, 20));
+	        btnEditarE1R6.setBounds(644, 115, 85, 25);
+	        panel_1_1_1_1_2.add(btnEditarE1R6);
 	        
-	        JButton btnEditarE3R2_1 = new JButton("Editar");
-	        btnEditarE3R2_1.setFont(new Font("Calibri", Font.PLAIN, 20));
-	        btnEditarE3R2_1.setBounds(644, 81, 85, 25);
-	        panel_1_1_1_1_2.add(btnEditarE3R2_1);
+	        JButton btnEditarE3R6 = new JButton("Editar");
+	        btnEditarE3R6.addActionListener(new ActionListener() {
+	          public void actionPerformed(ActionEvent e) {
+	              String nuevoTexto = JOptionPane.showInputDialog(lblE3R6, "Introduce el nuevo resultado:");
+	              
+	              if (nuevoTexto != null) {
+	                  // Verificar si el texto contiene solo números
+	                  if (nuevoTexto.matches("[0-9]+")) {
+	                      // Actualizar el texto solo si contiene números
+	                  	lblE3R6.setText(nuevoTexto);
+	                  } else {
+	                      // Mensaje de error si el texto no contiene solo números
+	                      JOptionPane.showMessageDialog(lblE3R6, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
+	                  }
+	              }
+	          }
+	      });
+	        btnEditarE3R6.addActionListener(new ActionListener() {
+	        	public void actionPerformed(ActionEvent e) {
+	        	}
+	        });
+	        btnEditarE3R6.setFont(new Font("Calibri", Font.PLAIN, 20));
+	        btnEditarE3R6.setBounds(644, 81, 85, 25);
+	        panel_1_1_1_1_2.add(btnEditarE3R6);
 	        
 	        JButton btnEditarE6R2_1 = new JButton("Editar");
+	        btnEditarE6R2_1.addActionListener(new ActionListener() {
+	          public void actionPerformed(ActionEvent e) {
+	              String nuevoTexto = JOptionPane.showInputDialog(lblE5R6, "Introduce el nuevo resultado:");
+	              
+	              if (nuevoTexto != null) {
+	                  // Verificar si el texto contiene solo números
+	                  if (nuevoTexto.matches("[0-9]+")) {
+	                      // Actualizar el texto solo si contiene números
+	                  	lblE5R6.setText(nuevoTexto);
+	                  } else {
+	                      // Mensaje de error si el texto no contiene solo números
+	                      JOptionPane.showMessageDialog(lblE5R6, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
+	                  }
+	              }
+	          }
+	      });
+	        btnEditarE6R2_1.addActionListener(new ActionListener() {
+	        	public void actionPerformed(ActionEvent e) {
+	        	}
+	        });
 	        btnEditarE6R2_1.setFont(new Font("Calibri", Font.PLAIN, 20));
 	        btnEditarE6R2_1.setBounds(644, 51, 85, 25);
 	        panel_1_1_1_1_2.add(btnEditarE6R2_1);
-	        
-	        JButton btnEditable1_6 = new JButton("Editar");
-	        btnEditable1_6.setFont(new Font("Calibri", Font.PLAIN, 25));
-	        btnEditable1_6.setBounds(318, 10, 113, 31);
-	        panel_6.add(btnEditable1_6);
-	        
-	        JButton btnNewButton_6 = new JButton("Aceptar");
-	        btnNewButton_6.setFont(new Font("Calibri", Font.PLAIN, 25));
-	        btnNewButton_6.setBounds(318, 379, 113, 31);
-	        panel_6.add(btnNewButton_6);
 	        
 	        JPanel panel_7 = new JPanel();
 	        tabbedPane.addTab("Jornada7", null, panel_7, null);
@@ -1162,7 +1248,7 @@
 	        
 	        JPanel panel_1_1_1_1 = new JPanel();
 	        panel_1_1_1_1.setLayout(null);
-	        panel_1_1_1_1.setBounds(92, 123, 565, 172);
+	        panel_1_1_1_1.setBounds(10, 123, 729, 172);
 	        panel_7.add(panel_1_1_1_1);
 	        
 	        JLabel lblE67 = new JLabel("Tenerife Echeyde");
@@ -1170,7 +1256,6 @@
 	        lblE67.setFont(new Font("Calibri", Font.ITALIC, 20));
 	        lblE67.setBounds(10, 51, 198, 25);
 	        panel_1_1_1_1.add(lblE67);
-	        
 	        JLabel lblJornada_2_1 = new JLabel("Jornada 7");
 	        lblJornada_2_1.setFont(new Font("Calibri", Font.BOLD, 25));
 	        lblJornada_2_1.setBounds(232, 10, 100, 31);
