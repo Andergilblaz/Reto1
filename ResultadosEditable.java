@@ -116,7 +116,7 @@
 	        
 	        JLabel lblE4R2 = new JLabel("-");
 	        lblE4R2.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE4R2.setBounds(298, 62, 29, 13);
+	        lblE4R2.setBounds(298, 59, 29, 19);
 	        panel_1_3_2.add(lblE4R2);
 	        
 	        JLabel lblNewLabel_5_3_2 = new JLabel("VS");
@@ -126,7 +126,7 @@
 	        
 	        JLabel lblE6R2 = new JLabel("-");
 	        lblE6R2.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE6R2.setBounds(393, 62, 29, 13);
+	        lblE6R2.setBounds(393, 59, 29, 19);
 	        panel_1_3_2.add(lblE6R2);
 	        
 	        JLabel lblE62 = new JLabel("Tenerife Echeyde");
@@ -297,11 +297,47 @@
 	        panel_1_3_2.add(btnEditarE6R2);
 	        
 	        JButton btnEditarE3R2 = new JButton("Editar");
+	        btnEditarE3R2.addActionListener(new ActionListener() {
+	          public void actionPerformed(ActionEvent e) {
+	              String nuevoTexto = JOptionPane.showInputDialog(lblE3R2, "Introduce el nuevo resultado:");
+	              
+	              if (nuevoTexto != null) {
+	                  // Verificar si el texto contiene solo números
+	                  if (nuevoTexto.matches("[0-9]+")) {
+	                      // Actualizar el texto solo si contiene números
+	                  	lblE3R2.setText(nuevoTexto);
+	                  } else {
+	                      // Mensaje de error si el texto no contiene solo números
+	                      JOptionPane.showMessageDialog(lblE3R2, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
+	                  }
+	              }
+	          }
+	      });
+	        btnEditarE3R2.addActionListener(new ActionListener() {
+	        	public void actionPerformed(ActionEvent e) {
+	        	}
+	        });
 	        btnEditarE3R2.setFont(new Font("Calibri", Font.PLAIN, 20));
 	        btnEditarE3R2.setBounds(634, 86, 85, 25);
 	        panel_1_3_2.add(btnEditarE3R2);
 	        
 	        JButton btnEditarE5R2 = new JButton("Editar");
+	        btnEditarE5R2.addActionListener(new ActionListener() {
+	          public void actionPerformed(ActionEvent e) {
+	              String nuevoTexto = JOptionPane.showInputDialog(lblE5R2, "Introduce el nuevo resultado:");
+	              
+	              if (nuevoTexto != null) {
+	                  // Verificar si el texto contiene solo números
+	                  if (nuevoTexto.matches("[0-9]+")) {
+	                      // Actualizar el texto solo si contiene números
+	                  	lblE5R2.setText(nuevoTexto);
+	                  } else {
+	                      // Mensaje de error si el texto no contiene solo números
+	                      JOptionPane.showMessageDialog(lblE5R2, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
+	                  }
+	              }
+	          }
+	      });
 	        btnEditarE5R2.setFont(new Font("Calibri", Font.PLAIN, 20));
 	        btnEditarE5R2.setBounds(634, 120, 85, 25);
 	        panel_1_3_2.add(btnEditarE5R2);
@@ -312,105 +348,125 @@
 	        
 	        JPanel panel_1_3_1_1 = new JPanel();
 	        panel_1_3_1_1.setLayout(null);
-	        panel_1_3_1_1.setBounds(92, 123, 565, 172);
+	        panel_1_3_1_1.setBounds(10, 123, 729, 172);
 	        panel_4.add(panel_1_3_1_1);
 	        
 	        JLabel lblE33 = new JLabel("CN La Latina");
 	        lblE33.setHorizontalAlignment(SwingConstants.CENTER);
 	        lblE33.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE33.setBounds(10, 51, 197, 25);
+	        lblE33.setBounds(90, 50, 197, 25);
 	        panel_1_3_1_1.add(lblE33);
 	        
 	        JLabel lblJornada_2_2_1 = new JLabel("Jornada 3");
 	        lblJornada_2_2_1.setHorizontalAlignment(SwingConstants.CENTER);
 	        lblJornada_2_2_1.setFont(new Font("Calibri", Font.BOLD, 25));
-	        lblJornada_2_2_1.setBounds(222, 10, 121, 31);
+	        lblJornada_2_2_1.setBounds(304, 10, 121, 31);
 	        panel_1_3_1_1.add(lblJornada_2_2_1);
 	        
 	        JLabel lblE3R3 = new JLabel("-");
 	        lblE3R3.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE3R3.setBounds(228, 57, 29, 13);
+	        lblE3R3.setBounds(308, 56, 29, 13);
 	        panel_1_3_1_1.add(lblE3R3);
 	        
 	        JLabel lblNewLabel_5_3_1_1 = new JLabel("VS");
 	        lblNewLabel_5_3_1_1.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblNewLabel_5_3_1_1.setBounds(267, 53, 31, 20);
+	        lblNewLabel_5_3_1_1.setBounds(347, 52, 31, 20);
 	        panel_1_3_1_1.add(lblNewLabel_5_3_1_1);
 	        
 	        JLabel lblE6R3 = new JLabel("-");
 	        lblE6R3.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE6R3.setBounds(323, 57, 29, 13);
+	        lblE6R3.setBounds(403, 56, 29, 13);
 	        panel_1_3_1_1.add(lblE6R3);
 	        
 	        JLabel lblE63 = new JLabel("Tenerife Echeyde");
 	        lblE63.setHorizontalAlignment(SwingConstants.CENTER);
 	        lblE63.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE63.setBounds(362, 53, 193, 20);
+	        lblE63.setBounds(442, 52, 193, 20);
 	        panel_1_3_1_1.add(lblE63);
 	        
 	        JLabel lblE43 = new JLabel("CN Terrassa");
 	        lblE43.setHorizontalAlignment(SwingConstants.CENTER);
 	        lblE43.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE43.setBounds(10, 91, 197, 20);
+	        lblE43.setBounds(90, 84, 197, 20);
 	        panel_1_3_1_1.add(lblE43);
 	        
 	        JLabel lblE4R3 = new JLabel("-");
 	        lblE4R3.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE4R3.setBounds(228, 85, 29, 32);
+	        lblE4R3.setBounds(308, 78, 29, 32);
 	        panel_1_3_1_1.add(lblE4R3);
 	        
 	        JLabel lblNewLabel_8_3_1_1 = new JLabel("VS");
 	        lblNewLabel_8_3_1_1.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblNewLabel_8_3_1_1.setBounds(267, 86, 48, 30);
+	        lblNewLabel_8_3_1_1.setBounds(347, 79, 48, 30);
 	        panel_1_3_1_1.add(lblNewLabel_8_3_1_1);
 	        
 	        JLabel lblE2R3 = new JLabel("-");
 	        lblE2R3.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE2R3.setBounds(323, 80, 29, 47);
+	        lblE2R3.setBounds(403, 73, 29, 47);
 	        panel_1_3_1_1.add(lblE2R3);
 	        
 	        JLabel lblE23 = new JLabel("Urbat IKE");
 	        lblE23.setHorizontalAlignment(SwingConstants.CENTER);
 	        lblE23.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE23.setBounds(362, 89, 193, 25);
+	        lblE23.setBounds(442, 82, 193, 25);
 	        panel_1_3_1_1.add(lblE23);
 	        
 	        JLabel lbl53 = new JLabel("Club Askartza");
 	        lbl53.setHorizontalAlignment(SwingConstants.CENTER);
 	        lbl53.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lbl53.setBounds(10, 128, 197, 20);
+	        lbl53.setBounds(90, 114, 197, 20);
 	        panel_1_3_1_1.add(lbl53);
 	        
 	        JLabel lblE5R3 = new JLabel("-");
 	        lblE5R3.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE5R3.setBounds(228, 120, 45, 36);
+	        lblE5R3.setBounds(308, 106, 45, 36);
 	        panel_1_3_1_1.add(lblE5R3);
 	        
 	        JLabel lblNewLabel_13_3_1_1 = new JLabel("VS");
 	        lblNewLabel_13_3_1_1.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblNewLabel_13_3_1_1.setBounds(267, 128, 45, 20);
+	        lblNewLabel_13_3_1_1.setBounds(347, 114, 45, 20);
 	        panel_1_3_1_1.add(lblNewLabel_13_3_1_1);
 	        
 	        JLabel lblE1R3 = new JLabel("-");
 	        lblE1R3.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE1R3.setBounds(323, 124, 45, 30);
+	        lblE1R3.setBounds(403, 110, 45, 30);
 	        panel_1_3_1_1.add(lblE1R3);
 	        
 	        JLabel lblE13 = new JLabel("CN Atlétic Barceloneta");
 	        lblE13.setHorizontalAlignment(SwingConstants.CENTER);
 	        lblE13.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE13.setBounds(362, 126, 193, 24);
+	        lblE13.setBounds(442, 112, 193, 24);
 	        panel_1_3_1_1.add(lblE13);
 	        
-	        JButton btnEditable1_3 = new JButton("Editar");
-	        btnEditable1_3.setFont(new Font("Calibri", Font.PLAIN, 25));
-	        btnEditable1_3.setBounds(310, 10, 129, 31);
-	        panel_4.add(btnEditable1_3);
+	        JButton btnEditarE4R2_1 = new JButton("Editar");
+	        btnEditarE4R2_1.setFont(new Font("Calibri", Font.PLAIN, 20));
+	        btnEditarE4R2_1.setBounds(10, 50, 85, 25);
+	        panel_1_3_1_1.add(btnEditarE4R2_1);
 	        
-	        JButton btnNewButton_3 = new JButton("Aceptar");
-	        btnNewButton_3.setFont(new Font("Calibri", Font.PLAIN, 25));
-	        btnNewButton_3.setBounds(310, 379, 129, 31);
-	        panel_4.add(btnNewButton_3);
+	        JButton btnEditarE1R2_1 = new JButton("Editar");
+	        btnEditarE1R2_1.setFont(new Font("Calibri", Font.PLAIN, 20));
+	        btnEditarE1R2_1.setBounds(10, 84, 85, 25);
+	        panel_1_3_1_1.add(btnEditarE1R2_1);
+	        
+	        JButton btnEditarE2R2_2 = new JButton("Editar");
+	        btnEditarE2R2_2.setFont(new Font("Calibri", Font.PLAIN, 20));
+	        btnEditarE2R2_2.setBounds(10, 117, 85, 25);
+	        panel_1_3_1_1.add(btnEditarE2R2_2);
+	        
+	        JButton btnEditarE6R2_2 = new JButton("Editar");
+	        btnEditarE6R2_2.setFont(new Font("Calibri", Font.PLAIN, 20));
+	        btnEditarE6R2_2.setBounds(644, 50, 85, 25);
+	        panel_1_3_1_1.add(btnEditarE6R2_2);
+	        
+	        JButton btnEditarE3R2_2 = new JButton("Editar");
+	        btnEditarE3R2_2.setFont(new Font("Calibri", Font.PLAIN, 20));
+	        btnEditarE3R2_2.setBounds(644, 80, 85, 25);
+	        panel_1_3_1_1.add(btnEditarE3R2_2);
+	        
+	        JButton btnEditarE5R2_2 = new JButton("Editar");
+	        btnEditarE5R2_2.setFont(new Font("Calibri", Font.PLAIN, 20));
+	        btnEditarE5R2_2.setBounds(644, 114, 85, 25);
+	        panel_1_3_1_1.add(btnEditarE5R2_2);
 	        panel.setSize(400,250);
 	        
 	        JPanel panel_2 = new JPanel();
@@ -1522,7 +1578,7 @@
 	        
 	        JScrollPane scrollPane_1 = new JScrollPane();
 	        contentPane.add(scrollPane_1, BorderLayout.NORTH);
-	        contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{scrollPane, tabbedPane, panel, panel_5, panel_4, panel_2, panel_3, panel_1_1_2_3, lblE25, lblJornada_1_2, lblE2R5, lblNewLabel_5_2_2_2, lblE3R5, lblE35, lblE55, lblE5R5, lblNewLabel_8_1_2_2, lblE4R5, lblE45, lblE65, lblE6R5, lblNewLabel_13_1_2_2, lblE1R5, lblE15, panel_6, panel_1_1_1_1_2, lblE66, lblJornada_2_1_1, lblE6R6, lblNewLabel_5_2_1_1_1, lblE5R6, lblE56, lblE46, lblE4R6, lblNewLabel_8_1_1_1_1, lblE3R6, lblE36, lblE26, lblE2R6, lblNewLabel_13_1_1_1_1, lblE1R6, lblE16, panel_7, panel_1_1_1_1, lblE67, lblJornada_2_1, lblE6R7, lblNewLabel_5_2_1_1, lblE4R7, lblE47, lblE37, lblE3R7, lblNewLabel_8_1_1_1, lblE1R7, lblE17, lblE57, lblE5R7, lblNewLabel_13_1_1_1, lblE2R7, lblE27, panel_8, panel_1_1, lblE28, lblJornada, lblE2R8, lblNewLabel_5_1, lblE4R8, lblE48, lblE68, lblE6R8, lblNewLabel_8_1, lblE3R8, lblE38, lblE18, lblE1R8, lblNewLabel_13_1, lblE5R8, lblE58, panel_9, panel_1_2, lblE39, lblJornada_1, lblE3R9, lblNewLabel_5_2, lblE5R9, lblE59, lblE69, lblE6R9, lblNewLabel_8_2, lblE2R9, lblE29, lblE49, lblE4R9, lblNewLabel_13_2, lblE1R9, lblE19, panel_10, panel_1_3, lblE310, lblJornada_2, lblE3R10, lblNewLabel_5_3, lblE2R10, lblE210, lblE410, lblE4R10, lblNewLabel_8_3, lblE5R10, lblE510, lblE110, lblE1R10, lblNewLabel_13_3, lblE6R10, lblE610, panel_1_3_1, lblE1, lblJornada1, lblE1R1, lblJ1VS, lblE2R1, lblE2, lblE3, lblE3R1, lblNewLabel_8_3_1, lblE4R1, lblE4, lblE5, lblE5R1, lblNewLabel_13_3_1, lblE6R1, lblE6, panel_1_3_2, lblE42, lblJornada_2_3, lblE4R2, lblNewLabel_5_3_2, lblE6R2, lblE62, lblE12, lblE1R2, lblNewLabel_8_3_2, lblE3R2, lblE32, lblE22, lblE2R2, lblNewLabel_13_3_2, lblE5R2, lblE52, panel_1_3_1_1, lblE33, lblJornada_2_2_1, lblE3R3, lblNewLabel_5_3_1_1, lblE6R3, lblE63, lblE43, lblE4R3, lblNewLabel_8_3_1_1, lblE2R3, lblE23, lbl53, lblE5R3, lblNewLabel_13_3_1_1, lblE1R3, lblE13, panel_1_3_1_2, lblE54, lblJornada_2_2_2, lblE5R4, lblNewLabel_5_3_1_2, lblE3R4, lbl34, lblE24, lblE2R4, lblNewLabel_8_3_1_2, lblE6R4, lblE64, lblE14, lblE1R4, lblNewLabel_13_3_1_2, lblE4R4, lblE44, btnEditable1_1, btnNewButton_1, btnEditable1_3, btnEditable1_4, btnEditable1_5, btnEditable1_6, btnEditable1_7, btnEditable1_8, btnEditable1_9, btnEditable1_10, btnNewButton_3, btnNewButton_4, btnNewButton_5, btnNewButton_6, btnNewButton_7, btnNewButton_8, btnNewButton_9, btnNewButton_10, btnEditarE1R1, btnEditarE3R1, btnEditarE5R1, btnEditarE2R1, btnEditarE4R1, btnEditarE6R1, btnEditarE4R2, btnEditarE1R2, btnEditarE2R2, btnEditarE6R2, btnEditarE3R2, btnEditarE5R2, btnEditarE6R6, btnEditarE4R6, btnEditarE2R2_1, btnEditarE5R2_1, btnEditarE3R2_1, btnEditarE6R2_1}));
+	        contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{scrollPane, tabbedPane, panel, panel_5, panel_4, panel_2, panel_3, panel_1_1_2_3, lblE25, lblJornada_1_2, lblE2R5, lblNewLabel_5_2_2_2, lblE3R5, lblE35, lblE55, lblE5R5, lblNewLabel_8_1_2_2, lblE4R5, lblE45, lblE65, lblE6R5, lblNewLabel_13_1_2_2, lblE1R5, lblE15, panel_6, panel_1_1_1_1_2, lblE66, lblJornada_2_1_1, lblE6R6, lblNewLabel_5_2_1_1_1, lblE5R6, lblE56, lblE46, lblE4R6, lblNewLabel_8_1_1_1_1, lblE3R6, lblE36, lblE26, lblE2R6, lblNewLabel_13_1_1_1_1, lblE1R6, lblE16, panel_7, panel_1_1_1_1, lblE67, lblJornada_2_1, lblE6R7, lblNewLabel_5_2_1_1, lblE4R7, lblE47, lblE37, lblE3R7, lblNewLabel_8_1_1_1, lblE1R7, lblE17, lblE57, lblE5R7, lblNewLabel_13_1_1_1, lblE2R7, lblE27, panel_8, panel_1_1, lblE28, lblJornada, lblE2R8, lblNewLabel_5_1, lblE4R8, lblE48, lblE68, lblE6R8, lblNewLabel_8_1, lblE3R8, lblE38, lblE18, lblE1R8, lblNewLabel_13_1, lblE5R8, lblE58, panel_9, panel_1_2, lblE39, lblJornada_1, lblE3R9, lblNewLabel_5_2, lblE5R9, lblE59, lblE69, lblE6R9, lblNewLabel_8_2, lblE2R9, lblE29, lblE49, lblE4R9, lblNewLabel_13_2, lblE1R9, lblE19, panel_10, panel_1_3, lblE310, lblJornada_2, lblE3R10, lblNewLabel_5_3, lblE2R10, lblE210, lblE410, lblE4R10, lblNewLabel_8_3, lblE5R10, lblE510, lblE110, lblE1R10, lblNewLabel_13_3, lblE6R10, lblE610, panel_1_3_1, lblE1, lblJornada1, lblE1R1, lblJ1VS, lblE2R1, lblE2, lblE3, lblE3R1, lblNewLabel_8_3_1, lblE4R1, lblE4, lblE5, lblE5R1, lblNewLabel_13_3_1, lblE6R1, lblE6, panel_1_3_2, lblE42, lblJornada_2_3, lblE4R2, lblNewLabel_5_3_2, lblE6R2, lblE62, lblE12, lblE1R2, lblNewLabel_8_3_2, lblE3R2, lblE32, lblE22, lblE2R2, lblNewLabel_13_3_2, lblE5R2, lblE52, panel_1_3_1_1, lblE33, lblJornada_2_2_1, lblE3R3, lblNewLabel_5_3_1_1, lblE6R3, lblE63, lblE43, lblE4R3, lblNewLabel_8_3_1_1, lblE2R3, lblE23, lbl53, lblE5R3, lblNewLabel_13_3_1_1, lblE1R3, lblE13, panel_1_3_1_2, lblE54, lblJornada_2_2_2, lblE5R4, lblNewLabel_5_3_1_2, lblE3R4, lbl34, lblE24, lblE2R4, lblNewLabel_8_3_1_2, lblE6R4, lblE64, lblE14, lblE1R4, lblNewLabel_13_3_1_2, lblE4R4, lblE44, btnEditable1_1, btnNewButton_1, btnEditable1_4, btnEditable1_5, btnEditable1_6, btnEditable1_7, btnEditable1_8, btnEditable1_9, btnEditable1_10, btnNewButton_4, btnNewButton_5, btnNewButton_6, btnNewButton_7, btnNewButton_8, btnNewButton_9, btnNewButton_10, btnEditarE1R1, btnEditarE3R1, btnEditarE5R1, btnEditarE2R1, btnEditarE4R1, btnEditarE6R1, btnEditarE4R2, btnEditarE1R2, btnEditarE2R2, btnEditarE6R2, btnEditarE3R2, btnEditarE5R2, btnEditarE6R6, btnEditarE4R6, btnEditarE2R2_1, btnEditarE5R2_1, btnEditarE3R2_1, btnEditarE6R2_1, btnEditarE4R2_1, btnEditarE1R2_1, btnEditarE2R2_2, btnEditarE6R2_2, btnEditarE3R2_2, btnEditarE5R2_2}));
 	        
 		}
 	    }
