@@ -175,6 +175,10 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
       }
   });
 		
+		JSeparator separator = new JSeparator();
+		separator.setOrientation(SwingConstants.VERTICAL);
+		menuBar.add(separator);
+		
 		JButton btnInicioSesion = new JButton("Log in");
 		menuBar.add(btnInicioSesion);
 		btnInicioSesion.setFont(new Font("Calibri", Font.BOLD, 20));
@@ -189,10 +193,6 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
         InicioDeSesion.setResizable(false);
       }
   });
-		
-		JSeparator separator = new JSeparator();
-		separator.setOrientation(SwingConstants.VERTICAL);
-		menuBar.add(separator);
 
 		//menu with language selection Main Page
 		
