@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
 
 import java.awt.BorderLayout;
 
@@ -25,14 +26,10 @@ import java.util.ArrayList;
 import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JToggleButton;
 
 public class ListaEquiposEditable extends JFrame {
 
@@ -96,8 +93,8 @@ public class ListaEquiposEditable extends JFrame {
 		
 		//Equipos	
   	String e1 = "CN Atlétic Barceloneta"; //Barceloneta
-  	String e2 = "CN La Latina"; //Latina
-  	String e3 = "Urbat"; //Urbat
+  	String e2 = "CN La Latina"; //Urbat
+  	String e3 = "Urbat"; //Latina
   	String e4 = "Club Askartza"; //Askartza
   	String e5 = "CN Terrasa"; //Terrasa
   	String e6 = "Tenerife Echeyde"; //Tenerife
@@ -110,6 +107,7 @@ public class ListaEquiposEditable extends JFrame {
 		nombresEquipos.add(e5);
 		nombresEquipos.add(e6);
 		
+	
 		DefaultTableModel tableModel = new DefaultTableModel(
 		    new String[][] {
 		        {nombresEquipos.get(0), "Cataluña", "Barcelona", "Club Natació Atlétic-Barcelona", "Placa del Mar, s/n"},
@@ -124,22 +122,6 @@ public class ListaEquiposEditable extends JFrame {
 		    }
 		);
 		
-		//Actualiza los datos en la tabla
-		table.getModel().addTableModelListener(e -> {
-	    int row = e.getFirstRow();
-	    int column = e.getColumn();
-
-	    if (column == 0) {
-	        String nuevoNombre = table.getValueAt(row, column).toString();
-	        nombresEquipos.set(row, nuevoNombre);
-
-	        SwingUtilities.invokeLater(() -> {
-	            DefaultTableModel model = (DefaultTableModel) table.getModel();
-	            model.setValueAt(nuevoNombre, row, column);
-	        });
-	    }
-	});
-
         table.getColumnModel().getColumn(0).setResizable(false);
         table.getColumnModel().getColumn(1).setResizable(false);
         table.getColumnModel().getColumn(2).setResizable(false);
