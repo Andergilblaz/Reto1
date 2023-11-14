@@ -96,12 +96,12 @@ public class SobreNosotrosING extends JFrame {
         
         JLabel lblNewLabel = new JLabel("We are a passionate group of Web Application Development students");
         lblNewLabel.setFont(new Font("Calibri", Font.PLAIN, 17));
-        lblNewLabel.setBounds(138, 315, 493, 42);
+        lblNewLabel.setBounds(138, 302, 493, 42);
         panel_1.add(lblNewLabel);
         
         JLabel lblNewLabel_1 = new JLabel("who share a common interest in creating digital experiences");
         lblNewLabel_1.setFont(new Font("Calibri", Font.PLAIN, 17));
-        lblNewLabel_1.setBounds(174, 367, 421, 42);
+        lblNewLabel_1.setBounds(174, 350, 421, 42);
         panel_1.add(lblNewLabel_1);
         
         JLabel lblNewLabel_4 = new JLabel("Who we are?");
@@ -113,6 +113,11 @@ public class SobreNosotrosING extends JFrame {
         lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\ik_1DW3A\\eclipse-workspace\\Java\\src\\Reto1\\fotos\\LogoWaterpoloPequeña.png"));
         lblNewLabel_2.setBounds(302, 113, 167, 162);
         panel_1.add(lblNewLabel_2);
+        
+        JLabel lblNewLabel_3 = new JLabel("Our 3 principles: 1.Minimalism 2.Accessibility 3.Functionality");
+        lblNewLabel_3.setFont(new Font("Calibri", Font.PLAIN, 17));
+        lblNewLabel_3.setBounds(165, 406, 439, 22);
+        panel_1.add(lblNewLabel_3);
         
         JPanel panel_5 = new JPanel();
         tabbedPane.addTab("How does this website come about?", null, panel_5, null);
