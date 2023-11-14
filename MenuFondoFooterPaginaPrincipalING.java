@@ -153,10 +153,10 @@ public class MenuFondoFooterPaginaPrincipalING extends JFrame {
 		btnSobreNosotros.addActionListener(new ActionListener() {
 	      @Override
 	      public void actionPerformed(ActionEvent e) {
-	          // Open the SobreNosotrosIngles Document
-	          SobreNosotrosIngles SobreNosotrosIngles = new SobreNosotrosIngles();
-	          SobreNosotrosIngles.setVisible(true);
-	          SobreNosotrosIngles.setResizable(false);
+	          // Open the SobreNosotrosING Document
+	          SobreNosotrosING SobreNosotrosING = new SobreNosotrosING();
+	          SobreNosotrosING.setVisible(true);
+	          SobreNosotrosING.setResizable(false);
 	      }
 	  });
 		
