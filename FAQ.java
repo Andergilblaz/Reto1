@@ -1,4 +1,5 @@
 package Reto1;
+//Agregar importaciones para la funcionalidad de todos los componentes
 import java.awt.EventQueue;
 
 import javax.swing.BorderFactory;
@@ -15,7 +16,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.SwingConstants;
-
+//lanzando la aplicación
 public class FAQ extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -27,6 +28,7 @@ public class FAQ extends JFrame {
 				try {
 					FAQ frame = new FAQ();
 					frame.setVisible(true);
+					//prohibición de cambiar el tamaño de la aplicación
 					frame.setResizable (false);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,7 +36,7 @@ public class FAQ extends JFrame {
 			}
 		});
 	}
-
+	//mostrando todos los componentes de la aplicación
 	public FAQ() {
 		setBackground(new Color(255, 255, 255));
 		setForeground(new Color(139, 0, 0));
@@ -60,12 +62,16 @@ public class FAQ extends JFrame {
 		JPanel panel_1 = new JPanel();
         panel_1.setLayout(new BoxLayout(panel_1, BoxLayout.Y_AXIS));
         contentPane.add(panel_1, BorderLayout.CENTER);
-        
+		
+        //agregando un panel "scrollPane"
+		
         JScrollPane scrollPane = new JScrollPane(panel_1);
         contentPane.add(scrollPane, BorderLayout.CENTER);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        
+		
+        //agregar todas las ofertas al panel usando componentes HTML, así como sus configuraciones
+		
         JLabel lblNewLabel_1 = new JLabel("<html>1: ¿Cómo empezar a utilizar la aplicación?<br>- Después de instalar la aplicación, podrá utilizarla inmediatamente sin registrarse.</html>");
         lblNewLabel_1.setFont(new Font("Calibri", Font.BOLD, 20));
         lblNewLabel_1.setVerticalAlignment(SwingConstants.TOP);
