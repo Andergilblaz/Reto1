@@ -114,9 +114,9 @@ public class SobreNosotrosING extends JFrame {
         lblNewLabel_2.setBounds(302, 113, 167, 162);
         panel_1.add(lblNewLabel_2);
         
-        JLabel lblNewLabel_3 = new JLabel("Our 3 principles: 1.Minimalism 2.Accessibility 3.Functionality");
+        JLabel lblNewLabel_3 = new JLabel("Our 3 principles: Minimalism, Accessibility, Functionality");
         lblNewLabel_3.setFont(new Font("Calibri", Font.PLAIN, 17));
-        lblNewLabel_3.setBounds(165, 406, 439, 22);
+        lblNewLabel_3.setBounds(182, 406, 405, 22);
         panel_1.add(lblNewLabel_3);
         
         JPanel panel_5 = new JPanel();
