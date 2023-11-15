@@ -62,10 +62,14 @@ public class SobreNosotrosING extends JFrame {
 	public void showImage() {
         new JLabel();
         
+     // Carga el ícono de imagen original desde la ruta del archivo
+        
         ImageIcon originalImageIcon = new ImageIcon("C:\\Users\\ik_1DW3A\\Pictures\\Saved Pictures\\calendario.png");
         originalImageIcon.getIconWidth();
         originalImageIcon.getIconHeight();
-
+        
+     // Establece las dimensiones objetivo para la imagen escalada
+        
         int targetWidth = 1200;
         int targetHeight = 2000;
 
@@ -73,6 +77,8 @@ public class SobreNosotrosING extends JFrame {
 
         new ImageIcon(scaledImage);
 
+     // Crea un JScrollPane para la imagen con dimensiones especificadas
+        
         JScrollPane scrollPane = new JScrollPane();
 
         scrollPane.setPreferredSize(new Dimension(800, 500));
@@ -81,6 +87,8 @@ public class SobreNosotrosING extends JFrame {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
         getContentPane().add(scrollPane, BorderLayout.CENTER);
+        
+     // Crea un JTabbedPane para contener diferentes paneles
         
         JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
         scrollPane.setViewportView(tabbedPane);
@@ -93,6 +101,8 @@ public class SobreNosotrosING extends JFrame {
         panel_1.setLayout(null);
         panel_1.setBounds(0, 0, 769, 451);
         panel.add(panel_1);
+        
+     // Agrega etiquetas y contenido
         
         JLabel lblNewLabel = new JLabel("We are a passionate group of Web Application Development students");
         lblNewLabel.setFont(new Font("Calibri", Font.PLAIN, 17));

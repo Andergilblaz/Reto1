@@ -15,9 +15,6 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.Color;
 import java.awt.Dimension;
-import javax.swing.SwingConstants;
-import org.eclipse.wb.swing.FocusTraversalOnArray;
-import java.awt.Component;
 import javax.swing.JTabbedPane;
 
 public class SobreNosotros extends JFrame {
@@ -62,17 +59,25 @@ public class SobreNosotros extends JFrame {
 	public void showImage() {
         new JLabel();
         
+     // Carga el ícono de imagen original desde la ruta del archivo
+        
         ImageIcon originalImageIcon = new ImageIcon("C:\\Users\\ik_1DW3A\\Pictures\\Saved Pictures\\calendario.png");
         originalImageIcon.getIconWidth();
         originalImageIcon.getIconHeight();
 
+     // Establece las dimensiones objetivo para la imagen escalada
+        
         int targetWidth = 1200;
         int targetHeight = 2000;
 
+     // Escala la imagen original a las dimensiones objetivo
+        
         Image scaledImage = originalImageIcon.getImage().getScaledInstance(targetWidth, targetHeight, Image.SCALE_SMOOTH);
 
         new ImageIcon(scaledImage);
 
+     // Crea un JScrollPane para la imagen con dimensiones especificadas
+        
         JScrollPane scrollPane = new JScrollPane();
 
         scrollPane.setPreferredSize(new Dimension(800, 500));
@@ -82,8 +87,12 @@ public class SobreNosotros extends JFrame {
 
         getContentPane().add(scrollPane, BorderLayout.CENTER);
         
+     // Crea un JTabbedPane para contener diferentes paneles
+        
         JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
         scrollPane.setViewportView(tabbedPane);
+        
+      	// Crea el primer panel ("¿Quiénes Somos?")
         
         JPanel panel = new JPanel();
         panel.setLayout(null);
@@ -93,6 +102,8 @@ public class SobreNosotros extends JFrame {
         panel_1.setLayout(null);
         panel_1.setBounds(0, 0, 769, 451);
         panel.add(panel_1);
+        
+        // Crea un subpanel para el contenido en la primera pestaña
         
         JLabel lblNewLabel = new JLabel("Somos un grupo apasionado de estudiantes de Desarrollo de Aplicaciones Web");
         lblNewLabel.setFont(new Font("Calibri", Font.PLAIN, 17));
@@ -124,9 +135,13 @@ public class SobreNosotros extends JFrame {
         lblNewLabel_7.setBounds(305, 110, 159, 150);
         panel_1.add(lblNewLabel_7);
         
+      	// Crea el segundo panel ("¿Cómo ha surgido esta web?")
+        
         JPanel panel_5 = new JPanel();
         tabbedPane.addTab("¿Cómo ha surgido esta web?", null, panel_5, null);
         panel_5.setLayout(null);
+        
+      	// Crea un subpanel para el contenido en la segunda pestaña
         
         JPanel panel_2 = new JPanel();
         panel_2.setLayout(null);
