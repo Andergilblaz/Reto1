@@ -57,6 +57,8 @@
 			setPreferredSize(new Dimension(200,100));
 			setLocationRelativeTo(null);
 	
+			
+			
 			setContentPane(contentPane);
 			contentPane.setLayout(new BorderLayout(0, 0));
 			
@@ -363,7 +365,7 @@
 	        
 	        JLabel lblE3R3 = new JLabel("-");
 	        lblE3R3.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE3R3.setBounds(290, 51, 37, 20);
+	        lblE3R3.setBounds(297, 52, 37, 20);
 	        panel_1_3_1_1.add(lblE3R3);
 	        
 	        JLabel lblNewLabel_5_3_1_1 = new JLabel("VS");
@@ -390,7 +392,7 @@
 	        
 	        JLabel lblE4R3 = new JLabel("-");
 	        lblE4R3.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE4R3.setBounds(308, 78, 29, 32);
+	        lblE4R3.setBounds(297, 78, 29, 32);
 	        panel_1_3_1_1.add(lblE4R3);
 	        
 	        JLabel lblNewLabel_8_3_1_1 = new JLabel("VS");
@@ -417,7 +419,7 @@
 	        
 	        JLabel lblE5R3 = new JLabel("-");
 	        lblE5R3.setFont(new Font("Calibri", Font.ITALIC, 20));
-	        lblE5R3.setBounds(308, 106, 45, 36);
+	        lblE5R3.setBounds(297, 106, 45, 36);
 	        panel_1_3_1_1.add(lblE5R3);
 	        
 	        JLabel lblNewLabel_13_3_1_1 = new JLabel("VS");
@@ -674,24 +676,26 @@
 	        
 	        JButton btnEditarE1R1 = new JButton("Editar");
 	        btnEditarE1R1.addActionListener(new ActionListener() {
-	            public void actionPerformed(ActionEvent e) {
-	                String nuevoTexto = JOptionPane.showInputDialog(lblE1R1, "Introduce el nuevo resultado:");
-	                
-	                if (nuevoTexto != null) {
-	                    // Verificar si el texto contiene solo números
-	                    if (nuevoTexto.matches("[0-9]+")) {
-	                        // Actualizar el texto solo si contiene números
-	                        lblE1R1.setText(nuevoTexto);
-	                    } else {
-	                        // Mensaje de error si el texto no contiene solo números
-	                        JOptionPane.showMessageDialog(lblE1R1, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
-	                    }
-	                }
-	            }
-	        });
-	
-	
-	       
+	          public void actionPerformed(ActionEvent e) {
+	              String nuevoTexto = JOptionPane.showInputDialog(lblE1R1, "Introduce el nuevo resultado:");
+
+	              if (nuevoTexto != null) {
+	                  if (nuevoTexto.matches("[0-9]+")) {
+	                      lblE1R1.setText(nuevoTexto);
+	                      DatosPartido datos = new DatosPartido(nuevoTexto);
+	                      datos.setResultado(nuevoTexto);
+	                      DatosPartido.guardarDatos(datos, "datos_partido_1.dat");
+
+	                  } else {
+	                      JOptionPane.showMessageDialog(lblE1R1, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
+	                  }
+	              }
+	          }
+	      });
+	        DatosPartido datosGuardados = DatosPartido.cargarDatos("datos_partido_1.dat");
+	        if (datosGuardados != null) {
+	            lblE1R1.setText(datosGuardados.getResultado());
+	        }
 	
 	        btnEditarE1R1.setFont(new Font("Calibri", Font.PLAIN, 20));
 	        btnEditarE1R1.setBounds(0, 62, 85, 25);
@@ -701,14 +705,16 @@
 	        btnEditarE3R1.addActionListener(new ActionListener() {
 	          public void actionPerformed(ActionEvent e) {
 	              String nuevoTexto = JOptionPane.showInputDialog(lblE3R1, "Introduce el nuevo resultado:");
-	              
+
 	              if (nuevoTexto != null) {
-	                  // Verificar si el texto contiene solo números
 	                  if (nuevoTexto.matches("[0-9]+")) {
-	                      // Actualizar el texto solo si contiene números
 	                      lblE3R1.setText(nuevoTexto);
+	                      DatosPartido datosGuardados = DatosPartido.cargarDatos("datos_partido_1.dat");
+	                      if (datosGuardados != null) {
+	                          lblE1R1.setText(datosGuardados.getResultado());
+	                      }
+
 	                  } else {
-	                      // Mensaje de error si el texto no contiene solo números
 	                      JOptionPane.showMessageDialog(lblE3R1, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
 	              }
