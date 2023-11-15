@@ -703,23 +703,26 @@
 	        
 	        JButton btnEditarE3R1 = new JButton("Editar");
 	        btnEditarE3R1.addActionListener(new ActionListener() {
-	          public void actionPerformed(ActionEvent e) {
-	              String nuevoTexto = JOptionPane.showInputDialog(lblE3R1, "Introduce el nuevo resultado:");
+	            public void actionPerformed(ActionEvent e) {
+	                String nuevoTexto = JOptionPane.showInputDialog(lblE3R1, "Introduce el nuevo resultado:");
 
-	              if (nuevoTexto != null) {
-	                  if (nuevoTexto.matches("[0-9]+")) {
-	                      lblE3R1.setText(nuevoTexto);
-	                      DatosPartido datosGuardados = DatosPartido.cargarDatos("datos_partido_1.dat");
-	                      if (datosGuardados != null) {
-	                          lblE1R1.setText(datosGuardados.getResultado());
-	                      }
+	                if (nuevoTexto != null) {
+	                    if (nuevoTexto.matches("[0-9]+")) {
+	                        lblE3R1.setText(nuevoTexto);
+	                        DatosPartido datos2 = new DatosPartido(nuevoTexto);
+	                        datos2.setResultado(nuevoTexto);
+	                        DatosPartido.guardarDatos(datos2, "datos_partido_3.dat");
+	                    } else {
+	                        JOptionPane.showMessageDialog(lblE3R1, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
+	                    }
+	                }
+	            }
+	        });
 
-	                  } else {
-	                      JOptionPane.showMessageDialog(lblE3R1, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
-	                  }
-	              }
-	          }
-	      });
+	        DatosPartido datosGuardados2 = DatosPartido.cargarDatos("datos_partido_3.dat");
+	        if (datosGuardados2 != null) {
+	            lblE3R1.setText(datosGuardados2.getResultado());
+	        }
 	        
 	        btnEditarE3R1.setFont(new Font("Calibri", Font.PLAIN, 20));
 	        btnEditarE3R1.setBounds(0, 96, 85, 25);
