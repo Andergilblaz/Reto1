@@ -43,7 +43,7 @@ public class Calendario extends JFrame {
 		setForeground(new Color(139, 0, 0));
 		setIconImage(Toolkit.getDefaultToolkit().getImage("src\\Reto1\\fotos\\LogoWaterpoloPequeña.png"));
 		setAlwaysOnTop(true);
-		setTitle("Resultados Waterpolo Español");
+		setTitle("Calendario Waterpolo Español");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 978, 585);
 		contentPane = new JPanel();
