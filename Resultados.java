@@ -85,6 +85,9 @@ public class Resultados extends JFrame {
         JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
         scrollPane.setViewportView(tabbedPane);
         
+        //Cada panel es una jornada
+        //Cada lblE1,lblE2... es un equipo
+        //Cada lblE1R1, lblE2R1... Indica Equipo (E) y Jornada (R)
         JPanel panel = new JPanel();
         panel.setLayout(null);
         tabbedPane.addTab("Jornada1", null, panel, null);
