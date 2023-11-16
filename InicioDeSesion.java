@@ -26,15 +26,15 @@
 		public class InicioDeSesion extends JFrame implements ActionListener, FocusListener{
 		
 			private static final long serialVersionUID = 1L;
-			private JPanel contentPane;
-			private JButton btnEntrar;
-			private JLabel lblTexto;	
-			private JLabel lblUsuario;
-			private JTextField txtNombre;
-			private JLabel lblContraseña;
-			private JPasswordField Contraseña;
-			private JLabel lblLogo;
-			private ControladorCuentas controladorCuentas; // Agrega una referencia al ControladorCuentas
+			JPanel contentPane;
+			JButton btnEntrar;
+			JLabel lblTexto;	
+			JLabel lblUsuario;
+			JTextField txtNombre;
+			JLabel lblContraseña;
+			JPasswordField Contraseña;
+			JLabel lblLogo;
+			ControladorCuentas controladorCuentas; // Agrega una referencia al ControladorCuentas
 	
 			/**
 			 * Launch the application.
@@ -46,10 +46,9 @@
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							InicioDeSesion frame = new InicioDeSesion();
-							frame.setVisible(true);
-							frame.setResizable(false);
 							ventanaInicioSesion.setVisible(true);
+							ventanaInicioSesion.setResizable(false);
+							
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
