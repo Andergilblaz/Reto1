@@ -63,16 +63,16 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 	}
 	//mostrando todos los componentes de la aplicación
 	public MenuFondoFooterPaginaPrincipal() {
-		setExtendedState(Frame.MAXIMIZED_BOTH);
 		setBackground(new Color(255, 255, 255));
 		setForeground(new Color(139, 0, 0));
 		setIconImage(Toolkit.getDefaultToolkit().getImage("src/Reto1/fotos/LogoWaterpolo.png"));
 		setAlwaysOnTop(true);
 		setTitle("Waterpolo Español");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1178, 793);
+		setBounds(100, 100, 282, 530);
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
+		this.setExtendedState(Frame.MAXIMIZED_BOTH);
 		setLocationRelativeTo(null);
 		
 		//creando un menú en la parte superior de la pantalla con botones como: Resultados, Calendario, Lista Equipos, etc.
@@ -82,8 +82,6 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		menuBar.setBackground(new Color(139, 0, 0));
 		menuBar.setFont(new Font("Calibri", Font.BOLD, 20));
 		setJMenuBar(menuBar);
-		
-		//Botón Resultados
 		
 		JButton btnResultados = new JButton("Resultados");
 		menuBar.add(btnResultados);
@@ -100,8 +98,6 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
         }
     });
 		
-    	//Botón Calendario
-    
 		JButton btnCalendario = new JButton("Calendario");
 		btnCalendario.setFont(new Font("Calibri", Font.BOLD, 20));
 		menuBar.add(btnCalendario);
@@ -117,8 +113,6 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
       }
   });
 		
-    	//Botón Lista Equipos
-
 		JButton btnListaEquipos = new JButton("Lista Equipos");
 		menuBar.add(btnListaEquipos);
 		btnListaEquipos.setBackground(new Color(139, 0, 0));
@@ -134,8 +128,7 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
       }
   });
 	
-	   	//Botón Clasificación
-	  
+		
 		JButton btnClasificacion = new JButton("Clasificación");
 		menuBar.add(btnClasificacion);
 		btnClasificacion.setForeground(new Color(255, 255, 255));
@@ -150,9 +143,6 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
          Clasificación.setResizable(false);
       }
   });
-	  
-	   	//Botón Sobre Nosotros
-	  
 		JButton btnSobreNosotros = new JButton("Sobre Nosotros");
 		menuBar.add(btnSobreNosotros);
 		btnSobreNosotros.setFont(new Font("Calibri", Font.BOLD, 20));
@@ -168,8 +158,6 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 	        SobreNosotros.setResizable(false);
 	      }
 	  });
-		
-	   	//Botón FAQ
 		
 		JButton btnFAQ = new JButton("FAQ");
 		btnFAQ.setFont(new Font("Calibri", Font.BOLD, 20));
@@ -189,6 +177,21 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
 		menuBar.add(separator);
+		
+		JButton btnInicioSesion = new JButton("Inicio de sesión");
+		menuBar.add(btnInicioSesion);
+		btnInicioSesion.setFont(new Font("Calibri", Font.BOLD, 20));
+		btnInicioSesion.setBackground(new Color(139, 0, 0));
+		btnInicioSesion.setForeground(new Color(255, 255, 255));
+		btnInicioSesion.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          // Abre el Documento Inicio de Sesion
+      	InicioDeSesion InicioDeSesion = new InicioDeSesion();
+      	InicioDeSesion.setVisible(true);
+        InicioDeSesion.setResizable(false);
+      }
+  });
 
 		//menú con selección de idioma PaginaPrincipal
 		
@@ -197,8 +200,6 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 		mnIdioma.setForeground(new Color(255, 255, 255));
 		mnIdioma.setBackground(new Color(139, 0, 0));
 		menuBar.add(mnIdioma);
-		
-	   	//Botón con español PahinaPrincipal
 		
 		JMenuItem mntmEspañol = new JMenuItem("Español");
 		mntmEspañol.setForeground(new Color(255, 255, 255));
@@ -215,8 +216,6 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
       }
   });
 		
-	   	//Botón con ingles PahinaPrincipal
-		
 		JMenuItem mntmIngles = new JMenuItem("English");
 		mntmIngles.setForeground(new Color(255, 255, 255));
 		mntmIngles.setBackground(new Color(139, 0, 0));
@@ -231,25 +230,6 @@ public class MenuFondoFooterPaginaPrincipal extends JFrame {
 	     MenuFondoFooterPaginaPrincipalING.setResizable(false);
       }
   });
-		
-	   	//Botón Inicio de sesión
-		
-		JButton btnInicioSesion = new JButton("Inicio de sesión");
-		menuBar.add(btnInicioSesion);
-		btnInicioSesion.setFont(new Font("Calibri", Font.BOLD, 20));
-		btnInicioSesion.setBackground(new Color(139, 0, 0));
-		btnInicioSesion.setForeground(new Color(255, 255, 255));
-		btnInicioSesion.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-          // Abre el Documento Inicio de Sesion
-      	InicioDeSesion InicioDeSesion = new InicioDeSesion();
-      	InicioDeSesion.setVisible(true);
-        InicioDeSesion.setResizable(false);
-      }
-  });
-		
-	   	//Botón Contacto
 		
 		JButton btnContacto = new JButton("Contacto");
 		menuBar.add(btnContacto);
