@@ -1615,7 +1615,6 @@
 	        btnEditarE3R5.setBounds(644, 52, 85, 25);
 	        panel_1_1_2_3.add(btnEditarE3R5);
 	        
-		}
 		  
 	        JPanel panel_6 = new JPanel();
 	        tabbedPane.addTab("Jornada6", null, panel_6, null);
@@ -2884,4 +2883,4 @@
 	        
 		}
 	    }
-	    }
+	    
