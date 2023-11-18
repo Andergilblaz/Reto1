@@ -16,10 +16,8 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Point;
+
 import java.awt.Toolkit;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -34,7 +32,6 @@ public class ClasificaciónIngles extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
-	private Point initialClick;
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -50,23 +47,7 @@ public class ClasificaciónIngles extends JFrame {
 	}
 
 	public ClasificaciónIngles() {
-		addMouseListener(new MouseAdapter() {
-            public void mousePressed(MouseEvent e) {
-                initialClick = e.getPoint();
-            }
-        });
-
-        addMouseMotionListener(new MouseAdapter() {
-            public void mouseDragged(MouseEvent e) {
-                int thisX = getLocation().x;
-                int thisY = getLocation().y;
-
-                int xMoved = thisX + (e.getX() - initialClick.x);
-                int yMoved = thisY + (e.getY() - initialClick.y);
-
-                setLocation(xMoved, yMoved);
-            }
-        });
+		
 		contentPane = new JPanel() {
             /**
 			 * 
@@ -89,7 +70,7 @@ public class ClasificaciónIngles extends JFrame {
 		setAlwaysOnTop(true);
 		setTitle("Spanish Waterpolo Classification");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 978, 375);
+		setBounds(100, 100, 1000, 375);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo (null);
 		
@@ -109,7 +90,7 @@ public class ClasificaciónIngles extends JFrame {
 
         table = new JTable(tableModel);
         table.setFont(new Font("Calibri", Font.BOLD, 20));
-        table.setGridColor(new Color(139, 0, 0));
+        table.setGridColor(new Color(35, 33, 156));
 
         table.setRowHeight(40);
 
@@ -144,7 +125,7 @@ public class ClasificaciónIngles extends JFrame {
         JTableHeader tableHeader = table.getTableHeader();
         tableHeader.setFont(new Font("Calibri", Font.BOLD, 20));
         tableHeader.setBackground(Color.WHITE);
-        tableHeader.setForeground(new Color(139, 0, 0));
+        tableHeader.setForeground(new Color(35, 33, 156));
 	tableHeader.setReorderingAllowed(false);
  
         contentPane.setLayout(new BorderLayout(0, 0));

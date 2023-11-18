@@ -27,35 +27,18 @@ public class Gestion extends JFrame {
         setSize(400, 300);
         setLocationRelativeTo(null);
 
-        tableModel = new DefaultTableModel() {
-          /**
-					 * 
-					 */
-					private static final long serialVersionUID = 1L;
+        tableModel = new DefaultTableModel();
+        tableModel.addColumn("Usuario");
+        tableModel.addColumn("Contraseña");
 
-					@Override
-          public boolean isCellEditable(int row, int column) {
-              // Hacer que todas las celdas no sean editables
-              return false;
-          }
-      };
-
-      tableModel.addColumn("Usuario");
-      tableModel.addColumn("Contraseña");
-
-      cuentasTable = new JTable(tableModel);
+        cuentasTable = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(cuentasTable);
         getContentPane().add(scrollPane, BorderLayout.CENTER);
 
         agregarCuentaButton = new JButton("Agregar Cuenta");
         agregarCuentaButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                try {
-									agregarCuenta();
-								} catch (FileNotFoundException e1) {
-									// TODO Bloque catch generado automáticamente
-									e1.printStackTrace();
-								}
+                agregarCuenta();
             }
         });
 
@@ -74,46 +57,31 @@ public class Gestion extends JFrame {
         getContentPane().add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    public void agregarCuenta() throws FileNotFoundException {
-    	@SuppressWarnings("unused")
-    	String aviso = "⚠ Una vez introducida una nueva cuenta, no es editable, tendrías que eliminarla y volver a crearla. ⚠";
-    	JOptionPane.showMessageDialog(this, aviso, "Aviso", JOptionPane.INFORMATION_MESSAGE);
-      String usuario = JOptionPane.showInputDialog("Nombre de usuario:");
-      String contraseña = JOptionPane.showInputDialog("Contraseña:");
+    public void agregarCuenta() {
+        String usuario = JOptionPane.showInputDialog("Nombre de usuario:");
+        String contraseña = JOptionPane.showInputDialog("Contraseña:");
 
-      if (usuario != null && !usuario.isEmpty() && contraseña != null && !contraseña.isEmpty()) {
-          Cuenta nuevaCuenta = new Cuenta(usuario, contraseña);
-          cuentasGuardadas.add(nuevaCuenta);
-          tableModel.addRow(new Object[]{nuevaCuenta.getUsuario(), nuevaCuenta.getContraseña()});
-          guardarCuentas();
-          String nuevaRutaArchivo = "src/Reto1/cuentas.dat";
-          FileOutputStream fileOutput = new FileOutputStream(nuevaRutaArchivo);
-      } else {
-          JOptionPane.showMessageDialog(this, "Usuario o contraseña vacíos, no se puede agregar la cuenta.", "Error", JOptionPane.WARNING_MESSAGE);
-      }
-  }
+        if (usuario != null && contraseña != null) {
+            Cuenta nuevaCuenta = new Cuenta(usuario, contraseña);
+            cuentasGuardadas.add(nuevaCuenta); // Agregar cuenta a la lista de cuentas.
+            tableModel.addRow(new Object[]{nuevaCuenta.getUsuario(), nuevaCuenta.getContraseña()});
+            guardarCuentas();
+        }
+    }
 
     public void eliminarCuenta() {
-      int selectedRow = cuentasTable.getSelectedRow();
+        int selectedRow = cuentasTable.getSelectedRow();
 
-      if (selectedRow != -1) {
-          Cuenta cuentaAEliminar = cuentasGuardadas.get(selectedRow);
+        if (selectedRow != -1) {
+            cuentasGuardadas.remove(selectedRow);
+            tableModel.removeRow(selectedRow);
+            guardarCuentas();
+        } else {
+            JOptionPane.showMessageDialog(this, "Selecciona una cuenta para eliminar.", "Error", JOptionPane.WARNING_MESSAGE);
+        }
+    }
 
-          if (!cuentaAEliminar.getUsuario().equals("Supremo")) { // Evitar eliminar la cuenta "admin"
-              cuentasGuardadas.remove(selectedRow);
-              tableModel.removeRow(selectedRow);
-              guardarCuentas();
-          } else {
-              JOptionPane.showMessageDialog(this, "No puedes eliminar la cuenta 'Supremo'", "Error", JOptionPane.WARNING_MESSAGE);
-          }
-      } else {
-          JOptionPane.showMessageDialog(this, "Selecciona una cuenta para eliminar.", "Error", JOptionPane.WARNING_MESSAGE);
-      }
-  }
-
-
-    @SuppressWarnings("unchecked")
-		public void cargarCuentasGuardadas() {
+    public void cargarCuentasGuardadas() {
         try {
             FileInputStream fileInput = new FileInputStream(archivoCuentas);
             ObjectInputStream objectInput = new ObjectInputStream(fileInput);

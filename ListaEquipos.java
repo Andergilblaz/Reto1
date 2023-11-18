@@ -15,10 +15,8 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Point;
+
 import java.awt.Toolkit;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -27,12 +25,13 @@ import javax.swing.JLabel;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 
+
 public class ListaEquipos extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
-	private Point initialClick;
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -48,23 +47,7 @@ public class ListaEquipos extends JFrame {
 	}
 
 	public ListaEquipos() {
-		addMouseListener(new MouseAdapter() {
-            public void mousePressed(MouseEvent e) {
-                initialClick = e.getPoint();
-            }
-        });
-
-        addMouseMotionListener(new MouseAdapter() {
-            public void mouseDragged(MouseEvent e) {
-                int thisX = getLocation().x;
-                int thisY = getLocation().y;
-
-                int xMoved = thisX + (e.getX() - initialClick.x);
-                int yMoved = thisY + (e.getY() - initialClick.y);
-
-                setLocation(xMoved, yMoved);
-            }
-        });
+		
 		contentPane = new JPanel() {
 			private static final long serialVersionUID = 1L;
 
@@ -83,7 +66,7 @@ public class ListaEquipos extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("src\\Reto1\\fotos\\LogoWaterpoloPequeña.png"));
 		setAlwaysOnTop(true);
 		setTitle("Equipos Waterpolo Español");
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 978, 356);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo (null);
@@ -104,17 +87,20 @@ public class ListaEquipos extends JFrame {
 
         table = new JTable(tableModel);
         table.setFont(new Font("Calibri", Font.BOLD, 16));
-        table.setGridColor(new Color(139, 0, 0));
+        table.setGridColor(new Color(35, 33, 156));
 
         table.setRowHeight(40);
 
-        table.setEnabled(false);
-        
+	table.setEnabled(false);
+	        
         table.getColumnModel().getColumn(0).setResizable(false);
         table.getColumnModel().getColumn(1).setResizable(false);
         table.getColumnModel().getColumn(2).setResizable(false);
         table.getColumnModel().getColumn(3).setResizable(false);
         table.getColumnModel().getColumn(4).setResizable(false);
+  
+	table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        table.getTableHeader().setResizingAllowed(false); 
         
         TableColumn column = table.getColumnModel().getColumn(0);
         column.setMinWidth(170);
@@ -134,8 +120,8 @@ public class ListaEquipos extends JFrame {
         JTableHeader tableHeader = table.getTableHeader();
         tableHeader.setFont(new Font("Calibri", Font.BOLD, 20));
         tableHeader.setBackground(Color.WHITE);
-        tableHeader.setForeground(new Color(139, 0, 0));
-        tableHeader.setReorderingAllowed(false);
+        tableHeader.setForeground(new Color(35, 33, 156));
+	tableHeader.setReorderingAllowed(false);
  
         contentPane.setLayout(new BorderLayout(0, 0));
 		
