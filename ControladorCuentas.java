@@ -1,53 +1,45 @@
 package Reto1;
 
-import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ControladorCuentas {
-    private List<Cuenta> cuentas;
+    private Map<String, String> cuentas = new HashMap<>();
 
     public ControladorCuentas() {
-        cargarCuentas();
+        //Inicializacion de cuentas
     }
 
     public boolean validarCredenciales(String usuario, String contraseña) {
-        for (Cuenta cuenta : cuentas) {
-            if (cuenta.getUsuario().equals(usuario) && cuenta.getContraseña().equals(contraseña)) {
-                return true;
-            }
-        }
-        return false;
+        // Realiza la validación de credenciales aquí.
+        String contraseñaAlmacenada = cuentas.get(usuario);
+        return contraseñaAlmacenada != null && contraseñaAlmacenada.equals(contraseña);
     }
 
     public List<Cuenta> getCuentasGuardadas() {
-        return cuentas;
+        // Cambia esta función para devolver una lista de cuentas guardadas.
+        List<Cuenta> cuentasGuardadas = new ArrayList<>();
+        // Aquí debes cargar las cuentas desde tus datos guardados.
+        // Puedes recorrer el mapa 'cuentas' y agregar cada cuenta a la lista.
+        for (Map.Entry<String, String> entry : cuentas.entrySet()) {
+            cuentasGuardadas.add(new Cuenta(entry.getKey(), entry.getValue()));
+        }
+        return cuentasGuardadas;
     }
-
+    
     public void agregarCuenta(String usuario, String contraseña) {
-        cuentas.add(new Cuenta(usuario, contraseña));
-        guardarCuentas();
-    }
+      cuentas.put(usuario, contraseña);
+      // Aquí puedes agregar código para guardar la cuenta en tus datos guardados.
+  }
 
-    public void eliminarCuenta(String usuario) {
-        cuentas.removeIf(cuenta -> cuenta.getUsuario().equals(usuario));
-        guardarCuentas();
-    }
+  public void eliminarCuenta(String usuario) {
+      cuentas.remove(usuario);
+      // Aquí puedes agregar código para eliminar la cuenta de tus datos guardados.
+  }
 
-    @SuppressWarnings("unchecked")
-		private void cargarCuentas() {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("cuentas.dat"))) {
-            cuentas = (ArrayList<Cuenta>) ois.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            cuentas = new ArrayList<>();
-        }
-    }
-
-    private void guardarCuentas() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("cuentas.dat"))) {
-            oos.writeObject(cuentas);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+  public List<String> getUsuarios() {
+      return new ArrayList<>(cuentas.keySet());
+  }
 }

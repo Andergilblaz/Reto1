@@ -1,5 +1,5 @@
 package Reto1;
-//Agregar importaciones para la funcionalidad de todos los componentes
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -22,14 +22,12 @@ public class Calendario extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel lblNewLabel;
-	//lanzando la aplicación
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					Calendario frame = new Calendario();
 					frame.setVisible(true);
-					//prohibición de cambiar el tamaño de la aplicación
 					frame.setResizable (false);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,25 +35,23 @@ public class Calendario extends JFrame {
 			}
 		});
 	}
-	//mostrando todos los componentes de la aplicación
+
 	public Calendario() {
 		setBackground(new Color(255, 255, 255));
 		setForeground(new Color(139, 0, 0));
 		setIconImage(Toolkit.getDefaultToolkit().getImage("src\\Reto1\\fotos\\LogoWaterpoloPequeña.png"));
 		setAlwaysOnTop(true);
-		setTitle("Calendario Waterpolo Español");
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 978, 585);
+		setTitle("Resultados Waterpolo Español");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 1063, 585);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setLocationRelativeTo(null);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		showImage();
 	}
-	//abriendo un nuevo método para mostrar los siguientes componentes
 	public void showImage() {
         ImageIcon originalImageIcon = new ImageIcon("src/Reto1/fotos/calendario.png");
         int targetWidth = 900;
@@ -75,11 +71,12 @@ public class Calendario extends JFrame {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
         getContentPane().add(scrollPane, BorderLayout.CENTER);
-        //agregando una nueva Label
+        
         lblNewLabel = new JLabel("Calendario:");
         lblNewLabel.setForeground(Color.BLACK);
 	    lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 25));
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         scrollPane.setColumnHeaderView(lblNewLabel);
+        
     }
 }

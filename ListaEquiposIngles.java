@@ -15,10 +15,8 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Point;
+
 import java.awt.Toolkit;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -33,7 +31,6 @@ public class ListaEquiposIngles extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
-	private Point initialClick;
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -49,23 +46,7 @@ public class ListaEquiposIngles extends JFrame {
 	}
 
 	public ListaEquiposIngles() {
-		addMouseListener(new MouseAdapter() {
-            public void mousePressed(MouseEvent e) {
-                initialClick = e.getPoint();
-            }
-        });
-
-        addMouseMotionListener(new MouseAdapter() {
-            public void mouseDragged(MouseEvent e) {
-                int thisX = getLocation().x;
-                int thisY = getLocation().y;
-
-                int xMoved = thisX + (e.getX() - initialClick.x);
-                int yMoved = thisY + (e.getY() - initialClick.y);
-
-                setLocation(xMoved, yMoved);
-            }
-        });
+		
 		contentPane = new JPanel() {
 			private static final long serialVersionUID = 1L;
 
@@ -105,7 +86,7 @@ public class ListaEquiposIngles extends JFrame {
 
         table = new JTable(tableModel);
         table.setFont(new Font("Calibri", Font.BOLD, 16));
-        table.setGridColor(new Color(139, 0, 0));
+        table.setGridColor(new Color(35, 33, 156));
 
         table.setRowHeight(40);
         
@@ -117,6 +98,9 @@ public class ListaEquiposIngles extends JFrame {
         table.getColumnModel().getColumn(3).setResizable(false);
         table.getColumnModel().getColumn(4).setResizable(false);
   
+	table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        table.getTableHeader().setResizingAllowed(false); 
+		
         TableColumn column = table.getColumnModel().getColumn(0);
         column.setMinWidth(170);
         column.setMaxWidth(170);
@@ -135,7 +119,7 @@ public class ListaEquiposIngles extends JFrame {
         JTableHeader tableHeader = table.getTableHeader();
         tableHeader.setFont(new Font("Calibri", Font.BOLD, 20));
         tableHeader.setBackground(Color.WHITE);
-        tableHeader.setForeground(new Color(139, 0, 0));
+        tableHeader.setForeground(new Color(35, 33, 156));
 	tableHeader.setReorderingAllowed(false);
  
         contentPane.setLayout(new BorderLayout(0, 0));
