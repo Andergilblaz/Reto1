@@ -24,6 +24,7 @@ public class Resultados extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	static JLabel lblE4R2;
 	/**
 	 * Launch the application.
 	 */
@@ -109,10 +110,12 @@ public class Resultados extends JFrame {
         lblJornada_2_3.setBounds(230, 13, 109, 25);
         panel_1_3_2.add(lblJornada_2_3);
         
-        JLabel lblE4R2 = new JLabel("-");
+        JLabel  lblE4R2 = new JLabel("-");
         lblE4R2.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE4R2.setBounds(228, 57, 29, 13);
         panel_1_3_2.add(lblE4R2);
+
+        actualizarDatos();
         
         JLabel lblNewLabel_5_3_2 = new JLabel("VS");
         lblNewLabel_5_3_2.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -1135,9 +1138,11 @@ public class Resultados extends JFrame {
         JScrollPane scrollPane_1 = new JScrollPane();
         contentPane.add(scrollPane_1, BorderLayout.NORTH);
         contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{scrollPane, tabbedPane, panel, panel_5, panel_4, panel_2, panel_3, panel_1_1_2_3, lblE25, lblJornada_1_2, lblE2R5, lblNewLabel_5_2_2_2, lblE3R5, lblE35, lblE55, lblE5R5, lblNewLabel_8_1_2_2, lblE4R5, lblE45, lblE65, lblE6R5, lblNewLabel_13_1_2_2, lblE1R5, lblE15, panel_6, panel_1_1_1_1_2, lblE66, lblJornada_2_1_1, lblE6R6, lblNewLabel_5_2_1_1_1, lblE5R6, lblE56, lblE46, lblE4R6, lblNewLabel_8_1_1_1_1, lblE3R6, lblE36, lblE26, lblE2R6, lblNewLabel_13_1_1_1_1, lblE1R6, lblE16, panel_7, panel_1_1_1_1, lblE67, lblJornada_2_1, lblE6R7, lblNewLabel_5_2_1_1, lblE4R7, lblE47, lblE37, lblE3R7, lblNewLabel_8_1_1_1, lblE1R7, lblE17, lblE57, lblE5R7, lblNewLabel_13_1_1_1, lblE2R7, lblE27, panel_8, panel_1_1, lblE28, lblJornada, lblE2R8, lblNewLabel_5_1, lblE4R8, lblE48, lblE68, lblE6R8, lblNewLabel_8_1, lblE3R8, lblE38, lblE18, lblE1R8, lblNewLabel_13_1, lblE5R8, lblE58, panel_9, panel_1_2, lblE39, lblJornada_1, lblE3R9, lblNewLabel_5_2, lblE5R9, lblE59, lblE69, lblE6R9, lblNewLabel_8_2, lblE2R9, lblE29, lblE49, lblE4R9, lblNewLabel_13_2, lblE1R9, lblE19, panel_10, panel_1_3, lblE310, lblJornada_2, lblE3R10, lblNewLabel_5_3, lblE2R10, lblE210, lblE410, lblE4R10, lblNewLabel_8_3, lblE5R10, lblE510, lblE110, lblE1R10, lblNewLabel_13_3, lblE6R10, lblE610, panel_1_3_1, lblE1, lblJornada1, lblE1R1, lblJ1VS, lblE2R1, lblE2, lblE3, lblE3R1, lblNewLabel_8_3_1, lblE4R1, lblE4, lblE5, lblE5R1, lblNewLabel_13_3_1, lblE6R1, lblE6, panel_1_3_2, lblE42, lblJornada_2_3, lblE4R2, lblNewLabel_5_3_2, lblE6R2, lblE62, lblE12, lblE1R2, lblNewLabel_8_3_2, lblE3R2, lblE32, lblE22, lblE2R2, lblNewLabel_13_3_2, lblE5R2, lblE52, panel_1_3_1_1, lblE33, lblJornada_2_2_1, lblE3R3, lblNewLabel_5_3_1_1, lblE6R3, lblE63, lblE43, lblE4R3, lblNewLabel_8_3_1_1, lblE2R3, lblE23, lbl53, lblE5R3, lblNewLabel_13_3_1_1, lblE1R3, lblE13, panel_1_3_1_2, lblE54, lblJornada_2_2_2, lblE5R4, lblNewLabel_5_3_1_2, lblE3R4, lbl34, lblE24, lblE2R4, lblNewLabel_8_3_1_2, lblE6R4, lblE64, lblE14, lblE1R4, lblNewLabel_13_3_1_2, lblE4R4, lblE44}));
+        }
         
-        
-        
-       
-    }
+ 
+ public static void actualizarDatos() {
+     String resultadoE4R2 = ControladorDatos.getResultadoE4R2();
+     lblE4R2.setText(resultadoE4R2);
+ }
 }

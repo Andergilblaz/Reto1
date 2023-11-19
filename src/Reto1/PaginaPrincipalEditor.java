@@ -362,10 +362,10 @@ public class PaginaPrincipalEditor extends JFrame implements ActionListener {
 	
 	Object o = ae.getSource();
 	if (o == btnResultados){
-		Resultados Resultados = new Resultados();
-    Resultados.setVisible(true);
-    Resultados.setResizable(false);
-    Resultados.setAlwaysOnTop(true);
+		ResultadosEditable ResultadosEditable = new ResultadosEditable();
+		ResultadosEditable.setVisible(true);
+		ResultadosEditable.setResizable(false);
+		ResultadosEditable.setAlwaysOnTop(true);
 
 	}
 	

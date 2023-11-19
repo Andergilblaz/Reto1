@@ -95,12 +95,12 @@ public class Clasificación extends JFrame {
 		
 		DefaultTableModel tableModel = new DefaultTableModel(
                 new Object[][] {
-                        {"1", e1, e1p, e1pj, e1pg, e1pp, e1pe, e1gf, e1gc, e1dg},
-                        {"2", e2, e2p, e2pj, e2pg, e2pp, e2pe, e2gf, e2gc, e2dg},
-                        {"3", e3, e3p, e3pj, e3pg, e3pp, e3pe, e3gf, e3gc, e3dg},
-                        {"4", e4, e4p, e4pj, e4pg, e4pp, e4pe, e4gf, e4gc, e4dg},
-                        {"5", e5, e5p, e5pj, e5pg, e5pp, e5pe, e5gf, e5gc, e5dg},
-                        {"6", e6, e6p, e6pj, e6pg, e6pp, e6pe, e6gf, e6gc, e6dg},
+                        {"1", "CN Atlétic Barceloneta", e1p, e1pj, e1pg, e1pp, e1pe, e1gf, e1gc, e1dg},
+                        {"2", "CN La Latina", e2p, e2pj, e2pg, e2pp, e2pe, e2gf, e2gc, e2dg},
+                        {"3", "Urbat IKE", e3p, e3pj, e3pg, e3pp, e3pe, e3gf, e3gc, e3dg},
+                        {"4", "Club Askartza", e4p, e4pj, e4pg, e4pp, e4pe, e4gf, e4gc, e4dg},
+                        {"5", "CN Terrasa", e5p, e5pj, e5pg, e5pp, e5pe, e5gf, e5gc, e5dg},
+                        {"6", "Tenerife Echeyde", e6p, e6pj, e6pg, e6pp, e6pe, e6gf, e6gc, e6dg},
                 },
                 new String[] {
                         "Posicion", "Equipos", "Puntos", "PJ", "PG", "PP", "PE", "GF", "GC", "DG"
@@ -241,6 +241,16 @@ public class Clasificación extends JFrame {
 	Object e4dg;
 	Object e5dg;
 	Object e6dg;
+
+	public void actualizarPuntosEquipo1(int puntos) {
+    this.e1p = puntos;
+    // Actualizar la interfaz gráfica con el nuevo valor de puntos para el equipo 1
+}
+
+public void actualizarPuntosEquipo2(int puntos) {
+    this.e2p = puntos;
+    // Actualizar la interfaz gráfica con el nuevo valor de puntos para el equipo 2
+}
 
 	
 }
