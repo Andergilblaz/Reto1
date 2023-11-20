@@ -77,7 +77,8 @@ import java.awt.Color;
 	        Image scaledImage = originalImageIcon.getImage().getScaledInstance(targetWidth, targetHeight, Image.SCALE_SMOOTH);
 	
 	        new ImageIcon(scaledImage);
-	
+	          JOptionPane.showMessageDialog(this, "Por favor, al introducir un numero menor que 10, añadir un 0 delante como 01 ", getWarningString(), JOptionPane.WARNING_MESSAGE);
+
 	        JScrollPane scrollPane = new JScrollPane();
 	
 	        scrollPane.setPreferredSize(new Dimension(800, 500));
