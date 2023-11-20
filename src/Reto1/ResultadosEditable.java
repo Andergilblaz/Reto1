@@ -16,7 +16,7 @@
 	import java.awt.Toolkit;
 	import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
-	import java.awt.Color;
+import java.awt.Color;
 	import java.awt.Dimension;
 	import javax.swing.SwingConstants;
 	import javax.swing.JTabbedPane;
@@ -204,6 +204,7 @@
 	                          DatosPartido datosE4R2 = new DatosPartido(nuevoTexto);
 	                          datosE4R2.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE4R2, "E4R2.dat");
+	                          DatosPartido.guardarDatos(datosE4R2, "E4R2GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE4R2, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -236,6 +237,7 @@
 	                          DatosPartido datosE1R2 = new DatosPartido(nuevoTexto);
 	                          datosE1R2.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE1R2, "E1R2.dat");
+	                          DatosPartido.guardarDatos(datosE1R2, "E1R2GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE1R2, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -267,6 +269,7 @@
 	                          DatosPartido datosE2R2 = new DatosPartido(nuevoTexto);
 	                          datosE2R2.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE2R2, "E2R2.dat");
+	                          DatosPartido.guardarDatos(datosE2R2, "E2R2GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE2R2, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -298,6 +301,7 @@
 	                          DatosPartido datosE6R2 = new DatosPartido(nuevoTexto);
 	                          datosE6R2.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE6R2, "E6R2.dat");
+	                          DatosPartido.guardarDatos(datosE6R2, "E6R2GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE6R2, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -330,6 +334,7 @@
 	                          DatosPartido datosE3R2 = new DatosPartido(nuevoTexto);
 	                          datosE3R2.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE3R2, "E3R2.dat");
+	                          DatosPartido.guardarDatos(datosE3R2, "E3R2GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE3R2, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -361,6 +366,7 @@
 	                          DatosPartido datosE5R2 = new DatosPartido(nuevoTexto);
 	                          datosE5R2.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE5R2, "E5R2.dat");
+	                          DatosPartido.guardarDatos(datosE5R2, "E5R2GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE5R2, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -488,6 +494,7 @@
 	                          DatosPartido datosE3R3 = new DatosPartido(nuevoTexto);
 	                          datosE3R3.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE3R3, "E3R3.dat");
+	                          DatosPartido.guardarDatos(datosE3R3, "E3R3GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE3R3, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -519,6 +526,7 @@
 	                          DatosPartido datosE4R3 = new DatosPartido(nuevoTexto);
 	                          datosE4R3.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE4R3, "E4R3.dat");
+	                          DatosPartido.guardarDatos(datosE4R3, "E4R3GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE4R3, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -550,6 +558,7 @@
 	                          DatosPartido datosE5R3 = new DatosPartido(nuevoTexto);
 	                          datosE5R3.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE5R3, "E5R3.dat");
+	                          DatosPartido.guardarDatos(datosE5R3, "E5R3GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE5R3, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -581,6 +590,7 @@
 	                          DatosPartido datosE6R3= new DatosPartido(nuevoTexto);
 	                          datosE6R3.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE6R3, "E6R3.dat");
+	                          DatosPartido.guardarDatos(datosE6R3, "E6R3GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE6R3, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -612,6 +622,7 @@
 	                          DatosPartido datosE2R3 = new DatosPartido(nuevoTexto);
 	                          datosE2R3.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE2R3, "E2R3.dat");
+	                          DatosPartido.guardarDatos(datosE2R3, "E2R3GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE2R3, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -643,6 +654,7 @@
 	                          DatosPartido datosE1R3 = new DatosPartido(nuevoTexto);
 	                          datosE1R3.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE1R3, "E1R3.dat");
+	                          DatosPartido.guardarDatos(datosE1R3, "E1R3GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE1R3, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -772,6 +784,7 @@
 	                          DatosPartido datosE1R1 = new DatosPartido(nuevoTexto);
 	                          datosE1R1.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE1R1, "E1R1.dat");
+	                          DatosPartido.guardarDatos(datosE1R1, "E1R1GF.dat");
 	                          
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE1R1, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -805,6 +818,7 @@
 	                          DatosPartido datosE3R1 = new DatosPartido(nuevoTexto);
 	                          datosE3R1.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE3R1, "E3R1.dat");
+	                          DatosPartido.guardarDatos(datosE3R1, "E3R1GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE3R1, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -836,6 +850,7 @@
 	                          DatosPartido datosE5R1 = new DatosPartido(nuevoTexto);
 	                          datosE5R1.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE5R1, "E5R1.dat");
+	                          DatosPartido.guardarDatos(datosE5R1, "E5R1GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE5R1, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -867,6 +882,7 @@
 	                          DatosPartido datosE2R1 = new DatosPartido(nuevoTexto);
 	                          datosE2R1.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE2R1, "E2R1.dat");
+	                          DatosPartido.guardarDatos(datosE2R1, "E2R1GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE2R1, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -899,6 +915,7 @@
 	                          DatosPartido datosE6R1 = new DatosPartido(nuevoTexto);
 	                          datosE6R1.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE6R1, "E6R1.dat");
+	                          DatosPartido.guardarDatos(datosE6R1, "E6R1GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE6R1, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -930,6 +947,7 @@
 	                          DatosPartido datosE4R1 = new DatosPartido(nuevoTexto);
 	                          datosE4R1.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE4R1, "E4R1.dat");
+	                          DatosPartido.guardarDatos(datosE4R1, "E4R1GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE4R1, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -1054,6 +1072,7 @@
 	                          DatosPartido datosE5R4 = new DatosPartido(nuevoTexto);
 	                          datosE5R4.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE5R4, "E5R4.dat");
+	                          DatosPartido.guardarDatos(datosE5R4, "E5R4GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE5R4, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -1085,6 +1104,7 @@
 	                          DatosPartido datosE2R4 = new DatosPartido(nuevoTexto);
 	                          datosE2R4.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE2R4, "E2R4.dat");
+	                          DatosPartido.guardarDatos(datosE2R4, "E2R4GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE2R4, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -1116,6 +1136,7 @@
 	                          DatosPartido datosE1R4 = new DatosPartido(nuevoTexto);
 	                          datosE1R4.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE1R4, "E1R4.dat");
+	                          DatosPartido.guardarDatos(datosE1R4, "E1R4GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE1R4, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -1147,6 +1168,7 @@
 	                          DatosPartido datosE4R4 = new DatosPartido(nuevoTexto);
 	                          datosE4R4.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE4R4, "E4R4.dat");
+	                          DatosPartido.guardarDatos(datosE4R4, "E4R4GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE4R4, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -1178,6 +1200,7 @@
 	                          DatosPartido datosE6R4 = new DatosPartido(nuevoTexto);
 	                          datosE6R4.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE6R4, "E6R4.dat");
+	                          DatosPartido.guardarDatos(datosE6R4, "E6R4GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE6R4, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -1209,6 +1232,7 @@
 	                          DatosPartido datosE3R4 = new DatosPartido(nuevoTexto);
 	                          datosE3R4.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE3R4, "E3R4.dat");
+	                          DatosPartido.guardarDatos(datosE3R4, "E3R4GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE3R4, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -1427,6 +1451,7 @@
 	                          DatosPartido datosE2R5 = new DatosPartido(nuevoTexto);
 	                          datosE2R5.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE2R5, "E2R5.dat");
+	                          DatosPartido.guardarDatos(datosE2R5, "E2R5GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE2R5, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -1459,6 +1484,7 @@
 	                          DatosPartido datosE5R5 = new DatosPartido(nuevoTexto);
 	                          datosE5R5.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE5R5, "E5R5.dat");
+	                          DatosPartido.guardarDatos(datosE5R5, "E5R5GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE5R5, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -1490,6 +1516,7 @@
 	                          DatosPartido datosE6R5 = new DatosPartido(nuevoTexto);
 	                          datosE6R5.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE6R5, "E6R5.dat");
+	                          DatosPartido.guardarDatos(datosE6R5, "E6R5GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE6R5, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -1521,6 +1548,7 @@
 	                          DatosPartido datosE1R5 = new DatosPartido(nuevoTexto);
 	                          datosE1R5.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE1R5, "E1R5.dat");
+	                          DatosPartido.guardarDatos(datosE1R5, "E1R5GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE1R5, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -1552,6 +1580,7 @@
 	                          DatosPartido datosE4R5 = new DatosPartido(nuevoTexto);
 	                          datosE4R5.setResultado(nuevoTexto);
 	                          DatosPartido.guardarDatos(datosE4R5, "E4R5.dat");
+	                          DatosPartido.guardarDatos(datosE4R5, "E4R5GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE4R5, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -1580,9 +1609,10 @@
 	                      int nuevoResultado = Integer.parseInt(nuevoTexto);
 	                      if (nuevoResultado <= 100) {
 	                          lblE3R5.setText(nuevoTexto);
-	                          DatosPartido datos18 = new DatosPartido(nuevoTexto);
-	                          datos18.setResultado(nuevoTexto);
-	                          DatosPartido.guardarDatos(datos18, "E3R5.dat");
+	                          DatosPartido datosE3R5 = new DatosPartido(nuevoTexto);
+	                          datosE3R5.setResultado(nuevoTexto);
+	                          DatosPartido.guardarDatos(datosE3R5, "E3R5.dat");
+	                          DatosPartido.guardarDatos(datosE3R5, "E3R5GF.dat");
 	                      } else {
 	                          JOptionPane.showMessageDialog(lblE3R5, "El resultado no puede superar 100.", "Error", JOptionPane.ERROR_MESSAGE);
 	                      }
@@ -1708,7 +1738,7 @@
 	                      DatosPartido datosE6R6 = new DatosPartido(nuevoTexto);
 	                      datosE6R6.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE6R6, "E6R6.dat");
-
+	                      DatosPartido.guardarDatos(datosE6R6, "E6R6GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE6R6, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -1734,7 +1764,7 @@
 	                      DatosPartido datosE4R6 = new DatosPartido(nuevoTexto);
 	                      datosE4R6.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE4R6, "E4R6.dat");
-
+	                      DatosPartido.guardarDatos(datosE4R6, "E4R6GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE4R6, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -1760,7 +1790,7 @@
 	                      DatosPartido datosE2R6 = new DatosPartido(nuevoTexto);
 	                      datosE2R6.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE2R6, "E2R6.dat");
-
+	                      DatosPartido.guardarDatos(datosE2R6, "E2R6GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE2R6, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -1786,7 +1816,7 @@
 	                      DatosPartido datosE1R6 = new DatosPartido(nuevoTexto);
 	                      datosE1R6.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE1R6, "E1R6.dat");
-
+	                      DatosPartido.guardarDatos(datosE1R6, "E1R6GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE1R6, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -1812,7 +1842,7 @@
 	                      DatosPartido datosE3R6 = new DatosPartido(nuevoTexto);
 	                      datosE3R6.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE3R6, "E3R6.dat");
-
+	                      DatosPartido.guardarDatos(datosE3R6, "E3R6GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE3R6, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -1838,7 +1868,7 @@
 	                      DatosPartido datosE5R6 = new DatosPartido(nuevoTexto);
 	                      datosE5R6.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE5R6, "E5R6.dat");
-
+	                      DatosPartido.guardarDatos(datosE5R6, "E5R6GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE5R6, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -1958,7 +1988,7 @@
 	                      DatosPartido datosE6R7 = new DatosPartido(nuevoTexto);
 	                      datosE6R7.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE6R7, "E6R7.dat");
-
+	                      DatosPartido.guardarDatos(datosE6R7, "E6R7GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE6R7, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -1984,7 +2014,7 @@
 	                      DatosPartido datosE3R7 = new DatosPartido(nuevoTexto);
 	                      datosE3R7.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE3R7, "E3R7.dat");
-
+	                      DatosPartido.guardarDatos(datosE3R7, "E3R7GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE3R7, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2011,7 +2041,7 @@
 	                      DatosPartido datosE5R7 = new DatosPartido(nuevoTexto);
 	                      datosE5R7.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE5R7, "E5R7.dat");
-
+	                      DatosPartido.guardarDatos(datosE5R7, "E5R7GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE5R7, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2038,7 +2068,7 @@
 	                      DatosPartido datosE2R7 = new DatosPartido(nuevoTexto);
 	                      datosE2R7.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE2R7, "E2R7.dat");
-
+	                      DatosPartido.guardarDatos(datosE2R7, "E2R7GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE2R7, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2065,7 +2095,7 @@
 	                      DatosPartido datosE1R7 = new DatosPartido(nuevoTexto);
 	                      datosE1R7.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE1R7, "E1R7.dat");
-
+	                      DatosPartido.guardarDatos(datosE1R7, "E1R7GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE1R7, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2092,7 +2122,7 @@
 	                      DatosPartido datosE4R7 = new DatosPartido(nuevoTexto);
 	                      datosE4R7.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE4R7, "E4R7.dat");
-
+	                      DatosPartido.guardarDatos(datosE4R7, "E4R7GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE4R7, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2214,7 +2244,7 @@
 	                      DatosPartido datosE2R8 = new DatosPartido(nuevoTexto);
 	                      datosE2R8 .setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE2R8, "E2R8.dat");
-
+	                      DatosPartido.guardarDatos(datosE2R8, "E2R8GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE2R8, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2240,7 +2270,7 @@
 	                      DatosPartido datosE6R8 = new DatosPartido(nuevoTexto);
 	                      datosE6R8.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE6R8, "E6R8.dat");
-
+	                      DatosPartido.guardarDatos(datosE6R8, "E6R8GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE6R8, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2266,7 +2296,7 @@
 	                      DatosPartido datosE1R8 = new DatosPartido(nuevoTexto);
 	                      datosE1R8.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE1R8, "E1R8.dat");
-
+	                      DatosPartido.guardarDatos(datosE1R8, "E1R8GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE1R8, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2292,7 +2322,7 @@
 	                      DatosPartido datosE4R8 = new DatosPartido(nuevoTexto);
 	                      datosE4R8.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE4R8, "E4R8.dat");
-
+	                      DatosPartido.guardarDatos(datosE4R8, "E4R8GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE4R8, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2315,10 +2345,10 @@
 	              if (nuevoTexto != null) {
 	                  if (nuevoTexto.matches("[0-9]+")) {
 	                      lblE3R8.setText(nuevoTexto);
-	                      DatosPartido datos52 = new DatosPartido(nuevoTexto);
-	                      datos52.setResultado(nuevoTexto);
-	                      DatosPartido.guardarDatos(datos52, "E3R8.dat");
-
+	                      DatosPartido datosE3R8 = new DatosPartido(nuevoTexto);
+	                      datosE3R8.setResultado(nuevoTexto);
+	                      DatosPartido.guardarDatos(datosE3R8, "E3R8.dat");
+	                      DatosPartido.guardarDatos(datosE3R8, "E3R8GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE3R8, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2344,7 +2374,7 @@
 	                      DatosPartido datosE5R8 = new DatosPartido(nuevoTexto);
 	                      datosE5R8.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE5R8, "E5R8.dat");
-
+	                      DatosPartido.guardarDatos(datosE5R8, "E5R8GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE5R8, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2465,7 +2495,7 @@
 	                      DatosPartido datosE3R9 = new DatosPartido(nuevoTexto);
 	                      datosE3R9.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE3R9, "E3R9.dat");
-
+	                      DatosPartido.guardarDatos(datosE3R9, "E3R9GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE3R9, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2491,7 +2521,7 @@
 	                      DatosPartido datosE6R9 = new DatosPartido(nuevoTexto);
 	                      datosE6R9.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE6R9, "E6R9.dat");
-
+	                      DatosPartido.guardarDatos(datosE6R9, "E6R9GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE6R9, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2517,7 +2547,7 @@
 	                      DatosPartido datosE4R9 = new DatosPartido(nuevoTexto);
 	                      datosE4R9.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE4R9, "E4R9.dat");
-
+	                      DatosPartido.guardarDatos(datosE4R9, "E4R9GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE4R9, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2543,7 +2573,7 @@
 	                      DatosPartido datosE5R9 = new DatosPartido(nuevoTexto);
 	                      datosE5R9.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE5R9, "E5R9.dat");
-
+	                      DatosPartido.guardarDatos(datosE5R9, "E5R9GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE5R9, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2569,7 +2599,7 @@
 	                      DatosPartido datosE2R9 = new DatosPartido(nuevoTexto);
 	                      datosE2R9.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE2R9, "E2R9.dat");
-
+	                      DatosPartido.guardarDatos(datosE2R9, "E2R9GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE2R9, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2595,7 +2625,7 @@
 	                      DatosPartido datosE1R9 = new DatosPartido(nuevoTexto);
 	                      datosE1R9.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE1R9, "E1R9.dat");
-
+	                      DatosPartido.guardarDatos(datosE1R9, "E1R9GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE1R9, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2716,7 +2746,7 @@
 	                      DatosPartido datosE3R10 = new DatosPartido(nuevoTexto);
 	                      datosE3R10.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE3R10, "E3R10.dat");
-
+	                      DatosPartido.guardarDatos(datosE3R10, "E3R10GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE3R10, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2742,7 +2772,7 @@
 	                      DatosPartido datosE4R10 = new DatosPartido(nuevoTexto);
 	                      datosE4R10.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE4R10, "E4R10.dat");
-
+	                      DatosPartido.guardarDatos(datosE4R10, "E4R10GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE4R10, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2768,7 +2798,7 @@
 	                      DatosPartido datosE1R10 = new DatosPartido(nuevoTexto);
 	                      datosE1R10.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE1R10, "E1R10.dat");
-
+	                      DatosPartido.guardarDatos(datosE1R10, "E1R10GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE1R10, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2794,7 +2824,7 @@
 	                      DatosPartido datosE2R10 = new DatosPartido(nuevoTexto);
 	                      datosE2R10.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE2R10, "E2R10.dat");
-
+	                      DatosPartido.guardarDatos(datosE2R10, "E2R10GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE2R10, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2820,7 +2850,7 @@
 	                      DatosPartido datosE5R10 = new DatosPartido(nuevoTexto);
 	                      datosE5R10.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE5R10, "E5R10.dat");
-
+	                      DatosPartido.guardarDatos(datosE5R10, "E5R10GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE5R10, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2846,7 +2876,7 @@
 	                      DatosPartido datosE6R10 = new DatosPartido(nuevoTexto);
 	                      datosE6R10.setResultado(nuevoTexto);
 	                      DatosPartido.guardarDatos(datosE6R10, "E6R10.dat");
-
+	                      DatosPartido.guardarDatos(datosE6R10, "E6R10GF.dat");
 	                  } else {
 	                      JOptionPane.showMessageDialog(lblE6R10, "Por favor, introduce solo números.", "Error", JOptionPane.ERROR_MESSAGE);
 	                  }
@@ -2868,7 +2898,7 @@
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			
+		
 		}
 	        
 		

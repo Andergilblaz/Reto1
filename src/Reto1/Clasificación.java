@@ -20,6 +20,9 @@ import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -96,10 +99,10 @@ public class Clasificación extends JFrame {
 		DefaultTableModel tableModel = new DefaultTableModel(
                 new Object[][] {
                         {"1", "CN Atlétic Barceloneta", e1p, e1pj, e1pg, e1pp, e1pe, e1gf, e1gc, e1dg},
-                        {"2", "CN La Latina", e2p, e2pj, e2pg, e2pp, e2pe, e2gf, e2gc, e2dg},
-                        {"3", "Urbat IKE", e3p, e3pj, e3pg, e3pp, e3pe, e3gf, e3gc, e3dg},
-                        {"4", "Club Askartza", e4p, e4pj, e4pg, e4pp, e4pe, e4gf, e4gc, e4dg},
-                        {"5", "CN Terrasa", e5p, e5pj, e5pg, e5pp, e5pe, e5gf, e5gc, e5dg},
+                        {"2", "Urbat IKE", e2p, e2pj, e2pg, e2pp, e2pe, e2gf, e2gc, e2dg},
+                        {"3", "CN La Latina", e3p, e3pj, e3pg, e3pp, e3pe, e3gf, e3gc, e3dg},
+                        {"4", "CN Terrasa", e4p, e4pj, e4pg, e4pp, e4pe, e4gf, e4gc, e4dg},
+                        {"5", "Club Askartza", e5p, e5pj, e5pg, e5pp, e5pe, e5gf, e5gc, e5dg},
                         {"6", "Tenerife Echeyde", e6p, e6pj, e6pg, e6pp, e6pe, e6gf, e6gc, e6dg},
                 },
                 new String[] {
@@ -179,78 +182,3949 @@ public class Clasificación extends JFrame {
 	Object e6; //Tenerife
 	
 	//Puntos
-	Object e1p;
-	Object e2p;
-	Object e3p;
-	Object e4p;
-	Object e5p;
-	Object e6p;
+	int e1p;
+	int e2p;
+	int e3p;
+	int e4p;
+	int e5p;
+	int e6p;
 	
 	//Partidos jugados	
-	Object e1pj; 
-	Object e2pj;
-	Object e3pj;
-	Object e4pj;
-	Object e5pj;
-	Object e6pj;
+	int e1pj; 
+	int e2pj;
+	int e3pj;
+	int e4pj;
+	int e5pj;
+	int e6pj;
 
 	//Partidos ganados
-	Object e1pg;
-	Object e2pg;
-	Object e3pg;
-	Object e4pg;
-	Object e5pg;
-	Object e6pg;
+	int e1pg;
+	int e2pg;
+	int e3pg;
+	int e4pg;
+	int e5pg;
+	int e6pg;
 	
 	//Partidos perdidos
-	Object e1pp;
-	Object e2pp;
-	Object e3pp;
-	Object e4pp;
-	Object e5pp;
-	Object e6pp;
+	int e1pp;
+	int e2pp;
+	int e3pp;
+	int e4pp;
+	int e5pp;
+	int e6pp;
 	
 	//Partidos empatados
-	Object e1pe; 
-	Object e2pe;
-	Object e3pe;
-	Object e4pe;
-	Object e5pe;
-	Object e6pe;
+	int e1pe; 
+	int e2pe;
+	int e3pe;
+	int e4pe;
+	int e5pe;
+	int e6pe;
 	
 	//Goles a favor
-	Object e1gf;
-	Object e2gf;
-	Object e3gf;
-	Object e4gf;
-	Object e5gf;
-	Object e6gf;
+	int e1gf;
+	int e2gf;
+	int e3gf;
+	int e4gf;
+	int e5gf;
+	int e6gf;
 	
 	//Goles en contra
-	Object e1gc;
-	Object e2gc;
-	Object e3gc;
-	Object e4gc;
-	Object e5gc;
-	Object e6gc;
+	int e1gc;
+	int e2gc;
+	int e3gc;
+	int e4gc;
+	int e5gc;
+	int e6gc;
 	
 	// Diferencia de goles
-	Object e1dg;
-	Object e2dg;
-	Object e3dg;
-	Object e4dg;
-	Object e5dg;
-	Object e6dg;
+	int e1dg;
+	int e2dg;
+	int e3dg;
+	int e4dg;
+	int e5dg;
+	int e6dg;
+	
+	
+	
+	
+	{	
+	
+		try (BufferedReader br = new BufferedReader(new FileReader("E1R1GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE1R1 = Integer.parseInt(ultimoNumero);
+	            e1gf = numeroArchivoE1R1;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
 
-	public void actualizarPuntosEquipo1(int puntos) {
-    this.e1p = puntos;
-    // Actualizar la interfaz gráfica con el nuevo valor de puntos para el equipo 1
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E1R2GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE1R2 = Integer.parseInt(ultimoNumero);
+            e1gf=  e1gf += numeroArchivoE1R2;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
 }
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E1R3GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE1R3 = Integer.parseInt(ultimoNumero);
+	            e1gf=  e1gf += numeroArchivoE1R3;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
 
-public void actualizarPuntosEquipo2(int puntos) {
-    this.e2p = puntos;
-    // Actualizar la interfaz gráfica con el nuevo valor de puntos para el equipo 2
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E1R4GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE1R4 = Integer.parseInt(ultimoNumero);
+            e1gf=  e1gf += numeroArchivoE1R4;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
 }
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E1R5GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE1R5 = Integer.parseInt(ultimoNumero);
+	            e1gf=  e1gf += numeroArchivoE1R5;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E1R6GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE1R6 = Integer.parseInt(ultimoNumero);
+            e1gf=  e1gf += numeroArchivoE1R6;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E1R7GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE1R7 = Integer.parseInt(ultimoNumero);
+	            e1gf=  e1gf += numeroArchivoE1R7;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E1R8GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE1R8 = Integer.parseInt(ultimoNumero);
+            e1gf=  e1gf += numeroArchivoE1R8;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E1R9GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE1R9 = Integer.parseInt(ultimoNumero);
+	            e1gf=  e1gf += numeroArchivoE1R9;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E1R10GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE1R10 = Integer.parseInt(ultimoNumero);
+            e1gf=  e1gf += numeroArchivoE1R10;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	
+	}	}	}	}	}	}	} } } }
+	
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E2R1GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE2R1 = Integer.parseInt(ultimoNumero);
+	            e2gf = numeroArchivoE2R1;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E2R2GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE2R2 = Integer.parseInt(ultimoNumero);
+            e2gf=  e2gf += numeroArchivoE2R2;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E2R3GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE2R3 = Integer.parseInt(ultimoNumero);
+	            e2gf=  e2gf += numeroArchivoE2R3;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E2R4GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE2R4 = Integer.parseInt(ultimoNumero);
+            e2gf=  e2gf += numeroArchivoE2R4;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E2R5GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE2R5 = Integer.parseInt(ultimoNumero);
+	            e2gf=  e2gf += numeroArchivoE2R5;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E2R6GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE2R6 = Integer.parseInt(ultimoNumero);
+            e2gf=  e2gf += numeroArchivoE2R6;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E2R7GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE2R7 = Integer.parseInt(ultimoNumero);
+	            e2gf=  e2gf += numeroArchivoE2R7;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E2R8GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE2R8 = Integer.parseInt(ultimoNumero);
+            e2gf=  e2gf += numeroArchivoE2R8;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E2R9GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE2R9 = Integer.parseInt(ultimoNumero);
+	            e2gf=  e2gf += numeroArchivoE2R9;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E2R10GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE2R10 = Integer.parseInt(ultimoNumero);
+            e2gf=  e2gf += numeroArchivoE2R10;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	
+	}	}	}	}	}	}	} } } }
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E3R1GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE3R1 = Integer.parseInt(ultimoNumero);
+	            e3gf = numeroArchivoE3R1;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E3R2GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE3R2 = Integer.parseInt(ultimoNumero);
+            e3gf=  e3gf += numeroArchivoE3R2;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E3R3GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE3R3 = Integer.parseInt(ultimoNumero);
+	            e3gf=  e3gf += numeroArchivoE3R3;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E3R4GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE3R4 = Integer.parseInt(ultimoNumero);
+            e3gf=  e3gf += numeroArchivoE3R4;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E3R5GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE3R5 = Integer.parseInt(ultimoNumero);
+	            e3gf=  e3gf += numeroArchivoE3R5;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E3R6GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE3R6 = Integer.parseInt(ultimoNumero);
+            e3gf=  e3gf += numeroArchivoE3R6;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E3R7GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE3R7 = Integer.parseInt(ultimoNumero);
+	            e3gf=  e3gf += numeroArchivoE3R7;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E3R8GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE3R8 = Integer.parseInt(ultimoNumero);
+            e3gf=  e3gf += numeroArchivoE3R8;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E3R9GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE3R9 = Integer.parseInt(ultimoNumero);
+	            e3gf=  e3gf += numeroArchivoE3R9;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E3R10GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE3R10 = Integer.parseInt(ultimoNumero);
+            e3gf=  e3gf += numeroArchivoE3R10;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	
+	}	}	}	}	}	}	} } } }
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E4R1GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE4R1 = Integer.parseInt(ultimoNumero);
+	            e4gf = numeroArchivoE4R1;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E4R2GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE4R2 = Integer.parseInt(ultimoNumero);
+            e4gf=  e4gf += numeroArchivoE4R2;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E4R3GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE4R3 = Integer.parseInt(ultimoNumero);
+	            e4gf=  e4gf += numeroArchivoE4R3;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E1R4GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE4R4 = Integer.parseInt(ultimoNumero);
+            e4gf=  e4gf += numeroArchivoE4R4;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E4R5GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE4R5 = Integer.parseInt(ultimoNumero);
+	            e4gf=  e4gf += numeroArchivoE4R5;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E4R6GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE4R6 = Integer.parseInt(ultimoNumero);
+            e4gf=  e4gf += numeroArchivoE4R6;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E4R7GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE4R7 = Integer.parseInt(ultimoNumero);
+	            e4gf=  e4gf += numeroArchivoE4R7;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E4R8GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE4R8 = Integer.parseInt(ultimoNumero);
+            e4gf=  e4gf += numeroArchivoE4R8;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E4R9GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE4R9 = Integer.parseInt(ultimoNumero);
+	            e4gf=  e4gf += numeroArchivoE4R9;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E4R10GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE4R10 = Integer.parseInt(ultimoNumero);
+            e4gf=  e4gf += numeroArchivoE4R10;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	
+	}	}	}	}	}	}	} } } }
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E5R1GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE5R1 = Integer.parseInt(ultimoNumero);
+	            e5gf = numeroArchivoE5R1;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E5R2GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE5R2 = Integer.parseInt(ultimoNumero);
+            e5gf=  e5gf += numeroArchivoE5R2;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E5R3GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE5R3 = Integer.parseInt(ultimoNumero);
+	            e5gf=  e5gf += numeroArchivoE5R3;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E5R4GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE5R4 = Integer.parseInt(ultimoNumero);
+            e5gf=  e5gf += numeroArchivoE5R4;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E5R5GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE5R5 = Integer.parseInt(ultimoNumero);
+	            e5gf=  e5gf += numeroArchivoE5R5;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E5R6GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE5R6 = Integer.parseInt(ultimoNumero);
+            e5gf=  e5gf += numeroArchivoE5R6;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E5R7GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE5R7 = Integer.parseInt(ultimoNumero);
+	            e5gf=  e5gf += numeroArchivoE5R7;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E5R8GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE5R8 = Integer.parseInt(ultimoNumero);
+            e5gf=  e5gf += numeroArchivoE5R8;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E5R9GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE5R9 = Integer.parseInt(ultimoNumero);
+	            e5gf=  e5gf += numeroArchivoE5R9;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E5R10GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE5R10 = Integer.parseInt(ultimoNumero);
+            e5gf=  e5gf += numeroArchivoE5R10;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	
+	}	}	}	}	}	}	} } } }
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E6R1GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE6R1 = Integer.parseInt(ultimoNumero);
+	            e6gf = numeroArchivoE6R1;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E6R2GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE6R2 = Integer.parseInt(ultimoNumero);
+            e6gf=  e6gf += numeroArchivoE6R2;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E6R3GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE6R3 = Integer.parseInt(ultimoNumero);
+	            e6gf=  e6gf += numeroArchivoE6R3;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E6R4GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE6R4 = Integer.parseInt(ultimoNumero);
+            e6gf=  e6gf += numeroArchivoE6R4;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E6R5GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE6R5 = Integer.parseInt(ultimoNumero);
+	            e6gf=  e6gf += numeroArchivoE6R5;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E6R6GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE6R6 = Integer.parseInt(ultimoNumero);
+            e6gf=  e6gf += numeroArchivoE6R6;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E6R7GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE6R7 = Integer.parseInt(ultimoNumero);
+	            e6gf=  e6gf += numeroArchivoE6R7;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E6R8GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE6R8 = Integer.parseInt(ultimoNumero);
+            e6gf=  e6gf += numeroArchivoE6R8;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E6R9GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE6R9 = Integer.parseInt(ultimoNumero);
+	            e6gf=  e6gf += numeroArchivoE6R9;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E6R10GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE6R10 = Integer.parseInt(ultimoNumero);
+            e6gf=  e6gf += numeroArchivoE6R10;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	
+	}	}	}	}	}	}	} } } }
+
 
 	
+	//Codigo para la obtencion de goles en contra
+	
+	
+	{	
+	
+		try (BufferedReader br = new BufferedReader(new FileReader("E1R1GC.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE1R1GC = Integer.parseInt(ultimoNumero);
+	            e1gc = numeroArchivoE1R1GC;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E1R2GC.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE1R2GC = Integer.parseInt(ultimoNumero);
+            e1gc=  e1gc += numeroArchivoE1R2GC;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
 }
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E1R3GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE1R3 = Integer.parseInt(ultimoNumero);
+	            e1gf=  e1gf += numeroArchivoE1R3;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E1R4GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE1R4 = Integer.parseInt(ultimoNumero);
+            e1gf=  e1gf += numeroArchivoE1R4;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E1R5GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE1R5 = Integer.parseInt(ultimoNumero);
+	            e1gf=  e1gf += numeroArchivoE1R5;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E1R6GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE1R6 = Integer.parseInt(ultimoNumero);
+            e1gf=  e1gf += numeroArchivoE1R6;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E1R7GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE1R7 = Integer.parseInt(ultimoNumero);
+	            e1gf=  e1gf += numeroArchivoE1R7;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E1R8GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE1R8 = Integer.parseInt(ultimoNumero);
+            e1gf=  e1gf += numeroArchivoE1R8;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E1R9GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE1R9 = Integer.parseInt(ultimoNumero);
+	            e1gf=  e1gf += numeroArchivoE1R9;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E1R10GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE1R10 = Integer.parseInt(ultimoNumero);
+            e1gf=  e1gf += numeroArchivoE1R10;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	
+	}	}	}	}	}	}	} } } }
+	
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E2R1GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE2R1 = Integer.parseInt(ultimoNumero);
+	            e2gf = numeroArchivoE2R1;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E2R2GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE2R2 = Integer.parseInt(ultimoNumero);
+            e2gf=  e2gf += numeroArchivoE2R2;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E2R3GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE2R3 = Integer.parseInt(ultimoNumero);
+	            e2gf=  e2gf += numeroArchivoE2R3;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E2R4GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE2R4 = Integer.parseInt(ultimoNumero);
+            e2gf=  e2gf += numeroArchivoE2R4;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E2R5GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE2R5 = Integer.parseInt(ultimoNumero);
+	            e2gf=  e2gf += numeroArchivoE2R5;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E2R6GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE2R6 = Integer.parseInt(ultimoNumero);
+            e2gf=  e2gf += numeroArchivoE2R6;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E2R7GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE2R7 = Integer.parseInt(ultimoNumero);
+	            e2gf=  e2gf += numeroArchivoE2R7;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E2R8GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE2R8 = Integer.parseInt(ultimoNumero);
+            e2gf=  e2gf += numeroArchivoE2R8;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E2R9GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE2R9 = Integer.parseInt(ultimoNumero);
+	            e2gf=  e2gf += numeroArchivoE2R9;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E2R10GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE2R10 = Integer.parseInt(ultimoNumero);
+            e2gf=  e2gf += numeroArchivoE2R10;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	
+	}	}	}	}	}	}	} } } }
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E3R1GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE3R1 = Integer.parseInt(ultimoNumero);
+	            e3gf = numeroArchivoE3R1;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E3R2GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE3R2 = Integer.parseInt(ultimoNumero);
+            e3gf=  e3gf += numeroArchivoE3R2;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E3R3GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE3R3 = Integer.parseInt(ultimoNumero);
+	            e3gf=  e3gf += numeroArchivoE3R3;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E3R4GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE3R4 = Integer.parseInt(ultimoNumero);
+            e3gf=  e3gf += numeroArchivoE3R4;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E3R5GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE3R5 = Integer.parseInt(ultimoNumero);
+	            e3gf=  e3gf += numeroArchivoE3R5;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E3R6GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE3R6 = Integer.parseInt(ultimoNumero);
+            e3gf=  e3gf += numeroArchivoE3R6;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E3R7GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE3R7 = Integer.parseInt(ultimoNumero);
+	            e3gf=  e3gf += numeroArchivoE3R7;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E3R8GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE3R8 = Integer.parseInt(ultimoNumero);
+            e3gf=  e3gf += numeroArchivoE3R8;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E3R9GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE3R9 = Integer.parseInt(ultimoNumero);
+	            e3gf=  e3gf += numeroArchivoE3R9;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E3R10GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE3R10 = Integer.parseInt(ultimoNumero);
+            e3gf=  e3gf += numeroArchivoE3R10;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	
+	}	}	}	}	}	}	} } } }
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E4R1GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE4R1 = Integer.parseInt(ultimoNumero);
+	            e4gf = numeroArchivoE4R1;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E4R2GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE4R2 = Integer.parseInt(ultimoNumero);
+            e4gf=  e4gf += numeroArchivoE4R2;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E4R3GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE4R3 = Integer.parseInt(ultimoNumero);
+	            e4gf=  e4gf += numeroArchivoE4R3;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E1R4GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE4R4 = Integer.parseInt(ultimoNumero);
+            e4gf=  e4gf += numeroArchivoE4R4;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E4R5GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE4R5 = Integer.parseInt(ultimoNumero);
+	            e4gf=  e4gf += numeroArchivoE4R5;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E4R6GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE4R6 = Integer.parseInt(ultimoNumero);
+            e4gf=  e4gf += numeroArchivoE4R6;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E4R7GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE4R7 = Integer.parseInt(ultimoNumero);
+	            e4gf=  e4gf += numeroArchivoE4R7;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E4R8GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE4R8 = Integer.parseInt(ultimoNumero);
+            e4gf=  e4gf += numeroArchivoE4R8;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E4R9GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE4R9 = Integer.parseInt(ultimoNumero);
+	            e4gf=  e4gf += numeroArchivoE4R9;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E4R10GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE4R10 = Integer.parseInt(ultimoNumero);
+            e4gf=  e4gf += numeroArchivoE4R10;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	
+	}	}	}	}	}	}	} } } }
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E5R1GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE5R1 = Integer.parseInt(ultimoNumero);
+	            e5gf = numeroArchivoE5R1;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E5R2GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE5R2 = Integer.parseInt(ultimoNumero);
+            e5gf=  e5gf += numeroArchivoE5R2;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E5R3GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE5R3 = Integer.parseInt(ultimoNumero);
+	            e5gf=  e5gf += numeroArchivoE5R3;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E5R4GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE5R4 = Integer.parseInt(ultimoNumero);
+            e5gf=  e5gf += numeroArchivoE5R4;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E5R5GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE5R5 = Integer.parseInt(ultimoNumero);
+	            e5gf=  e5gf += numeroArchivoE5R5;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E5R6GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE5R6 = Integer.parseInt(ultimoNumero);
+            e5gf=  e5gf += numeroArchivoE5R6;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E5R7GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE5R7 = Integer.parseInt(ultimoNumero);
+	            e5gf=  e5gf += numeroArchivoE5R7;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E5R8GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE5R8 = Integer.parseInt(ultimoNumero);
+            e5gf=  e5gf += numeroArchivoE5R8;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E5R9GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE5R9 = Integer.parseInt(ultimoNumero);
+	            e5gf=  e5gf += numeroArchivoE5R9;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E5R10GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE5R10 = Integer.parseInt(ultimoNumero);
+            e5gf=  e5gf += numeroArchivoE5R10;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	
+	}	}	}	}	}	}	} } } }
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E6R1GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE6R1 = Integer.parseInt(ultimoNumero);
+	            e6gf = numeroArchivoE6R1;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E6R2GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE6R2 = Integer.parseInt(ultimoNumero);
+            e6gf=  e6gf += numeroArchivoE6R2;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E6R3GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE6R3 = Integer.parseInt(ultimoNumero);
+	            e6gf=  e6gf += numeroArchivoE6R3;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E6R4GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE6R4 = Integer.parseInt(ultimoNumero);
+            e6gf=  e6gf += numeroArchivoE6R4;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E6R5GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE6R5 = Integer.parseInt(ultimoNumero);
+	            e6gf=  e6gf += numeroArchivoE6R5;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E6R6GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE6R6 = Integer.parseInt(ultimoNumero);
+            e6gf=  e6gf += numeroArchivoE6R6;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E6R7GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE6R7 = Integer.parseInt(ultimoNumero);
+	            e6gf=  e6gf += numeroArchivoE6R7;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E6R8GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE6R8 = Integer.parseInt(ultimoNumero);
+            e6gf=  e6gf += numeroArchivoE6R8;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	{	
+		
+		try (BufferedReader br = new BufferedReader(new FileReader("E6R9GF.dat"))) {
+	    String linea;
+	    String ultimoNumero = "";
+	    
+	    // Lee cada línea del archivo
+	    while ((linea = br.readLine()) != null) {
+	        // Verifica si la línea tiene al menos un número
+	        if (!linea.isEmpty()) {
+	            // Toma el último número de la línea
+	            if (linea.length() >= 2 || linea.length() == 1) {
+	                ultimoNumero = linea.substring(Math.max(linea.length() - 2, 0)); // Captura los dos últimos caracteres o uno si solo hay uno
+	            }
+	        }
+	    }
+	    
+	    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+	    if (!ultimoNumero.isEmpty()) {
+	        try {
+	            int numeroArchivoE6R9 = Integer.parseInt(ultimoNumero);
+	            e6gf=  e6gf += numeroArchivoE6R9;
+	        } catch (NumberFormatException e) {
+	            System.out.println("El archivo no contiene un número válido.");
+	        }
+	    } else {
+	        System.out.println("El archivo está vacío o no contiene números.");
+	    }
+	} catch (IOException ex) {
+	    ex.printStackTrace();
+	}
+
+		
+	{	
+		
+	try (BufferedReader br = new BufferedReader(new FileReader("E6R10GF.dat"))) {
+    String linea;
+    String ultimoNumero = "";
+    
+    // Lee cada línea del archivo
+    while ((linea = br.readLine()) != null) {
+        // Verifica si la línea tiene al menos dos caracteres y toma los últimos dos
+        if (linea.length() >= 2) {
+            ultimoNumero = linea.substring(linea.length() - 2);
+        } else if (linea.length() == 1) {
+            ultimoNumero = linea; // Si solo hay un número en la línea
+        }
+    }
+    
+    // Si se encontró un número válido, conviértelo a tipo numérico (por ejemplo, int)
+    if (!ultimoNumero.isEmpty()) {
+        try {
+            int numeroArchivoE6R10 = Integer.parseInt(ultimoNumero);
+            e6gf=  e6gf += numeroArchivoE6R10;
+       
+        } catch (NumberFormatException e) {
+            System.out.println("El archivo no contiene un número válido.");
+        }
+    } else {
+        System.out.println("El archivo está vacío o no contiene números.");
+    }
+} catch (IOException ex) {
+    ex.printStackTrace();
+}
+	
+	}	}	}	}	}	}	} } } }
+
+	
+	
+}
+	
+	
+
+	

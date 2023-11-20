@@ -16,7 +16,7 @@ public class InicioDeSesionING extends JFrame implements ActionListener {
     public InicioDeSesionING() {
     	setIconImage(Toolkit.getDefaultToolkit().getImage(InicioDeSesionING.class.getResource("/Reto1/fotos/LogoWaterpolo.png")));
         setTitle("Autorized Personal LogIn");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(497, 219);
         setLocationRelativeTo(null);
 

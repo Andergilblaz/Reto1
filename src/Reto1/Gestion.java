@@ -76,8 +76,13 @@ public class Gestion extends JFrame {
 
     public void agregarCuenta() throws FileNotFoundException {
     	String aviso = "⚠ Una vez introducida una nueva cuenta, no es editable, tendrías que eliminarla y volver a crearla. ⚠";
+    	
     	JOptionPane.showMessageDialog(this, aviso, "Aviso", JOptionPane.INFORMATION_MESSAGE);
-      String usuario = JOptionPane.showInputDialog("Nombre de usuario:");
+    	JDialog dialog = new JDialog();
+    	dialog.setAlwaysOnTop(true);
+    	String usuario = JOptionPane.showInputDialog("Nombre de usuario:");
+    	JDialog dialog2 = new JDialog();
+    	dialog2.setAlwaysOnTop(true);
       String contraseña = JOptionPane.showInputDialog("Contraseña:");
 
       if (usuario != null && !usuario.isEmpty() && contraseña != null && !contraseña.isEmpty()) {

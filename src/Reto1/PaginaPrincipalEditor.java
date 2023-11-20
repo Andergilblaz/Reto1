@@ -92,6 +92,7 @@ public class PaginaPrincipalEditor extends JFrame implements ActionListener {
 					//prohibición de cambiar el tamaño minimo de la aplicación
 					frame.setMinimumSize(new Dimension(1300,850));
 					frame.toFront();
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

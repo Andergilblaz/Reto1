@@ -401,6 +401,14 @@ public class PaginaPrincipal extends JFrame implements ActionListener {
         PaginaPrincipal.setResizable(false);
         PaginaPrincipal.setAlwaysOnTop(true);
 			}
+	
+		else if (o == mntmIngles) {
+		PaginaPrincipalING PaginaPrincipalING = new PaginaPrincipalING();
+		PaginaPrincipalING.setVisible(true);
+    dispose();
+    PaginaPrincipalING.setResizable(false);
+    PaginaPrincipalING.setAlwaysOnTop(true);
+	}
 
 			else if (o == btnInicioDeSesion) {
 				

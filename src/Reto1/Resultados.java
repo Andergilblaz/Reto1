@@ -13,6 +13,9 @@ import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.SwingConstants;
@@ -112,10 +115,10 @@ public class Resultados extends JFrame {
         
         JLabel  lblE4R2 = new JLabel("-");
         lblE4R2.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE4R2.setBounds(228, 57, 29, 13);
+        lblE4R2.setBounds(228, 51, 29, 25);
         panel_1_3_2.add(lblE4R2);
-
-        actualizarDatos();
+        String ultimosDigitos47 = obtenerUltimosDigitosDesdeArchivo("E4R2.dat");
+        lblE4R2.setText(ultimosDigitos47);
         
         JLabel lblNewLabel_5_3_2 = new JLabel("VS");
         lblNewLabel_5_3_2.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -124,8 +127,10 @@ public class Resultados extends JFrame {
         
         JLabel lblE6R2 = new JLabel("-");
         lblE6R2.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE6R2.setBounds(323, 57, 29, 13);
+        lblE6R2.setBounds(323, 51, 29, 25);
         panel_1_3_2.add(lblE6R2);
+        String ultimosDigitos48 = obtenerUltimosDigitosDesdeArchivo("E6R2.dat");
+        lblE6R2.setText(ultimosDigitos48);
         
         JLabel lblE62 = new JLabel("Tenerife Echeyde");
         lblE62.setHorizontalAlignment(SwingConstants.CENTER);
@@ -143,6 +148,8 @@ public class Resultados extends JFrame {
         lblE1R2.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE1R2.setBounds(228, 85, 29, 32);
         panel_1_3_2.add(lblE1R2);
+        String ultimosDigitos49 = obtenerUltimosDigitosDesdeArchivo("E1R2.dat");
+        lblE1R2.setText(ultimosDigitos49);
         
         JLabel lblNewLabel_8_3_2 = new JLabel("VS");
         lblNewLabel_8_3_2.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -153,6 +160,8 @@ public class Resultados extends JFrame {
         lblE3R2.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE3R2.setBounds(323, 80, 29, 47);
         panel_1_3_2.add(lblE3R2);
+        String ultimosDigitos50 = obtenerUltimosDigitosDesdeArchivo("E3R2.dat");
+        lblE3R2.setText(ultimosDigitos50);
         
         JLabel lblE32 = new JLabel("CN La Latina");
         lblE32.setHorizontalAlignment(SwingConstants.CENTER);
@@ -170,6 +179,8 @@ public class Resultados extends JFrame {
         lblE2R2.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE2R2.setBounds(228, 120, 45, 36);
         panel_1_3_2.add(lblE2R2);
+        String ultimosDigitos51 = obtenerUltimosDigitosDesdeArchivo("E2R2.dat");
+        lblE2R2.setText(ultimosDigitos51);
         
         JLabel lblNewLabel_13_3_2 = new JLabel("VS");
         lblNewLabel_13_3_2.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -180,6 +191,8 @@ public class Resultados extends JFrame {
         lblE5R2.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE5R2.setBounds(323, 124, 45, 30);
         panel_1_3_2.add(lblE5R2);
+        String ultimosDigitos52 = obtenerUltimosDigitosDesdeArchivo("E5R2.dat");
+        lblE5R2.setText(ultimosDigitos52);
         
         JLabel lblE52 = new JLabel("Club Askartza");
         lblE52.setHorizontalAlignment(SwingConstants.CENTER);
@@ -210,8 +223,10 @@ public class Resultados extends JFrame {
         
         JLabel lblE3R3 = new JLabel("-");
         lblE3R3.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE3R3.setBounds(228, 57, 29, 13);
+        lblE3R3.setBounds(228, 51, 29, 25);
         panel_1_3_1_1.add(lblE3R3);
+        String ultimosDigitos54 = obtenerUltimosDigitosDesdeArchivo("E3R3.dat");
+        lblE3R3.setText(ultimosDigitos54);
         
         JLabel lblNewLabel_5_3_1_1 = new JLabel("VS");
         lblNewLabel_5_3_1_1.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -220,8 +235,10 @@ public class Resultados extends JFrame {
         
         JLabel lblE6R3 = new JLabel("-");
         lblE6R3.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE6R3.setBounds(323, 57, 29, 13);
+        lblE6R3.setBounds(323, 51, 29, 25);
         panel_1_3_1_1.add(lblE6R3);
+        String ultimosDigitos55 = obtenerUltimosDigitosDesdeArchivo("E6R3.dat");
+        lblE6R3.setText(ultimosDigitos55);
         
         JLabel lblE63 = new JLabel("Tenerife Echeyde");
         lblE63.setHorizontalAlignment(SwingConstants.CENTER);
@@ -239,6 +256,8 @@ public class Resultados extends JFrame {
         lblE4R3.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE4R3.setBounds(228, 85, 29, 32);
         panel_1_3_1_1.add(lblE4R3);
+        String ultimosDigitos56 = obtenerUltimosDigitosDesdeArchivo("E4R3.dat");
+        lblE4R3.setText(ultimosDigitos56);
         
         JLabel lblNewLabel_8_3_1_1 = new JLabel("VS");
         lblNewLabel_8_3_1_1.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -249,6 +268,8 @@ public class Resultados extends JFrame {
         lblE2R3.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE2R3.setBounds(323, 80, 29, 47);
         panel_1_3_1_1.add(lblE2R3);
+        String ultimosDigitos57 = obtenerUltimosDigitosDesdeArchivo("E2R3.dat");
+        lblE2R3.setText(ultimosDigitos57);
         
         JLabel lblE23 = new JLabel("Urbat IKE");
         lblE23.setHorizontalAlignment(SwingConstants.CENTER);
@@ -266,6 +287,8 @@ public class Resultados extends JFrame {
         lblE5R3.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE5R3.setBounds(228, 120, 45, 36);
         panel_1_3_1_1.add(lblE5R3);
+        String ultimosDigitos58 = obtenerUltimosDigitosDesdeArchivo("E5R3.dat");
+        lblE5R3.setText(ultimosDigitos58);
         
         JLabel lblNewLabel_13_3_1_1 = new JLabel("VS");
         lblNewLabel_13_3_1_1.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -276,6 +299,8 @@ public class Resultados extends JFrame {
         lblE1R3.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE1R3.setBounds(323, 124, 45, 30);
         panel_1_3_1_1.add(lblE1R3);
+        String ultimosDigitos59 = obtenerUltimosDigitosDesdeArchivo("E1R3.dat");
+        lblE1R3.setText(ultimosDigitos59);
         
         JLabel lblE13 = new JLabel("CN Atlétic Barceloneta");
         lblE13.setHorizontalAlignment(SwingConstants.CENTER);
@@ -289,95 +314,108 @@ public class Resultados extends JFrame {
         panel.setSize(400,250);
         
         JPanel panel_1_3_1 = new JPanel();
-        panel_1_3_1.setLayout(null);
         panel_1_3_1.setBounds(92, 123, 565, 172);
         panel.add(panel_1_3_1);
+        panel_1_3_1.setLayout(null);
         
         JLabel lblE1 = new JLabel("CN Atlétic Barceloneta");
+        lblE1.setBounds(10, 51, 197, 25);
         lblE1.setHorizontalAlignment(SwingConstants.CENTER);
         lblE1.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE1.setBounds(10, 51, 197, 25);
         panel_1_3_1.add(lblE1);
         
         JLabel lblJornada1 = new JLabel("Jornada 1");
+        lblJornada1.setBounds(222, 10, 121, 31);
         lblJornada1.setHorizontalAlignment(SwingConstants.CENTER);
         lblJornada1.setFont(new Font("Calibri", Font.BOLD, 25));
-        lblJornada1.setBounds(222, 10, 121, 31);
         panel_1_3_1.add(lblJornada1);
         
         JLabel lblE1R1 = new JLabel("-");
+        lblE1R1.setBounds(217, 52, 29, 22);
         lblE1R1.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE1R1.setBounds(228, 57, 29, 13);
         panel_1_3_1.add(lblE1R1);
+        String ultimosDigitos = obtenerUltimosDigitosDesdeArchivo("E1R1.dat");
+        lblE1R1.setText(ultimosDigitos);
         
         JLabel lblJ1VS = new JLabel("VS");
-        lblJ1VS.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblJ1VS.setBounds(267, 53, 31, 20);
+        lblJ1VS.setFont(new Font("Calibri", Font.ITALIC, 20));
         panel_1_3_1.add(lblJ1VS);
         
         JLabel lblE2R1 = new JLabel("-");
+        lblE2R1.setBounds(323, 51, 29, 22);
+        lblE2R1.setHorizontalAlignment(SwingConstants.CENTER);
         lblE2R1.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE2R1.setBounds(323, 57, 29, 13);
         panel_1_3_1.add(lblE2R1);
+        String ultimosDigitos1 = obtenerUltimosDigitosDesdeArchivo("E2R1.dat");
+        lblE2R1.setText(ultimosDigitos1);
         
         JLabel lblE2 = new JLabel("Urbat IKE");
+        lblE2.setBounds(362, 53, 193, 20);
         lblE2.setHorizontalAlignment(SwingConstants.CENTER);
         lblE2.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE2.setBounds(362, 53, 193, 20);
         panel_1_3_1.add(lblE2);
         
         JLabel lblE3 = new JLabel("CN La Latina");
+        lblE3.setBounds(26, 91, 174, 20);
         lblE3.setHorizontalAlignment(SwingConstants.CENTER);
         lblE3.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE3.setBounds(26, 91, 174, 20);
         panel_1_3_1.add(lblE3);
         
         JLabel lblE3R1 = new JLabel("-");
+        lblE3R1.setBounds(222, 85, 29, 32);
         lblE3R1.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE3R1.setBounds(228, 85, 29, 32);
         panel_1_3_1.add(lblE3R1);
+        String ultimosDigitos2 = obtenerUltimosDigitosDesdeArchivo("E3R1.dat");
+        lblE3R1.setText(ultimosDigitos2);
         
         JLabel lblNewLabel_8_3_1 = new JLabel("VS");
-        lblNewLabel_8_3_1.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblNewLabel_8_3_1.setBounds(267, 86, 48, 30);
+        lblNewLabel_8_3_1.setFont(new Font("Calibri", Font.ITALIC, 20));
         panel_1_3_1.add(lblNewLabel_8_3_1);
         
         JLabel lblE4R1 = new JLabel("-");
-        lblE4R1.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE4R1.setBounds(323, 80, 29, 47);
+        lblE4R1.setFont(new Font("Calibri", Font.ITALIC, 20));
         panel_1_3_1.add(lblE4R1);
+        String ultimosDigitos3 = obtenerUltimosDigitosDesdeArchivo("E4R1.dat");
+        lblE4R1.setText(ultimosDigitos3);
         
         JLabel lblE4 = new JLabel("CN Terrassa");
+        lblE4.setBounds(362, 89, 193, 25);
         lblE4.setHorizontalAlignment(SwingConstants.CENTER);
         lblE4.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE4.setBounds(362, 89, 193, 25);
         panel_1_3_1.add(lblE4);
         
         JLabel lblE5 = new JLabel("Club Askartza");
+        lblE5.setBounds(26, 128, 187, 20);
         lblE5.setHorizontalAlignment(SwingConstants.CENTER);
         lblE5.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE5.setBounds(26, 128, 187, 20);
         panel_1_3_1.add(lblE5);
         
         JLabel lblE5R1 = new JLabel("-");
+        lblE5R1.setBounds(222, 120, 45, 36);
         lblE5R1.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE5R1.setBounds(228, 120, 45, 36);
         panel_1_3_1.add(lblE5R1);
+        String ultimosDigitos4 = obtenerUltimosDigitosDesdeArchivo("E5R1.dat");
+        lblE5R1.setText(ultimosDigitos4);
         
         JLabel lblNewLabel_13_3_1 = new JLabel("VS");
-        lblNewLabel_13_3_1.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblNewLabel_13_3_1.setBounds(267, 128, 45, 20);
+        lblNewLabel_13_3_1.setFont(new Font("Calibri", Font.ITALIC, 20));
         panel_1_3_1.add(lblNewLabel_13_3_1);
         
         JLabel lblE6R1 = new JLabel("-");
-        lblE6R1.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE6R1.setBounds(323, 124, 45, 30);
+        lblE6R1.setFont(new Font("Calibri", Font.ITALIC, 20));
         panel_1_3_1.add(lblE6R1);
+        String ultimosDigitos5 = obtenerUltimosDigitosDesdeArchivo("E6R1.dat");
+        lblE6R1.setText(ultimosDigitos5);
         
         JLabel lblE6 = new JLabel("Tenerife Echeyde");
+        lblE6.setBounds(362, 126, 193, 24);
         lblE6.setHorizontalAlignment(SwingConstants.CENTER);
         lblE6.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE6.setBounds(362, 126, 193, 24);
         panel_1_3_1.add(lblE6);
         panel_2.setLayout(null);
         
@@ -400,8 +438,10 @@ public class Resultados extends JFrame {
         
         JLabel lblE5R4 = new JLabel("-");
         lblE5R4.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE5R4.setBounds(228, 57, 29, 13);
+        lblE5R4.setBounds(228, 51, 29, 25);
         panel_1_3_1_2.add(lblE5R4);
+        String ultimosDigitos6 = obtenerUltimosDigitosDesdeArchivo("E5R4.dat");
+        lblE5R4.setText(ultimosDigitos6);
         
         JLabel lblNewLabel_5_3_1_2 = new JLabel("VS");
         lblNewLabel_5_3_1_2.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -410,8 +450,10 @@ public class Resultados extends JFrame {
         
         JLabel lblE3R4 = new JLabel("-");
         lblE3R4.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE3R4.setBounds(323, 57, 29, 13);
+        lblE3R4.setBounds(323, 51, 29, 25);
         panel_1_3_1_2.add(lblE3R4);
+        String ultimosDigitos7 = obtenerUltimosDigitosDesdeArchivo("E3R4.dat");
+        lblE3R4.setText(ultimosDigitos7);
         
         JLabel lbl34 = new JLabel("CN La Latina");
         lbl34.setHorizontalAlignment(SwingConstants.CENTER);
@@ -429,6 +471,8 @@ public class Resultados extends JFrame {
         lblE2R4.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE2R4.setBounds(228, 85, 29, 32);
         panel_1_3_1_2.add(lblE2R4);
+        String ultimosDigitos8 = obtenerUltimosDigitosDesdeArchivo("E2R4.dat");
+        lblE2R4.setText(ultimosDigitos8);
         
         JLabel lblNewLabel_8_3_1_2 = new JLabel("VS");
         lblNewLabel_8_3_1_2.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -439,6 +483,8 @@ public class Resultados extends JFrame {
         lblE6R4.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE6R4.setBounds(323, 80, 29, 47);
         panel_1_3_1_2.add(lblE6R4);
+        String ultimosDigitos9 = obtenerUltimosDigitosDesdeArchivo("E6R4.dat");
+        lblE6R4.setText(ultimosDigitos9);
         
         JLabel lblE64 = new JLabel("Tenerife Echeyde");
         lblE64.setHorizontalAlignment(SwingConstants.CENTER);
@@ -456,6 +502,8 @@ public class Resultados extends JFrame {
         lblE1R4.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE1R4.setBounds(228, 120, 45, 36);
         panel_1_3_1_2.add(lblE1R4);
+        String ultimosDigitos10 = obtenerUltimosDigitosDesdeArchivo("E1R4.dat");
+        lblE1R4.setText(ultimosDigitos10);
         
         JLabel lblNewLabel_13_3_1_2 = new JLabel("VS");
         lblNewLabel_13_3_1_2.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -466,6 +514,8 @@ public class Resultados extends JFrame {
         lblE4R4.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE4R4.setBounds(323, 124, 45, 30);
         panel_1_3_1_2.add(lblE4R4);
+        String ultimosDigitos11 = obtenerUltimosDigitosDesdeArchivo("E4R4.dat");
+        lblE4R4.setText(ultimosDigitos11);
         
         JLabel lblE44 = new JLabel("CN Terrassa");
         lblE44.setHorizontalAlignment(SwingConstants.CENTER);
@@ -497,6 +547,7 @@ public class Resultados extends JFrame {
         lblNewLabel_1_2_2_1.setBounds(192, 8, 6, 25);
         lblNewLabel_1_2_2_1.setFont(new Font("Calibri", Font.ITALIC, 20));
         panel_1_1_2_1.add(lblNewLabel_1_2_2_1);
+      
         
         JLabel lblNewLabel_5_2_2_1 = new JLabel("VS");
         lblNewLabel_5_2_2_1.setBounds(203, 8, 20, 25);
@@ -587,8 +638,10 @@ public class Resultados extends JFrame {
         
         JLabel lblE2R5 = new JLabel("-");
         lblE2R5.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE2R5.setBounds(228, 57, 29, 13);
+        lblE2R5.setBounds(228, 51, 29, 25);
         panel_1_1_2_3.add(lblE2R5);
+        String ultimosDigitos12 = obtenerUltimosDigitosDesdeArchivo("E2R5.dat");
+        lblE2R5.setText(ultimosDigitos12);
         
         JLabel lblNewLabel_5_2_2_2 = new JLabel("VS");
         lblNewLabel_5_2_2_2.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -597,8 +650,10 @@ public class Resultados extends JFrame {
         
         JLabel lblE3R5 = new JLabel("-");
         lblE3R5.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE3R5.setBounds(323, 57, 29, 13);
+        lblE3R5.setBounds(323, 51, 29, 25);
         panel_1_1_2_3.add(lblE3R5);
+        String ultimosDigitos13 = obtenerUltimosDigitosDesdeArchivo("E3R5.dat");
+        lblE3R5.setText(ultimosDigitos13);
         
         JLabel lblE35 = new JLabel("CN La Latina");
         lblE35.setHorizontalAlignment(SwingConstants.CENTER);
@@ -616,6 +671,8 @@ public class Resultados extends JFrame {
         lblE5R5.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE5R5.setBounds(228, 85, 29, 32);
         panel_1_1_2_3.add(lblE5R5);
+        String ultimosDigitos14 = obtenerUltimosDigitosDesdeArchivo("E5R5.dat");
+        lblE5R5.setText(ultimosDigitos14);
         
         JLabel lblNewLabel_8_1_2_2 = new JLabel("VS");
         lblNewLabel_8_1_2_2.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -626,6 +683,8 @@ public class Resultados extends JFrame {
         lblE4R5.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE4R5.setBounds(323, 80, 29, 47);
         panel_1_1_2_3.add(lblE4R5);
+        String ultimosDigitos15 = obtenerUltimosDigitosDesdeArchivo("E4R5.dat");
+        lblE4R5.setText(ultimosDigitos15);
         
         JLabel lblE45 = new JLabel("CN Terrassa");
         lblE45.setHorizontalAlignment(SwingConstants.CENTER);
@@ -643,6 +702,8 @@ public class Resultados extends JFrame {
         lblE6R5.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE6R5.setBounds(228, 120, 45, 36);
         panel_1_1_2_3.add(lblE6R5);
+        String ultimosDigitos16 = obtenerUltimosDigitosDesdeArchivo("E6R5.dat");
+        lblE6R5.setText(ultimosDigitos16);
         
         JLabel lblNewLabel_13_1_2_2 = new JLabel("VS");
         lblNewLabel_13_1_2_2.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -653,6 +714,8 @@ public class Resultados extends JFrame {
         lblE1R5.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE1R5.setBounds(323, 124, 45, 30);
         panel_1_1_2_3.add(lblE1R5);
+        String ultimosDigitos17 = obtenerUltimosDigitosDesdeArchivo("E1R5.dat");
+        lblE1R5.setText(ultimosDigitos17);
         
         JLabel lblE15 = new JLabel("CN Atlétic Barceloneta");
         lblE15.setHorizontalAlignment(SwingConstants.CENTER);
@@ -682,8 +745,10 @@ public class Resultados extends JFrame {
         
         JLabel lblE6R6 = new JLabel("-");
         lblE6R6.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE6R6.setBounds(228, 57, 29, 13);
+        lblE6R6.setBounds(228, 51, 29, 25);
         panel_1_1_1_1_2.add(lblE6R6);
+        String ultimosDigitos18 = obtenerUltimosDigitosDesdeArchivo("E6R6.dat");
+        lblE6R6.setText(ultimosDigitos18);
         
         JLabel lblNewLabel_5_2_1_1_1 = new JLabel("VS");
         lblNewLabel_5_2_1_1_1.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -692,8 +757,10 @@ public class Resultados extends JFrame {
         
         JLabel lblE5R6 = new JLabel("-");
         lblE5R6.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE5R6.setBounds(323, 57, 29, 13);
+        lblE5R6.setBounds(323, 51, 29, 25);
         panel_1_1_1_1_2.add(lblE5R6);
+        String ultimosDigitos19 = obtenerUltimosDigitosDesdeArchivo("E5R6.dat");
+        lblE5R6.setText(ultimosDigitos19);
         
         JLabel lblE56 = new JLabel("Club Askartza");
         lblE56.setHorizontalAlignment(SwingConstants.CENTER);
@@ -711,6 +778,8 @@ public class Resultados extends JFrame {
         lblE4R6.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE4R6.setBounds(228, 85, 29, 32);
         panel_1_1_1_1_2.add(lblE4R6);
+        String ultimosDigitos20 = obtenerUltimosDigitosDesdeArchivo("E4R6.dat");
+        lblE4R6.setText(ultimosDigitos20);
         
         JLabel lblNewLabel_8_1_1_1_1 = new JLabel("VS");
         lblNewLabel_8_1_1_1_1.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -721,6 +790,8 @@ public class Resultados extends JFrame {
         lblE3R6.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE3R6.setBounds(323, 80, 29, 47);
         panel_1_1_1_1_2.add(lblE3R6);
+        String ultimosDigitos21 = obtenerUltimosDigitosDesdeArchivo("E3R6.dat");
+        lblE3R6.setText(ultimosDigitos21);
         
         JLabel lblE36 = new JLabel("CN La Latina");
         lblE36.setHorizontalAlignment(SwingConstants.CENTER);
@@ -738,6 +809,8 @@ public class Resultados extends JFrame {
         lblE2R6.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE2R6.setBounds(228, 120, 45, 36);
         panel_1_1_1_1_2.add(lblE2R6);
+        String ultimosDigitos22 = obtenerUltimosDigitosDesdeArchivo("E2R6.dat");
+        lblE2R6.setText(ultimosDigitos22);
         
         JLabel lblNewLabel_13_1_1_1_1 = new JLabel("VS");
         lblNewLabel_13_1_1_1_1.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -748,6 +821,8 @@ public class Resultados extends JFrame {
         lblE1R6.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE1R6.setBounds(323, 124, 45, 30);
         panel_1_1_1_1_2.add(lblE1R6);
+        String ultimosDigitos23 = obtenerUltimosDigitosDesdeArchivo("E1R6.dat");
+        lblE1R6.setText(ultimosDigitos23);
         
         JLabel lblE16 = new JLabel("CN Atlétic Barceloneta");
         lblE16.setHorizontalAlignment(SwingConstants.CENTER);
@@ -777,8 +852,10 @@ public class Resultados extends JFrame {
         
         JLabel lblE6R7 = new JLabel("-");
         lblE6R7.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE6R7.setBounds(228, 57, 29, 13);
+        lblE6R7.setBounds(228, 51, 29, 25);
         panel_1_1_1_1.add(lblE6R7);
+        String ultimosDigitos24 = obtenerUltimosDigitosDesdeArchivo("E6R7.dat");
+        lblE6R7.setText(ultimosDigitos24);
         
         JLabel lblNewLabel_5_2_1_1 = new JLabel("VS");
         lblNewLabel_5_2_1_1.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -787,8 +864,10 @@ public class Resultados extends JFrame {
         
         JLabel lblE4R7 = new JLabel("-");
         lblE4R7.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE4R7.setBounds(323, 57, 29, 13);
+        lblE4R7.setBounds(323, 51, 29, 25);
         panel_1_1_1_1.add(lblE4R7);
+        String ultimosDigitos25 = obtenerUltimosDigitosDesdeArchivo("E4R7.dat");
+        lblE4R7.setText(ultimosDigitos25);
         
         JLabel lblE47 = new JLabel("CN Terrassa");
         lblE47.setHorizontalAlignment(SwingConstants.CENTER);
@@ -806,6 +885,8 @@ public class Resultados extends JFrame {
         lblE3R7.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE3R7.setBounds(228, 85, 29, 32);
         panel_1_1_1_1.add(lblE3R7);
+        String ultimosDigitos26 = obtenerUltimosDigitosDesdeArchivo("E3R7.dat");
+        lblE3R7.setText(ultimosDigitos26);
         
         JLabel lblNewLabel_8_1_1_1 = new JLabel("VS");
         lblNewLabel_8_1_1_1.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -816,6 +897,8 @@ public class Resultados extends JFrame {
         lblE1R7.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE1R7.setBounds(323, 80, 29, 47);
         panel_1_1_1_1.add(lblE1R7);
+        String ultimosDigitos27 = obtenerUltimosDigitosDesdeArchivo("E1R7.dat");
+        lblE1R7.setText(ultimosDigitos27);
         
         JLabel lblE17 = new JLabel("CN Atlétic Barceloneta");
         lblE17.setHorizontalAlignment(SwingConstants.CENTER);
@@ -833,6 +916,8 @@ public class Resultados extends JFrame {
         lblE5R7.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE5R7.setBounds(228, 120, 45, 36);
         panel_1_1_1_1.add(lblE5R7);
+        String ultimosDigitos28 = obtenerUltimosDigitosDesdeArchivo("E5R7.dat");
+        lblE5R7.setText(ultimosDigitos28);
         
         JLabel lblNewLabel_13_1_1_1 = new JLabel("VS");
         lblNewLabel_13_1_1_1.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -843,6 +928,8 @@ public class Resultados extends JFrame {
         lblE2R7.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE2R7.setBounds(323, 124, 45, 30);
         panel_1_1_1_1.add(lblE2R7);
+        String ultimosDigitos29 = obtenerUltimosDigitosDesdeArchivo("E2R7.dat");
+        lblE2R7.setText(ultimosDigitos29);
         
         JLabel lblE27 = new JLabel("Urbat IKE");
         lblE27.setHorizontalAlignment(SwingConstants.CENTER);
@@ -856,7 +943,7 @@ public class Resultados extends JFrame {
         
         JPanel panel_1_1 = new JPanel();
         panel_1_1.setLayout(null);
-        panel_1_1.setBounds(92, 123, 565, 172);
+        panel_1_1.setBounds(91, 123, 565, 172);
         panel_8.add(panel_1_1);
         
         JLabel lblE28 = new JLabel("Urbat IKE");
@@ -872,8 +959,10 @@ public class Resultados extends JFrame {
         
         JLabel lblE2R8 = new JLabel("-");
         lblE2R8.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE2R8.setBounds(228, 57, 29, 13);
+        lblE2R8.setBounds(228, 51, 29, 25);
         panel_1_1.add(lblE2R8);
+        String ultimosDigitos30 = obtenerUltimosDigitosDesdeArchivo("E2R8.dat");
+        lblE2R8.setText(ultimosDigitos30);
         
         JLabel lblNewLabel_5_1 = new JLabel("VS");
         lblNewLabel_5_1.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -882,8 +971,10 @@ public class Resultados extends JFrame {
         
         JLabel lblE4R8 = new JLabel("-");
         lblE4R8.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE4R8.setBounds(323, 57, 29, 13);
+        lblE4R8.setBounds(323, 51, 29, 25);
         panel_1_1.add(lblE4R8);
+        String ultimosDigitos31 = obtenerUltimosDigitosDesdeArchivo("E4R8.dat");
+        lblE4R8.setText(ultimosDigitos31);
         
         JLabel lblE48 = new JLabel("CN Terrassa");
         lblE48.setHorizontalAlignment(SwingConstants.CENTER);
@@ -901,6 +992,8 @@ public class Resultados extends JFrame {
         lblE6R8.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE6R8.setBounds(228, 85, 29, 32);
         panel_1_1.add(lblE6R8);
+        String ultimosDigitos32 = obtenerUltimosDigitosDesdeArchivo("E6R8.dat");
+        lblE6R8.setText(ultimosDigitos32);
         
         JLabel lblNewLabel_8_1 = new JLabel("VS");
         lblNewLabel_8_1.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -911,6 +1004,8 @@ public class Resultados extends JFrame {
         lblE3R8.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE3R8.setBounds(323, 80, 29, 47);
         panel_1_1.add(lblE3R8);
+        String ultimosDigitos33 = obtenerUltimosDigitosDesdeArchivo("E3R8.dat");
+        lblE3R8.setText(ultimosDigitos33);
         
         JLabel lblE38 = new JLabel("CN La Latina");
         lblE38.setHorizontalAlignment(SwingConstants.CENTER);
@@ -928,6 +1023,8 @@ public class Resultados extends JFrame {
         lblE1R8.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE1R8.setBounds(228, 120, 45, 36);
         panel_1_1.add(lblE1R8);
+        String ultimosDigitos34 = obtenerUltimosDigitosDesdeArchivo("E1R8.dat");
+        lblE1R8.setText(ultimosDigitos34);
         
         JLabel lblNewLabel_13_1 = new JLabel("VS");
         lblNewLabel_13_1.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -938,6 +1035,8 @@ public class Resultados extends JFrame {
         lblE5R8.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE5R8.setBounds(323, 124, 45, 30);
         panel_1_1.add(lblE5R8);
+        String ultimosDigitos35 = obtenerUltimosDigitosDesdeArchivo("E5R8.dat");
+        lblE5R8.setText(ultimosDigitos35);
         
         JLabel lblE58 = new JLabel("Club Askartza");
         lblE58.setHorizontalAlignment(SwingConstants.CENTER);
@@ -967,8 +1066,10 @@ public class Resultados extends JFrame {
         
         JLabel lblE3R9 = new JLabel("-");
         lblE3R9.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE3R9.setBounds(228, 57, 29, 13);
+        lblE3R9.setBounds(228, 51, 29, 25);
         panel_1_2.add(lblE3R9);
+        String ultimosDigitos36 = obtenerUltimosDigitosDesdeArchivo("E3R9.dat");
+        lblE3R9.setText(ultimosDigitos36);
         
         JLabel lblNewLabel_5_2 = new JLabel("VS");
         lblNewLabel_5_2.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -977,8 +1078,10 @@ public class Resultados extends JFrame {
         
         JLabel lblE5R9 = new JLabel("-");
         lblE5R9.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE5R9.setBounds(323, 57, 29, 13);
+        lblE5R9.setBounds(323, 51, 29, 25);
         panel_1_2.add(lblE5R9);
+        String ultimosDigitos37 = obtenerUltimosDigitosDesdeArchivo("E5R9.dat");
+        lblE5R9.setText(ultimosDigitos37);
         
         JLabel lblE59 = new JLabel("Club Askartza");
         lblE59.setHorizontalAlignment(SwingConstants.CENTER);
@@ -996,6 +1099,8 @@ public class Resultados extends JFrame {
         lblE6R9.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE6R9.setBounds(228, 85, 29, 32);
         panel_1_2.add(lblE6R9);
+        String ultimosDigitos38 = obtenerUltimosDigitosDesdeArchivo("E6R9.dat");
+        lblE6R9.setText(ultimosDigitos38);
         
         JLabel lblNewLabel_8_2 = new JLabel("VS");
         lblNewLabel_8_2.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -1006,6 +1111,8 @@ public class Resultados extends JFrame {
         lblE2R9.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE2R9.setBounds(323, 80, 29, 47);
         panel_1_2.add(lblE2R9);
+        String ultimosDigitos39 = obtenerUltimosDigitosDesdeArchivo("E2R9.dat");
+        lblE2R9.setText(ultimosDigitos39);
         
         JLabel lblE29 = new JLabel("Urbat IKE");
         lblE29.setHorizontalAlignment(SwingConstants.CENTER);
@@ -1023,6 +1130,8 @@ public class Resultados extends JFrame {
         lblE4R9.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE4R9.setBounds(228, 120, 45, 36);
         panel_1_2.add(lblE4R9);
+        String ultimosDigitos40 = obtenerUltimosDigitosDesdeArchivo("E4R9.dat");
+        lblE4R9.setText(ultimosDigitos40);
         
         JLabel lblNewLabel_13_2 = new JLabel("VS");
         lblNewLabel_13_2.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -1033,6 +1142,8 @@ public class Resultados extends JFrame {
         lblE1R9.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE1R9.setBounds(323, 124, 45, 30);
         panel_1_2.add(lblE1R9);
+        String ultimosDigitos41 = obtenerUltimosDigitosDesdeArchivo("E1R9.dat");
+        lblE1R9.setText(ultimosDigitos41);
         
         JLabel lblE19 = new JLabel("CN Atlétic Barceloneta");
         lblE19.setHorizontalAlignment(SwingConstants.CENTER);
@@ -1062,8 +1173,10 @@ public class Resultados extends JFrame {
         
         JLabel lblE3R10 = new JLabel("-");
         lblE3R10.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE3R10.setBounds(228, 57, 29, 13);
+        lblE3R10.setBounds(228, 51, 29, 25);
         panel_1_3.add(lblE3R10);
+        String ultimosDigitos42 = obtenerUltimosDigitosDesdeArchivo("E3R10.dat");
+        lblE3R10.setText(ultimosDigitos42);
         
         JLabel lblNewLabel_5_3 = new JLabel("VS");
         lblNewLabel_5_3.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -1072,8 +1185,10 @@ public class Resultados extends JFrame {
         
         JLabel lblE2R10 = new JLabel("-");
         lblE2R10.setFont(new Font("Calibri", Font.ITALIC, 20));
-        lblE2R10.setBounds(323, 57, 29, 13);
+        lblE2R10.setBounds(323, 51, 29, 25);
         panel_1_3.add(lblE2R10);
+        String ultimosDigitos43 = obtenerUltimosDigitosDesdeArchivo("E2R10.dat");
+        lblE2R10.setText(ultimosDigitos43);
         
         JLabel lblE210 = new JLabel("Urbat IKE");
         lblE210.setHorizontalAlignment(SwingConstants.CENTER);
@@ -1091,6 +1206,8 @@ public class Resultados extends JFrame {
         lblE4R10.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE4R10.setBounds(228, 85, 29, 32);
         panel_1_3.add(lblE4R10);
+        String ultimosDigitos44 = obtenerUltimosDigitosDesdeArchivo("E4R10.dat");
+        lblE4R10.setText(ultimosDigitos44);
         
         JLabel lblNewLabel_8_3 = new JLabel("VS");
         lblNewLabel_8_3.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -1101,6 +1218,8 @@ public class Resultados extends JFrame {
         lblE5R10.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE5R10.setBounds(323, 80, 29, 47);
         panel_1_3.add(lblE5R10);
+        String ultimosDigitos45 = obtenerUltimosDigitosDesdeArchivo("E5R10.dat");
+        lblE5R10.setText(ultimosDigitos45);
         
         JLabel lblE510 = new JLabel("Club Askartza");
         lblE510.setHorizontalAlignment(SwingConstants.CENTER);
@@ -1118,6 +1237,8 @@ public class Resultados extends JFrame {
         lblE1R10.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE1R10.setBounds(228, 120, 45, 36);
         panel_1_3.add(lblE1R10);
+        String ultimosDigitos46 = obtenerUltimosDigitosDesdeArchivo("E1R10.dat");
+        lblE1R10.setText(ultimosDigitos46);
         
         JLabel lblNewLabel_13_3 = new JLabel("VS");
         lblNewLabel_13_3.setFont(new Font("Calibri", Font.ITALIC, 20));
@@ -1128,6 +1249,8 @@ public class Resultados extends JFrame {
         lblE6R10.setFont(new Font("Calibri", Font.ITALIC, 20));
         lblE6R10.setBounds(323, 124, 45, 30);
         panel_1_3.add(lblE6R10);
+        String ultimosDigitos471 = obtenerUltimosDigitosDesdeArchivo("E6R10.dat");
+        lblE6R10.setText(ultimosDigitos471);
         
         JLabel lblE610 = new JLabel("Tenerife Echeyde");
         lblE610.setHorizontalAlignment(SwingConstants.CENTER);
@@ -1140,9 +1263,30 @@ public class Resultados extends JFrame {
         contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{scrollPane, tabbedPane, panel, panel_5, panel_4, panel_2, panel_3, panel_1_1_2_3, lblE25, lblJornada_1_2, lblE2R5, lblNewLabel_5_2_2_2, lblE3R5, lblE35, lblE55, lblE5R5, lblNewLabel_8_1_2_2, lblE4R5, lblE45, lblE65, lblE6R5, lblNewLabel_13_1_2_2, lblE1R5, lblE15, panel_6, panel_1_1_1_1_2, lblE66, lblJornada_2_1_1, lblE6R6, lblNewLabel_5_2_1_1_1, lblE5R6, lblE56, lblE46, lblE4R6, lblNewLabel_8_1_1_1_1, lblE3R6, lblE36, lblE26, lblE2R6, lblNewLabel_13_1_1_1_1, lblE1R6, lblE16, panel_7, panel_1_1_1_1, lblE67, lblJornada_2_1, lblE6R7, lblNewLabel_5_2_1_1, lblE4R7, lblE47, lblE37, lblE3R7, lblNewLabel_8_1_1_1, lblE1R7, lblE17, lblE57, lblE5R7, lblNewLabel_13_1_1_1, lblE2R7, lblE27, panel_8, panel_1_1, lblE28, lblJornada, lblE2R8, lblNewLabel_5_1, lblE4R8, lblE48, lblE68, lblE6R8, lblNewLabel_8_1, lblE3R8, lblE38, lblE18, lblE1R8, lblNewLabel_13_1, lblE5R8, lblE58, panel_9, panel_1_2, lblE39, lblJornada_1, lblE3R9, lblNewLabel_5_2, lblE5R9, lblE59, lblE69, lblE6R9, lblNewLabel_8_2, lblE2R9, lblE29, lblE49, lblE4R9, lblNewLabel_13_2, lblE1R9, lblE19, panel_10, panel_1_3, lblE310, lblJornada_2, lblE3R10, lblNewLabel_5_3, lblE2R10, lblE210, lblE410, lblE4R10, lblNewLabel_8_3, lblE5R10, lblE510, lblE110, lblE1R10, lblNewLabel_13_3, lblE6R10, lblE610, panel_1_3_1, lblE1, lblJornada1, lblE1R1, lblJ1VS, lblE2R1, lblE2, lblE3, lblE3R1, lblNewLabel_8_3_1, lblE4R1, lblE4, lblE5, lblE5R1, lblNewLabel_13_3_1, lblE6R1, lblE6, panel_1_3_2, lblE42, lblJornada_2_3, lblE4R2, lblNewLabel_5_3_2, lblE6R2, lblE62, lblE12, lblE1R2, lblNewLabel_8_3_2, lblE3R2, lblE32, lblE22, lblE2R2, lblNewLabel_13_3_2, lblE5R2, lblE52, panel_1_3_1_1, lblE33, lblJornada_2_2_1, lblE3R3, lblNewLabel_5_3_1_1, lblE6R3, lblE63, lblE43, lblE4R3, lblNewLabel_8_3_1_1, lblE2R3, lblE23, lbl53, lblE5R3, lblNewLabel_13_3_1_1, lblE1R3, lblE13, panel_1_3_1_2, lblE54, lblJornada_2_2_2, lblE5R4, lblNewLabel_5_3_1_2, lblE3R4, lbl34, lblE24, lblE2R4, lblNewLabel_8_3_1_2, lblE6R4, lblE64, lblE14, lblE1R4, lblNewLabel_13_3_1_2, lblE4R4, lblE44}));
         }
         
- 
- public static void actualizarDatos() {
-     String resultadoE4R2 = ControladorDatos.getResultadoE4R2();
-     lblE4R2.setText(resultadoE4R2);
- }
+	
+
+// Método para obtener los dos últimos dígitos desde el contenido del archivo .dat
+public static String obtenerUltimosDigitosDesdeArchivo(String nombreArchivo) {
+    StringBuilder contenido = new StringBuilder();
+    try (BufferedReader br = new BufferedReader(new FileReader(nombreArchivo))) {
+        String linea;
+        while ((linea = br.readLine()) != null) {
+            contenido.append(linea);
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    
+    // Obtener los dos últimos dígitos del contenido del archivo .dat
+    String ultimosDigitos = "";
+    if (contenido.length() >= 2) {
+        ultimosDigitos = contenido.substring(contenido.length() - 2);
+    } else {
+        // Manejar el caso en el que el archivo sea demasiado corto
+        // o no contenga suficientes caracteres
+        ultimosDigitos = "XX"; // Puedes poner un valor predeterminado aquí
+    }
+    
+    return ultimosDigitos;
+}
 }
